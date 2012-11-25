@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customers>
+	<customer id="1" name="Müller" password="MuellerPassword">
+		<status>A</status>
+		<orderLimit>10000</orderLimit>
+	</customer>	
+	<customer id="2" name="Kaiser" password="KaiserPassword">
+		<status>B</status>
+		<orderLimit>5000</orderLimit>
+	</customer>	
+	<customer id="3" name="Hammel" password="HammelPassword">
+		<status>C</status>
+		<orderLimit>500</orderLimit>
+	</customer>	
+	<customer id="4" name="Gretchen" password="GretchenPassword">
+		<status>D</status>
+		<orderLimit>50</orderLimit>
+	</customer>	
+	<customer id="5" name="Maier" password="MaierPassword">
+		<status>C</status>
+		<orderLimit>100</orderLimit>
+	</customer>	
+</customers>
