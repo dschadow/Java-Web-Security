@@ -1,6 +1,7 @@
 *.class
 .classpath
 .project
+.DS_Store
 */target*
 */.settings*
 # Package Files #
