@@ -4,6 +4,8 @@
 	<groupId>de.dominikschadow.webappsecurity</groupId>
 	<artifactId>xpathinjection</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<description>XPath Injection Sample Project</description>
+	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
