@@ -2,18 +2,26 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.dominikschadow.webappsecurity</groupId>
-	<artifactId>Ch04_Output-Encoding</artifactId>
+	<artifactId>Ch04_Output-Escaping</artifactId>
 	<packaging>war</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<description>Output-Encoding Sample Project</description>
+	<description>Output-Escaping Beispielprojekt zu Kapitel 4. Muss auf einem Server wie Apache Tomcat ausgeführt werden.</description>
 	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.owasp.esapi</groupId>
+			<artifactId>esapi</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+	</dependencies>
 
 	<build>
-		<finalName>Ch04_Output-Encoding</finalName>
+		<finalName>OutputEscaping</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -25,5 +33,5 @@
 			</plugin>
 		</plugins>
 	</build>
-	<name>Output-Encoding</name>
+	<name>Output-Escaping</name>
 </project>
