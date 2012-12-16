@@ -4,7 +4,7 @@
 	<groupId>de.dominikschadow.webappsecurity</groupId>
 	<artifactId>Ch06_SQL-Injection</artifactId>
 	<version>1.0-SNAPSHOT</version>
-	<description>SQL Injection sample project</description>
+	<description>SQL Injection Beispielprojekt zu Kapitel 6.</description>
 	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
 
 	<properties>
