@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.dominikschadow.webappsecurity</groupId>
-	<artifactId>xpathinjection</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>Ch06_XPath-Injection</artifactId>
+	<version>1.0-SNAPSHOT</version>
 	<description>XPath Injection Sample Project</description>
 	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
 
@@ -24,4 +24,5 @@
 			</plugin>
 		</plugins>
 	</build>
+	<name>XPath Injection</name>
 </project>

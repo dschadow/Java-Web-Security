@@ -2,8 +2,8 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.dominikschadow.webappsecurity</groupId>
-	<artifactId>sqlinjection</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>Ch06_SQL-Injection</artifactId>
+	<version>1.0-SNAPSHOT</version>
 	<description>SQL Injection sample project</description>
 	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
 
@@ -41,4 +41,5 @@
 			<version>4.1.8.Final</version>
 		</dependency>
 	</dependencies>
+	<name>SQL Injection</name>
 </project>
