@@ -3,10 +3,15 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Mit Output-Escaping</title>
+	<title>Mit Output-Escaping)</title>
 </head>
 <body>
+	<h1>ESAPI</h1>
 	<%@ page import="org.owasp.esapi.ESAPI" %>
 	<strong>Hallo</strong> <%= ESAPI.encoder().encodeForHTML(request.getParameter("name")) %>
+	
+	<h1>Apache Commons</h1>
+	<%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
+	<strong>Hallo</strong> <%= StringEscapeUtils.escapeHtml4(request.getParameter("name")) %>
 </body>
 </html>
