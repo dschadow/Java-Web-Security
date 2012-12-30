@@ -18,7 +18,7 @@ public class StatementSample {
         List<Customer> customers = sample.findCustomer("Maier");
         sample.printCustomer(customers);
         
-        // SQL injection sample with "' OR '1' = '1"
+        // successful SQL injection sample with "' OR '1' = '1"
         customers = sample.findCustomer("' OR '1' = '1");
         sample.printCustomer(customers);
     }
@@ -34,6 +34,8 @@ public class StatementSample {
             
             return customers;
         }
+        
+        System.out.println("Query " + query);
 
         Connection con = null;
         Statement stmt = null;
