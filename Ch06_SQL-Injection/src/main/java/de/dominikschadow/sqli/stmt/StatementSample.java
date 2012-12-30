@@ -78,7 +78,12 @@ public class StatementSample {
     }
 
     private void printCustomer(List<Customer> customers) {
-        System.out.println("Customer data:");
+        if (customers.isEmpty()) {
+            System.out.println("Keine Kundendaten gefunden");
+            return;
+        }
+        
+        System.out.println("Kundendaten:");
         
         for (Customer customer : customers) {
             System.out.println(customer.toString());
