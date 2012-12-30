@@ -42,9 +42,9 @@ public class Customer {
     public String toString() {
         StringBuilder customer = new StringBuilder();
         customer.append("ID ").append(custId);
-        customer.append("Name ").append(name);
-        customer.append("Status ").append(status);
-        customer.append("Order limit").append(orderLimit);
+        customer.append(", Name ").append(name);
+        customer.append(", Status ").append(status);
+        customer.append(", Order Limit ").append(orderLimit);
         
         return customer.toString();
     }
