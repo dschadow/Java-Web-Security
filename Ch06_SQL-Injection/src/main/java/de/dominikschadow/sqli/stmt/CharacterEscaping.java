@@ -27,6 +27,8 @@ public class CharacterEscaping {
     }
 
     private List<Customer> findCustomer(String custName) {
+        System.out.println("Kundenname " + custName);
+        
         String safeCustName = ESAPI.encoder().encodeForSQL(new OracleCodec(), custName);
         
         String query = "SELECT * FROM customer WHERE name = '" + safeCustName + "'";

@@ -24,6 +24,8 @@ public class StatementSample {
     }
 
     private List<Customer> findCustomer(String custName) {
+        System.out.println("Kundenname " + custName);
+        
         String query = "SELECT * FROM customer WHERE name = '" + custName + "'";
         List<Customer> customers = new ArrayList<Customer>();
         
