@@ -12,25 +12,28 @@ import de.dominikschadow.sqli.domain.Customer;
 
 public class StatementSample {
     public static void main(String[] args) {
+        StatementSample sample = new StatementSample();
+        
+        // normal sample for customer "Maier"
+        List<Customer> customers = sample.findCustomer("Maier");
+        sample.printCustomer(customers);
+        
+        // SQL injection sample with "' OR '1' = '1"
+        customers = sample.findCustomer("' OR '1' = '1");
+        sample.printCustomer(customers);
+    }
+
+    private List<Customer> findCustomer(String custName) {
+        String query = "SELECT * FROM customer WHERE name = '" + custName + "'";
+        List<Customer> customers = new ArrayList<Customer>();
+        
         try {
             Class.forName("org.hsqldb.jdbcDriver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-            return;
+            
+            return customers;
         }
-
-        StatementSample sample = new StatementSample();
-        List<Customer> customers = sample.findCustomer("Maier");
-
-        for (Customer customer : customers) {
-            System.out.println("Customer data:");
-            System.out.println(customer.toString());
-        }
-    }
-
-    public List<Customer> findCustomer(String custName) {
-        String query = "SELECT * FROM customer WHERE name = '" + custName + "'";
-        List<Customer> customers = new ArrayList<Customer>();
 
         Connection con = null;
         Statement stmt = null;
@@ -47,6 +50,8 @@ public class StatementSample {
                 customer.setName(rs.getString(2));
                 customer.setStatus(rs.getString(3));
                 customer.setOrderLimit(rs.getInt(4));
+                
+                customers.add(customer);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -68,5 +73,13 @@ public class StatementSample {
         }
 
         return customers;
+    }
+
+    private void printCustomer(List<Customer> customers) {
+        System.out.println("Customer data:");
+        
+        for (Customer customer : customers) {
+            System.out.println(customer.toString());
+        }
     }
 }
