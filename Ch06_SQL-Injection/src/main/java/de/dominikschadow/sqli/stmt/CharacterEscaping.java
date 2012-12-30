@@ -15,27 +15,32 @@ import de.dominikschadow.sqli.domain.Customer;
 
 public class CharacterEscaping {
     public static void main(String[] args) {
-        try {
-            Class.forName("org.hsqldb.jdbcDriver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return;
-        }
-
         CharacterEscaping sample = new CharacterEscaping();
+        
+        // normal sample for customer "Maier"
         List<Customer> customers = sample.findCustomer("Maier");
-
-        for (Customer customer : customers) {
-            System.out.println("Customer data:");
-            System.out.println(customer.toString());
-        }
+        sample.printCustomer(customers);
+        
+        // failing SQL injection sample with "' OR '1' = '1"
+        customers = sample.findCustomer("' OR '1' = '1");
+        sample.printCustomer(customers);
     }
 
-    public List<Customer> findCustomer(String custName) {
+    private List<Customer> findCustomer(String custName) {
         String safeCustName = ESAPI.encoder().encodeForSQL(new OracleCodec(), custName);
         
         String query = "SELECT * FROM customer WHERE name = '" + safeCustName + "'";
         List<Customer> customers = new ArrayList<Customer>();
+        
+        System.out.println("Query " + query);
+        
+        try {
+            Class.forName("org.hsqldb.jdbcDriver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            
+            return customers;
+        }
 
         Connection con = null;
         Statement stmt = null;
@@ -52,6 +57,8 @@ public class CharacterEscaping {
                 customer.setName(rs.getString(2));
                 customer.setStatus(rs.getString(3));
                 customer.setOrderLimit(rs.getInt(4));
+                
+                customers.add(customer);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -73,5 +80,13 @@ public class CharacterEscaping {
         }
 
         return customers;
+    }
+
+    private void printCustomer(List<Customer> customers) {
+        System.out.println("Customer data:");
+        
+        for (Customer customer : customers) {
+            System.out.println(customer.toString());
+        }
     }
 }
