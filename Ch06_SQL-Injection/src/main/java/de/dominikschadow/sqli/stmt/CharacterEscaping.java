@@ -15,6 +15,14 @@ import de.dominikschadow.sqli.domain.Customer;
 
 public class CharacterEscaping {
     public static void main(String[] args) {
+        try {
+            Class.forName("org.hsqldb.jdbcDriver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            
+            return;
+        }
+        
         CharacterEscaping sample = new CharacterEscaping();
         
         // normal sample for customer "Maier"
@@ -35,14 +43,6 @@ public class CharacterEscaping {
         List<Customer> customers = new ArrayList<Customer>();
         
         System.out.println("Query " + query);
-        
-        try {
-            Class.forName("org.hsqldb.jdbcDriver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            
-            return customers;
-        }
 
         Connection con = null;
         Statement stmt = null;

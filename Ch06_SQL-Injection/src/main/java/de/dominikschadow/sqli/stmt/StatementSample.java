@@ -12,6 +12,14 @@ import de.dominikschadow.sqli.domain.Customer;
 
 public class StatementSample {
     public static void main(String[] args) {
+        try {
+            Class.forName("org.hsqldb.jdbcDriver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+            
+            return;
+        }
+        
         StatementSample sample = new StatementSample();
         
         // normal sample for customer "Maier"
@@ -28,14 +36,6 @@ public class StatementSample {
         
         String query = "SELECT * FROM customer WHERE name = '" + custName + "'";
         List<Customer> customers = new ArrayList<Customer>();
-        
-        try {
-            Class.forName("org.hsqldb.jdbcDriver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            
-            return customers;
-        }
         
         System.out.println("Query " + query);
 
