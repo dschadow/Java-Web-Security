@@ -3,12 +3,10 @@ package de.dominikschadow.sqli.hql;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.hibernate.Query;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
 import de.dominikschadow.sqli.domain.Customer;
-import de.dominikschadow.sqli.pstmt.PreparedStatementSample;
 
 public class HQLStatementSample {
 
@@ -20,7 +18,7 @@ public class HQLStatementSample {
             return;
         }
 
-        PreparedStatementSample sample = new PreparedStatementSample();
+        HQLStatementSample sample = new HQLStatementSample();
         List<Customer> customers = sample.findCustomer("Maier");
 
         for (Customer customer : customers) {
