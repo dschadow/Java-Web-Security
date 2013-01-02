@@ -3,7 +3,8 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.dominikschadow.webappsecurity</groupId>
 	<artifactId>Ch06_SQL-Injection</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>Ch06_SQL-Injection</name>
 	<description>SQL Injection Beispielprojekt zu Kapitel 6.</description>
 	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
 
@@ -41,5 +42,4 @@
 			<version>4.1.8.Final</version>
 		</dependency>
 	</dependencies>
-	<name>SQL Injection</name>
 </project>
