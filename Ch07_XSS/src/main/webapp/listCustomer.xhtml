@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h1>Kundenübersicht</h1>
+		
+		<h:form>
+			<h:dataTable var="customer" value="#{customerList}">
+				<h:column>
+					<f:facet name="header">ID</f:facet>
+					<h:outputText value="#{customer.id}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Name</f:facet>
+					<h:outputText value="#{customer.name}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Status</f:facet>
+					<h:outputText value="#{customer.status}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">Order Limit</f:facet>
+					<h:outputText value="#{customer.orderLimit}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
