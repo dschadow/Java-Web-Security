@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<h1>Kunde anlegen</h1>
+
+		<h:form>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Name" for="name" />
+				<h:inputText value="#{currentCustomer.name}" label="Name" id="name "/>
+				
+				<h:outputLabel value="Status" for="status" />
+				<h:inputText value="#{currentCustomer.status}" label="Status" id="status "/>
+				
+				<h:outputLabel value="Order Limit" for="orderLimit" />
+				<h:inputText value="#{currentCustomer.orderLimit}" label="Order Limit" id="orderLimit "/>
+			</h:panelGrid>
+			<h:commandButton value="Speichern" action="#{customerController.saveNewCustomer()}" />
+		</h:form>
+	</ui:define>
+</ui:composition>
