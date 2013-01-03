@@ -1,0 +1,15 @@
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	id="XSS" version="3.0">
+	<display-name>Cross-Site Scripting Sample Application</display-name>
+	
+	<!-- der session-config Block muss auskommentiert werden, damit XSS auf den Cookie funktioniert -->
+	<session-config>
+		<cookie-config>
+			<http-only>true</http-only>
+			<!-- for https <secure>true</secure> -->
+		</cookie-config>
+		<tracking-mode>COOKIE</tracking-mode>
+	</session-config>
+</web-app>
