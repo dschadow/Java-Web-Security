@@ -27,7 +27,7 @@ body {
 
 #page {
 	background: #ffffff;
-	width: 960px;
+	width: 640px;
 	margin-left: auto;
 	margin-right: auto;
 	border-right: solid 2px #a0a0a0;
@@ -55,7 +55,7 @@ body {
 #content {
 	min-height: 320px;
 	font-size: 120%;
-	width: 720px;
+	width: 600px;
 }
 
 #footer {
