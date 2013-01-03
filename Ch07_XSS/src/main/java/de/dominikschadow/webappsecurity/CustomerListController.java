@@ -3,6 +3,7 @@ package de.dominikschadow.webappsecurity;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -13,6 +14,7 @@ import javax.persistence.criteria.Root;
 
 import de.dominikschadow.webappsecurity.model.Customer;
 
+@RequestScoped
 public class CustomerListController {
     private List<Customer> customerList;
     @Inject
@@ -24,7 +26,7 @@ public class CustomerListController {
         return customerList;
     }
 
-    public void setCustomer(List<Customer> customerList) {
+    public void setCustomerList(List<Customer> customerList) {
         this.customerList = customerList;
     }
 
