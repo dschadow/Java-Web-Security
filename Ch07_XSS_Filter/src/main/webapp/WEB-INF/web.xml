@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<web-app id="OutputEscaping" version="3.0"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<display-name>Cross-Site Scripting Filter Sample Application</display-name>
+	<filter>
+		<display-name>XSSFilter</display-name>
+		<filter-name>XSSFilter</filter-name>
+		<filter-class>de.dominikschadow.webappsecurity.filter.XSSFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>XSSFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
