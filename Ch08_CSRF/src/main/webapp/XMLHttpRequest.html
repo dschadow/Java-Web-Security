@@ -1,0 +1,23 @@
+<html>
+<head>
+  <script type="text/javascript">
+    function sendForm() {
+      var params = "name=CSRF";
+      alert("Params " + params);
+
+      var request = new XMLHttpRequest();
+      request.open("POST", "http://localhost:8080/CSRF/CSRFPostServlet", true);
+
+      request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+          alert("Response " + request.responseText);       
+        }
+      };
+      request.send(params);
+    }
+  </script>
+</head>
+<body onload="sendForm()">
+  Formularversand per XMLHttpRequest 
+</body>
+</html>
