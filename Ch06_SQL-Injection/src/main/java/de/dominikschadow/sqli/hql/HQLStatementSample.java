@@ -27,7 +27,7 @@ public class HQLStatementSample {
         }
     }
 
-    @SuppressWarnings({"unchecked", "null", "unused"})
+    @SuppressWarnings({"null", "unused"})
     public List<Customer> findCustomer(String custName) {
         String statement = "SELECT * FROM customer WHERE name = '" + custName + "'";
         List<Customer> customers = new ArrayList<Customer>();
