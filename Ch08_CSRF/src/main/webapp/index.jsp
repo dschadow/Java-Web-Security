@@ -8,7 +8,7 @@
 <body>
 	<h1>Cross-Site Request Forgery</h1>
 
-	<form name="Login" method="post" action="CSRFPostServlet">
+	<form name="greeting" method="post" action="CSRFPostServlet">
 		<table>
 			<tr>
 				<td>Name</td>

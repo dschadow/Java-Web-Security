@@ -27,13 +27,15 @@ public class CSRFPostServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
         System.out.println("Processing post request");
-        System.out.println("Received " + request.getParameter("name") + " as form parameter");
+        
+        String name = request.getParameter("name");
+        System.out.println("Received " + name + " as form parameter");
 
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<p>Received " + request.getParameter("name") + " as form parameter</p>");
+        out.println("<p>Received " + name + " as form parameter</p>");
         out.println("</body></html>");
         out.flush();
         out.close();
