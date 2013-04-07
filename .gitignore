@@ -8,3 +8,4 @@
 *.jar
 *.war
 *.ear
+.pmd
