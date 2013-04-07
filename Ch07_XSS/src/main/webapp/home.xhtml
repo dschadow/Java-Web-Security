@@ -4,8 +4,8 @@
    xmlns:f="http://java.sun.com/jsf/core"
    xmlns:h="http://java.sun.com/jsf/html"
    template="/WEB-INF/templates/template.xhtml">
-   <ui:define name="content">
-      <h:link outcome="listCustomer" value="Kundenübersicht" /><br />
+   <ui:define name="content" rendered="#{user.isAdmin}">
+      <h:link outcome="listCustomer" value="Kundenübersicht" />
       <h:link outcome="createCustomer" value="Kunde anlegen" />
    </ui:define>
 </ui:composition>
