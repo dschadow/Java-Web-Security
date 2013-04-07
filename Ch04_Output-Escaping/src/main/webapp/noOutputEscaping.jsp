@@ -3,9 +3,9 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Ohne Output-Escaping</title>
+	<title>Without Output-Escaping</title>
 </head>
 <body>
-	<strong>Hallo</strong> <%= request.getParameter("name") %>
+	<strong>Hello</strong> <%= request.getParameter("name") %>
 </body>
 </html>

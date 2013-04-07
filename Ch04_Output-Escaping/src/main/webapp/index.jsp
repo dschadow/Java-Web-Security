@@ -8,26 +8,26 @@
 <body>
 	<h1>Output-Escaping</h1>
 
-	<h2>Ohne Output-Escaping</h2>
+	<h2>Without Output-Escaping</h2>
 	
 	<form name="noOutputEscaping" method="post" action="noOutputEscaping.jsp">
 		<table>
 			<tr>
 				<td>Name</td>
 				<td><input type="text" name="name"></td>
-				<td><input type="submit" value="Senden"></td>
+				<td><input type="submit" value="Submit"></td>
 			</tr>
 		</table>
 	</form>
 
-	<h2>Mit Output-Escaping</h2>
+	<h2>With Output-Escaping (ESAPI and Apache Commons)</h2>
 	
 	<form name="withOutputEscaping" method="post" action="withOutputEscaping.jsp">
 		<table>
 			<tr>
 				<td>Name</td>
 				<td><input type="text" name="name"></td>
-				<td><input type="submit" name="submit" value="Senden"></td>
+				<td><input type="submit" name="submit" value="Submit"></td>
 			</tr>
 		</table>
 	</form>
