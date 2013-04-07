@@ -2,23 +2,23 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <html>
 <head>
-<title>Output-Escaping mit Spring</title>
+<title>Spring based Output Escaping</title>
 </head>
 <body>
-	<h1>Spring MVC Output-Escaping</h1>
+	<h1>Spring based Output Escaping</h1>
 
 	<form:form method="post" action="addContact.html">
 		<table>
 			<tr>
-				<td><form:label path="firstname">Vorname</form:label></td>
+				<td><form:label path="firstname">Firstname</form:label></td>
 				<td><form:input path="firstname" /></td>
 			</tr>
 			<tr>
-				<td><form:label path="lastname">Nachname</form:label></td>
+				<td><form:label path="lastname">Lastname</form:label></td>
 				<td><form:input path="lastname" /></td>
 			</tr>
 			<tr>
-				<td colspan="2"><input type="submit" value="Weiter" /></td>
+				<td colspan="2"><input type="submit" value="Submit" /></td>
 			</tr>
 		</table>
 	</form:form>

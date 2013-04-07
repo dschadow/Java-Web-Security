@@ -15,7 +15,7 @@ import de.dominikschadow.webappsecurity.domain.Contact;
 public class ContactController {
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)
     public ModelAndView addContact(@ModelAttribute("contact") Contact contact, BindingResult result) {
-        System.out.println("Vorname: " + contact.getFirstname() + ", Nachname: " + contact.getLastname());
+        System.out.println("Firstname: " + contact.getFirstname() + ", Lastname: " + contact.getLastname());
 
         return new ModelAndView("contact", "command", contact);
     }
