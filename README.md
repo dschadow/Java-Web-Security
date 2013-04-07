@@ -2,15 +2,18 @@ WebAppSecurity
 ==============
 
 ##Contents and Requirements
-###Ch04_Output-Escaping
+###Ch04_Output-Escaping (4.3)
 Simple web application using JSPs to show the difference between doing output escaping via ESAPI and Apache Commons and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;hello&#x27;)&lt;/script&gt;* to see the difference. Keep in mind that some browsers (like Google Chrome) provide some XSS protection and may filter your input (Firefox works fine at the moment).
 
 **Requirements:** Apache Tomcat
 
-###Ch04_Output-Escaping-Spring
+###Ch04_Output-Escaping-Spring (4.3)
 Simple Spring based web application using JSPs to show the two different possibilities to show user input in a web page with *${contact.firstname}* and *&lt;c:out value="${contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;Hello&#x27;)&lt;/script&gt;* to see the difference. Keep in mind that some browsers (like Google Chrome) provide some XSS protection and may filter your input (Firefox works fine at the moment).
 
 **Requirements:** Apache Tomcat
+
+###Ch05_AccessReferenceMaps (5.3)
+Command line sample project. Both sample classes, *IntegerAccessReferenceMapSample* and *RandomAccessReferenceMapSample*, contain main() methods to start the sample.
 
 ###Ch06_SQL-Injection
 
@@ -23,4 +26,4 @@ Simple Spring based web application using JSPs to show the two different possibi
 ###Ch08_CSRF
 
 ##Setup
-All Java projects are created as Apache Maven projects. In Eclipse you therefore need to install the Maven integration and the git m2e connector via the update manager before you can import them as new projects.
+All Java projects are created as Apache Maven projects (required are Java 7 and Maven 3). In Eclipse you therefore need to install the Maven integration and the git m2e connector via the update manager before you can import them as new projects.
