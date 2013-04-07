@@ -2,10 +2,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.dominikschadow.webappsecurity</groupId>
-	<artifactId>Ch04_Output-Escaping</artifactId>
+	<artifactId>Ch04_OutputEscaping</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0</version>
-	<name>Ch04_Output-Escaping</name>
+	<name>Ch04_OutputEscaping</name>
 	<description>Chapter 4 Output Escaping sample project. Requires a server like Apache Tomcat.
 
 Open the web application in your browser at http://localhost:8080/OutputEscaping/</description>
