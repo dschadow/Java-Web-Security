@@ -21,6 +21,11 @@ Command line sample project. Both sample classes, *IntegerAccessReferenceMapSamp
 
 ###Ch07_XSS
 
+###Ch07_XSS_JSF (7.4)
+A simple web project to show XSS with  Java Server Faces.
+
+**Requirements:** Apache Tomcat
+
 ###Ch07_XSS_Filter
 
 ###Ch08_CSRF
