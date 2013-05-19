@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,6 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Dominik Schadow
  */
+@WebServlet("/ProtectedServlet")
 public class ProtectedServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
@@ -44,6 +46,16 @@ public class ProtectedServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
         System.out.println("Processing POST request");
+        
+        String csrfToken = request.getParameter("CSRF_TOKEN");
+        
+        if (csrfToken == null || csrfToken.isEmpty()) {
+        	System.out.println("CSRF token is missing, aborting");
+        	
+        	return;
+        }
+        
+        
         
         String name = request.getParameter("name");
         System.out.println("Received " + name + " as POST parameter");

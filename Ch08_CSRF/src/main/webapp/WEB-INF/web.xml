@@ -1,25 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="CSRF" version="3.0">
   <display-name>Cross-Site Request Forgery Sample Application</display-name>
-  <servlet>
-    <description>Servlet to handle POST and GET requests without any protection</description>
-    <display-name>CSRFServlet</display-name>
-    <servlet-name>CSRFServlet</servlet-name>
-    <servlet-class>de.dominikschadow.webappsecurity.CSRFServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>CSRFServlet</servlet-name>
-    <url-pattern>/CSRFServlet</url-pattern>
-  </servlet-mapping>
-  
-  <servlet>
-    <description>Servlet to handle POST requests with random user value protection</description>
-    <display-name>ProtectedServlet</display-name>
-    <servlet-name>ProtectedServlet</servlet-name>
-    <servlet-class>de.dominikschadow.webappsecurity.ProtectedServlet</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ProtectedServlet</servlet-name>
-    <url-pattern>/ProtectedServlet</url-pattern>
-  </servlet-mapping>
 </web-app>
