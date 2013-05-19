@@ -20,9 +20,8 @@ Open the web application in your browser at http://localhost:8080/CSRF/</descrip
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
-			<scope>provided</scope>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
