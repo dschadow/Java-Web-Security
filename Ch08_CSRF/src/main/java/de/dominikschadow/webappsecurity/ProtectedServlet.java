@@ -19,12 +19,16 @@ package de.dominikschadow.webappsecurity;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import de.dominikschadow.webappsecurity.csrf.CSRFTokenHandler;
 
 /**
  * @author Dominik Schadow
@@ -45,27 +49,33 @@ public class ProtectedServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
-        System.out.println("Processing POST request");
-        
-        String csrfToken = request.getParameter("CSRF_TOKEN");
-        
-        if (csrfToken == null || csrfToken.isEmpty()) {
-        	System.out.println("CSRF token is missing, aborting");
-        	
-        	return;
-        }
-        
-        
-        
-        String name = request.getParameter("name");
-        System.out.println("Received " + name + " as POST parameter");
+        System.out.println("Processing protected POST request");
 
         response.setContentType("text/html");
+        
+        try {
+            if (!CSRFTokenHandler.isValid(request)) {
+                System.out.println("CSRF token is invalid");
+                response.setStatus(401);
+
+                PrintWriter out = response.getWriter();
+                out.println("CSRF token is invalid");
+                out.flush();
+                out.close();
+                
+                return;
+            }
+        } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
+            ex.printStackTrace();
+        }
+        
+        System.out.println("CSRF token is valid");
+
+        String name = request.getParameter("name");
+        System.out.println("Protected: Received " + name + " as POST parameter");
 
         PrintWriter out = response.getWriter();
-        out.println("<html><body>");
-        out.println("<p>Received " + name + " as POST parameter</p>");
-        out.println("</body></html>");
+        out.println("Received " + name + " as POST parameter");
         out.flush();
         out.close();
     }
