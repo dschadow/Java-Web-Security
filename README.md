@@ -29,6 +29,9 @@ A simple web project to show XSS with  Java Server Faces.
 ###Ch07_XSS_Filter
 
 ###Ch08_CSRF
+A simple web project to show CSRF with GET and POST requests and how to protect forms with an anti CSRF token.
+
+**Requirements:** Apache Tomcat
 
 ##Setup
 All Java projects are created as Apache Maven projects (required are Java 7 and Maven 3). In Eclipse you therefore need to install the Maven integration and the git m2e connector via the update manager before you can import them as new projects.
