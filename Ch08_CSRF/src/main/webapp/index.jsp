@@ -8,19 +8,21 @@
 <body>
 	<h1>Cross-Site Request Forgery</h1>
 	
-	<h2>GET</h2>
+	<h2>Unprotected</h2>
 	
-	<h3>Normal browser link</h3>
+	<h3>GET</h3>
+	
+	<h4>Normal browser link</h4>
 	
 	<a href="CSRFServlet?name=BrowserLink">Send</a>
 	
-	<h3>Image</h3>
+	<h4>Image</h4>
 	
 	<a href="image.html">Image</a>
 	
-	<h2>POST</h2>
+	<h3>POST</h3>
 	
-	<h3>Normal browser form</h3>
+	<h4>Normal browser form</h4>
 
 	<form name="greeting" method="post" action="CSRFServlet">
 		<table>
@@ -32,8 +34,28 @@
 		</table>
 	</form>
 	
-	<h3>XMLHttpRequest</h3>
+	<h4>XMLHttpRequest</h4>
 	
 	<a href="xmlhttprequest.html">XMLHttpRequest</a>
+	
+	<h2>Protected</h2>
+	
+	<h3>POST</h3>
+	
+	<h4>Normal browser form</h4>
+
+	<form name="greetingProtected" method="post" action="ProtectedServlet">
+		<table>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="name"></td>
+				<td><input type="submit" value="Senden"></td>
+			</tr>
+		</table>
+	</form>
+	
+	<h4>XMLHttpRequest</h4>
+	
+	<a href="xmlhttprequest-protected.html">XMLHttpRequest</a>
 </body>
 </html>
