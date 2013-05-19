@@ -8,9 +8,21 @@
 <body>
 	<h1>Cross-Site Request Forgery</h1>
 	
-	<h2>Normal browser form</h2>
+	<h2>GET</h2>
+	
+	<h3>Normal browser link</h3>
+	
+	<a href="CSRFServlet?name=BrowserLink">Send</a>
+	
+	<h3>Image</h3>
+	
+	<a href="image.html">Image</a>
+	
+	<h2>POST</h2>
+	
+	<h3>Normal browser form</h3>
 
-	<form name="greeting" method="post" action="CSRFPostServlet">
+	<form name="greeting" method="post" action="CSRFServlet">
 		<table>
 			<tr>
 				<td>Name</td>
@@ -20,7 +32,7 @@
 		</table>
 	</form>
 	
-	<h2>Form post with XMLHttpRequest</h2>
+	<h3>XMLHttpRequest</h3>
 	
 	<a href="xmlhttprequest.html">XMLHttpRequest</a>
 </body>

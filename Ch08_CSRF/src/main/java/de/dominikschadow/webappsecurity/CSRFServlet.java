@@ -26,16 +26,36 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class CSRFPostServlet
+ * @author Dominik Schadow
  */
-public class CSRFPostServlet extends HttpServlet {
+public class CSRFServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CSRFPostServlet() {
+    public CSRFServlet() {
         super();
+    }
+    
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+    		throws ServletException, IOException {
+        System.out.println("Processing GET request");
+    	
+        String name = request.getParameter("name");
+        System.out.println("Received " + name + " as GET parameter");
+
+        response.setContentType("text/html");
+
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<p>Received " + name + " as GET parameter</p>");
+        out.println("</body></html>");
+        out.flush();
+        out.close();
     }
 
     /**
@@ -43,16 +63,16 @@ public class CSRFPostServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
             IOException {
-        System.out.println("Processing post request");
+        System.out.println("Processing POST request");
         
         String name = request.getParameter("name");
-        System.out.println("Received " + name + " as form parameter");
+        System.out.println("Received " + name + " as POST parameter");
 
         response.setContentType("text/html");
 
         PrintWriter out = response.getWriter();
         out.println("<html><body>");
-        out.println("<p>Received " + name + " as form parameter</p>");
+        out.println("<p>Received " + name + " as POST parameter</p>");
         out.println("</body></html>");
         out.flush();
         out.close();

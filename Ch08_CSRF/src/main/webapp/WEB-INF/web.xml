@@ -3,12 +3,12 @@
   <display-name>Cross-Site Request Forgery Sample Application</display-name>
   <servlet>
     <description></description>
-    <display-name>CSRFPostServlet</display-name>
-    <servlet-name>CSRFPostServlet</servlet-name>
-    <servlet-class>de.dominikschadow.webappsecurity.CSRFPostServlet</servlet-class>
+    <display-name>CSRFServlet</display-name>
+    <servlet-name>CSRFServlet</servlet-name>
+    <servlet-class>de.dominikschadow.webappsecurity.CSRFServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>CSRFPostServlet</servlet-name>
-    <url-pattern>/CSRFPostServlet</url-pattern>
+    <servlet-name>CSRFServlet</servlet-name>
+    <url-pattern>/CSRFServlet</url-pattern>
   </servlet-mapping>
 </web-app>

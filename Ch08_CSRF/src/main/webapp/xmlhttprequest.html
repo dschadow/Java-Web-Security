@@ -1,11 +1,13 @@
 <html>
 <head>
+  <title>Cross-Site Request Forgery</title>
+  
   <script type="text/javascript">
     function sendForm() {
-      var params = "name=CSRF";
+      var params = "name=CSRF-XMLHttpRequest";
 
       var request = new XMLHttpRequest();
-      request.open("POST", "http://localhost:8080/CSRF/CSRFPostServlet", true);
+      request.open("POST", "http://localhost:8080/CSRF/CSRFServlet", true);
       request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       request.send(params);
 
@@ -18,6 +20,6 @@
   </script>
 </head>
 <body onload="sendForm()">
-  Form post with XMLHttpRequest 
+  <h1>Form post with XMLHttpRequest</h1> 
 </body>
 </html>
