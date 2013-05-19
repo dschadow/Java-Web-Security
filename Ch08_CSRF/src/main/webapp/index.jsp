@@ -7,6 +7,8 @@
 </head>
 <body>
 	<h1>Cross-Site Request Forgery</h1>
+	
+	<h2>Normal browser form</h2>
 
 	<form name="greeting" method="post" action="CSRFPostServlet">
 		<table>
@@ -17,5 +19,9 @@
 			</tr>
 		</table>
 	</form>
+	
+	<h2>Form post with XMLHttpRequest</h2>
+	
+	<a href="xmlhttprequest.html">XMLHttpRequest</a>
 </body>
 </html>

@@ -4,14 +4,14 @@
 
 	<groupId>de.dominikschadow.webappsecurity</groupId>
 	<artifactId>Ch08_CSRF</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>war</packaging>
 
 	<name>Ch08_CSRF</name>
 	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
-	<description>CSRF Beispielprojekt zu Kapitel 8. Muss auf einem Server wie Apache Tomcat ausgeführt werden.
+	<description>Chapter 8 CSRF sample project. Requires a server like Apache Tomcat.
 
-Aufruf mit http://localhost:8080/CSRF/</description>
+Open the web application in your browser at http://localhost:8080/CSRF/</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
