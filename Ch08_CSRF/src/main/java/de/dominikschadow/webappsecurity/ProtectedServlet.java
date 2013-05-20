@@ -33,7 +33,7 @@ import de.dominikschadow.webappsecurity.csrf.CSRFTokenHandler;
 /**
  * @author Dominik Schadow
  */
-@WebServlet("/ProtectedServlet")
+@WebServlet(name = "ProtectedServlet", urlPatterns = {"/ProtectedServlet"})
 public class ProtectedServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 

@@ -29,7 +29,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author Dominik Schadow
  */
-@WebServlet("/CSRFServlet")
+@WebServlet(name = "CSRFServlet", urlPatterns = {"/CSRFServlet"})
 public class CSRFServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
