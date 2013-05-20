@@ -43,7 +43,7 @@ public class CSRFServlet extends HttpServlet {
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         System.out.println("Processing unprotected GET request");
 
         String name = request.getParameter("name");
@@ -51,17 +51,22 @@ public class CSRFServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
-        PrintWriter out = response.getWriter();
-        out.println("Received " + name + " as GET parameter");
-        out.flush();
-        out.close();
+        PrintWriter out = null;
+        
+        try {
+            out = response.getWriter();
+            out.println("Received " + name + " as GET parameter");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            out.close();
+        }
     }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-            IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         System.out.println("Processing unprotected POST request");
 
         String name = request.getParameter("name");
@@ -69,9 +74,15 @@ public class CSRFServlet extends HttpServlet {
 
         response.setContentType("text/html");
 
-        PrintWriter out = response.getWriter();
-        out.println("Received " + name + " as GET parameter");
-        out.flush();
-        out.close();
+        PrintWriter out = null;
+        
+        try {
+            out = response.getWriter();
+            out.println("Received " + name + " as GET parameter");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            out.close();
+        }
     }
 }

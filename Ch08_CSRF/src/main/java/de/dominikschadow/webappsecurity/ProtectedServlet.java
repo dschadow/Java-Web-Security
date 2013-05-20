@@ -47,8 +47,7 @@ public class ProtectedServlet extends HttpServlet {
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,
-            IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         System.out.println("Processing protected POST request");
 
         response.setContentType("text/html");
@@ -58,10 +57,15 @@ public class ProtectedServlet extends HttpServlet {
                 System.out.println("CSRF token is invalid");
                 response.setStatus(401);
 
-                PrintWriter out = response.getWriter();
-                out.println("CSRF token is invalid");
-                out.flush();
-                out.close();
+                PrintWriter out = null;
+                try {
+                    out = response.getWriter();
+                    out.println("CSRF token is invalid");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                } finally {
+                    out.close();
+                }
                 
                 return;
             }
@@ -74,9 +78,14 @@ public class ProtectedServlet extends HttpServlet {
         String name = request.getParameter("name");
         System.out.println("Protected: Received " + name + " as POST parameter");
 
-        PrintWriter out = response.getWriter();
-        out.println("Received " + name + " as POST parameter");
-        out.flush();
-        out.close();
+        PrintWriter out = null;
+        try {
+            out = response.getWriter();
+            out.println("Received " + name + " as POST parameter");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        } finally {
+            out.close();
+        }
     }
 }
