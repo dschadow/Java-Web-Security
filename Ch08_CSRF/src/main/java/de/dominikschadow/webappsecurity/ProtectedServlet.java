@@ -57,14 +57,10 @@ public class ProtectedServlet extends HttpServlet {
                 System.out.println("CSRF token is invalid");
                 response.setStatus(401);
 
-                PrintWriter out = null;
-                try {
-                    out = response.getWriter();
+                try (PrintWriter out = response.getWriter()) {
                     out.println("CSRF token is invalid");
                 } catch (IOException ex) {
                     ex.printStackTrace();
-                } finally {
-                    out.close();
                 }
                 
                 return;
@@ -78,14 +74,10 @@ public class ProtectedServlet extends HttpServlet {
         String name = request.getParameter("name");
         System.out.println("Protected: Received " + name + " as POST parameter");
 
-        PrintWriter out = null;
-        try {
-            out = response.getWriter();
+        try (PrintWriter out = response.getWriter()) {
             out.println("Received " + name + " as POST parameter");
         } catch (IOException ex) {
             ex.printStackTrace();
-        } finally {
-            out.close();
         }
     }
 }
