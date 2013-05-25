@@ -14,19 +14,20 @@ public class CustomerBean implements Serializable {
 	private String status1;
 	private String status2;
 
-	private static Map<String, String> status1Vals;
+	// first String: key (label), second String value
+	private static Map<String, String> status1Values = new LinkedHashMap<String, String>();
 	static {
-		status1Vals = new LinkedHashMap<String, String>();
-		status1Vals.put("<script>alert('XSS via Map')</script>", "XSS");
-		status1Vals.put("Status 2", "Status 2");
-		status1Vals.put("Status 3", "Status 3");
+		status1Values.put("<script>alert('XSS with JSF (Map)')</script>", "<script>alert('XSS with JSF (Map)')</script>");
+		status1Values.put("Status 2", "Status 2");
+		status1Values.put("Status 3", "Status 3");
 	}
 
-	private static Status[] status2List = new Status[3];
+	// first String: key (label), second String value
+	private static Status[] status2Values = new Status[3];
 	static {
-		status2List[0] = new Status("<script>alert('XSS via Array')</script>", "XSS");
-		status2List[1] = new Status("Status 2", "Status 2");
-		status2List[2] = new Status("Status 3", "Status 3");
+		status2Values[0] = new Status("<script>alert('XSS with JSF (Array)')</script>", "<script>alert('XSS with JSF (Array)')</script>");
+		status2Values[1] = new Status("Status 2", "Status 2");
+		status2Values[2] = new Status("Status 3", "Status 3");
 	}
 
 	public String getStatus1() {
@@ -46,8 +47,12 @@ public class CustomerBean implements Serializable {
 	}
 
 	public Map<String, String> getStatus1Vals() {
-		return status1Vals;
+		return status1Values;
 	}
+
+    public Status[] getStatus2Vals() {
+        return status2Values;
+    }
 
 	public static class Status {
 		public String statusLabel;
@@ -65,9 +70,5 @@ public class CustomerBean implements Serializable {
 		public String getStatusValue() {
 			return statusValue;
 		}
-	}
-
-	public Status[] getStatus2Vals() {
-		return status2List;
 	}
 }
