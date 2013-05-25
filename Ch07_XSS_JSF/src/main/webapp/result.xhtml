@@ -6,10 +6,27 @@
 
 <h:body>
 	<h1>XSS with Java Server Faces</h1>
-
-	<ol>
-		<li>Drop down with Map: #{customer.status1}</li>
-		<li>Drop down with Array: #{customer.status2}</li>
-	</ol>
+	
+	<h2>outputText from Map filled drop down</h2>
+	
+	<h3>Default escaping</h3>
+	#{customer.status1}<br/>
+	
+	<h3>Default escaping</h3>
+	<h:outputText value="#{customer.status1}" />
+	
+	<h3>No escaping</h3>
+	<h:outputText value="#{customer.status1}" escape="false" />
+	
+	<h2>outputText from Array filled drop down</h2>
+	
+	<h3>Default escaping</h3>
+	#{customer.status2}
+	
+	<h3>Default escaping</h3>
+	<h:outputText value="#{customer.status2}" />
+	
+	<h3>No escaping</h3>
+	<h:outputText value="#{customer.status2}" escape="false" />
 </h:body>
 </html>

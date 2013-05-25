@@ -7,17 +7,17 @@
 <h:body>
 	<h1>XSS with Java Server Faces</h1>
 	
-	<h2>Not escaped (default)</h2>
+	<h2>Default values for all elements</h2>
 
 	<h:form>
-	    Drop down with Map: 
+	    Map: 
    		<h:selectOneMenu value="#{customer.status1}">
 			<f:selectItems value="#{customer.status1Vals}" />
 		</h:selectOneMenu>
 
 		<br />
 	    
-	    Drop down with Array:
+	    Array:
    		<h:selectOneMenu value="#{customer.status2}">
 			<f:selectItems value="#{customer.status2Vals}" var="s"
 				itemLabel="#{s.statusLabel}" itemValue="#{s.statusValue}" />
@@ -30,10 +30,10 @@
 	</h:form>
 	
 	
-	<h2>Escaped</h2>
-	
+	<h2>Additional escape attributes</h2>
+	 
 	<h:form>
-	    Drop down with Map: 
+	    Map: 
    		<h:selectOneMenu value="#{customer.status1}">
 			<f:selectItems value="#{customer.status1Vals}"
 				itemLabelEscaped="true" />
@@ -41,7 +41,7 @@
 
 		<br />
 	    
-	    Drop down with Array:
+	    Array:
    		<h:selectOneMenu value="#{customer.status2}">
 			<f:selectItems value="#{customer.status2Vals}" var="s"
 				itemLabel="#{s.statusLabel}" itemValue="#{s.statusValue}"
