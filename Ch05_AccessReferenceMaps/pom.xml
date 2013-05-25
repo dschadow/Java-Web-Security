@@ -1,15 +1,17 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>de.dominikschadow.webappsecurity</groupId>
-  <artifactId>Ch05_AccessReferenceMaps</artifactId>
-  <version>1.0.0</version>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>de.dominikschadow.webappsecurity</groupId>
+	<artifactId>Ch05_AccessReferenceMaps</artifactId>
+	<version>1.0.0</version>
+	<name>Ch05_AccessReferenceMaps</name>
 	<description>Chapter 5 AccessReferenceMaps sample project. Both sample classes, IntegerAccessReferenceMapSample and RandomAccessReferenceMapSample, contain main() methods to start the sample.</description>
 	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
-	
+
 	<build>
 		<plugins>
 			<plugin>
@@ -34,5 +36,4 @@
 			<version>2.2.9</version>
 		</dependency>
 	</dependencies>
-	<name>Ch05_AccessReferenceMaps</name>
 </project>

@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>de.dominikschadow.webappsecurity</groupId>
 	<artifactId>Ch06_SQL-Injection</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Ch06_SQL-Injection</name>
 	<description>SQL Injection Beispielprojekt zu Kapitel 6.</description>
 	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
@@ -13,7 +13,6 @@
 	</properties>
 	
 	<build>
-		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
