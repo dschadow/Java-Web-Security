@@ -5,7 +5,7 @@
 	<groupId>de.dominikschadow.webappsecurity</groupId>
 	<artifactId>Ch07_XSS</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Ch07_XSS</name>
 
 	<properties>
