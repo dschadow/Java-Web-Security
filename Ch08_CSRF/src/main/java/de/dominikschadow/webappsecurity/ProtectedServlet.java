@@ -43,6 +43,43 @@ public class ProtectedServlet extends HttpServlet {
     public ProtectedServlet() {
         super();
     }
+    
+    /**
+     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+     */
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+        System.out.println("Processing protected GET request");
+
+        response.setContentType("text/html");
+        
+        try {
+            if (!CSRFTokenHandler.isValid(request)) {
+                System.out.println("CSRF token is invalid");
+                response.setStatus(401);
+
+                try (PrintWriter out = response.getWriter()) {
+                    out.println("CSRF token is invalid");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
+                
+                return;
+            }
+        } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
+            ex.printStackTrace();
+        }
+        
+        System.out.println("CSRF token is valid");
+
+        String name = request.getParameter("name");
+        System.out.println("Protected: Received " + name + " as GET parameter");
+
+        try (PrintWriter out = response.getWriter()) {
+            out.println("Received " + name + " as GET parameter");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
 
     /**
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)

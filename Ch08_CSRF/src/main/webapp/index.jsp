@@ -9,21 +9,15 @@
 <body>
 	<h1>Cross-Site Request Forgery</h1>
 	
-	<h2>Unprotected</h2>
+	<h2>Unprotected GET</h2>
 	
-	<h3>GET</h3>
+	<p><a href="CSRFServlet?name=BrowserLink">Link</a></p>
 	
-	<h4>Normal browser link</h4>
+	<p><a href="image.html">Image</a></p>
 	
-	<a href="CSRFServlet?name=BrowserLink">Send</a>
+	<h2>Unprotected POST</h2>
 	
-	<h4>Image</h4>
-	
-	<a href="image.html">Image</a>
-	
-	<h3>POST</h3>
-	
-	<h4>Normal browser form</h4>
+	<h3>Form</h3>
 
 	<form name="greeting" method="post" action="CSRFServlet">
 		<table>
@@ -35,15 +29,17 @@
 		</table>
 	</form>
 	
-	<h4>XMLHttpRequest</h4>
+	<p><a href="xmlhttprequest.html">XMLHttpRequest</a></p>
 	
-	<a href="xmlhttprequest.html">XMLHttpRequest</a>
+	<h2>Protected GET</h2>
 	
-	<h2>Protected</h2>
+	<p><a href="ProtectedServlet?name=BrowserLink&<%=CSRFTokenHandler.CSRF_TOKEN%>=<%=CSRFTokenHandler.getToken(request.getSession(false))%>">Link</a></p>
 	
-	<h3>POST</h3>
+	<p><a href="image-protected.html">Image</a></p>
 	
-	<h4>Normal browser form</h4>
+	<h2>Protected POST</h2>
+	
+	<h3>Form with token</h3>
 
 	<form name="greetingProtected" method="post" action="ProtectedServlet">
 		<input type="hidden" name="<%=CSRFTokenHandler.CSRF_TOKEN%>"
@@ -57,8 +53,6 @@
 		</table>
 	</form>
 	
-	<h4>XMLHttpRequest</h4>
-	
-	<a href="xmlhttprequest-protected.html">XMLHttpRequest</a>
+	<p><a href="xmlhttprequest-protected.html">XMLHttpRequest</a></p>
 </body>
 </html>
