@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<h1>Additional escape attributes</h1>
+	 
+	<h:form>
+	    Map: 
+   		<h:selectOneMenu value="#{customer.status1}">
+			<f:selectItems value="#{customer.status1Vals}"
+				itemLabelEscaped="true" />
+		</h:selectOneMenu>
+
+		<br />
+	    
+	    Array:
+   		<h:selectOneMenu value="#{customer.status2}">
+			<f:selectItems value="#{customer.status2Vals}" var="s"
+				itemLabel="#{s.statusLabel}" itemValue="#{s.statusValue}"
+				itemLabelEscaped="true" />
+		</h:selectOneMenu>
+
+		<br />
+
+		<h:commandButton value="Submit" action="result" />
+		<h:commandButton value="Reset" type="reset" />
+	</h:form>
+</h:body>
+</html>

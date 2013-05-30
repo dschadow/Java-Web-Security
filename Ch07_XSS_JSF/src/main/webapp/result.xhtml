@@ -5,28 +5,20 @@
 	xmlns:h="http://java.sun.com/jsf/html">
 
 <h:body>
-	<h1>XSS with Java Server Faces</h1>
+	<h1>Map filled drop down</h1>
 	
-	<h2>outputText from Map filled drop down</h2>
+	<p>Default escaping: #{customer.status1}</p>
 	
-	<h3>Default escaping</h3>
-	#{customer.status1}<br/>
+	<p>Default escaping: <h:outputText value="#{customer.status1}" /></p>
 	
-	<h3>Default escaping</h3>
-	<h:outputText value="#{customer.status1}" />
+	<p>No escaping: <h:outputText value="#{customer.status1}" escape="false" /></p>
 	
-	<h3>No escaping</h3>
-	<h:outputText value="#{customer.status1}" escape="false" />
+	<h1>Array filled drop down</h1>
 	
-	<h2>outputText from Array filled drop down</h2>
+	<p>Default escaping: #{customer.status2}</p>
 	
-	<h3>Default escaping</h3>
-	#{customer.status2}
+	<p>Default escaping: <h:outputText value="#{customer.status2}" /></p>
 	
-	<h3>Default escaping</h3>
-	<h:outputText value="#{customer.status2}" />
-	
-	<h3>No escaping</h3>
-	<h:outputText value="#{customer.status2}" escape="false" />
+	<p>No escaping: <h:outputText value="#{customer.status2}" escape="false" /></p>
 </h:body>
 </html>

@@ -7,51 +7,15 @@
 <h:body>
 	<h1>XSS with Java Server Faces</h1>
 	
-	<h2>Default values for all elements</h2>
-
-	<h:form>
-	    Map: 
-   		<h:selectOneMenu value="#{customer.status1}">
-			<f:selectItems value="#{customer.status1Vals}" />
-		</h:selectOneMenu>
-
-		<br />
-	    
-	    Array:
-   		<h:selectOneMenu value="#{customer.status2}">
-			<f:selectItems value="#{customer.status2Vals}" var="s"
-				itemLabel="#{s.statusLabel}" itemValue="#{s.statusValue}" />
-		</h:selectOneMenu>
-
-		<br />
-
-		<h:commandButton value="Submit" action="result" />
-		<h:commandButton value="Reset" type="reset" />
-	</h:form>
+	<p>
+	&lt;script&gt;alert(&apos;XSS with JSF (Map)&apos;)&lt;/script&gt;<br />
+	&lt;script&gt;alert(&apos;XSS with JSF (Array)&apos;)&lt;/script&gt;
+	</p>		
 	
-	
-	<h2>Additional escape attributes</h2>
-	 
-	<h:form>
-	    Map: 
-   		<h:selectOneMenu value="#{customer.status1}">
-			<f:selectItems value="#{customer.status1Vals}"
-				itemLabelEscaped="true" />
-		</h:selectOneMenu>
-
-		<br />
-	    
-	    Array:
-   		<h:selectOneMenu value="#{customer.status2}">
-			<f:selectItems value="#{customer.status2Vals}" var="s"
-				itemLabel="#{s.statusLabel}" itemValue="#{s.statusValue}"
-				itemLabelEscaped="true" />
-		</h:selectOneMenu>
-
-		<br />
-
-		<h:commandButton value="Submit" action="result" />
-		<h:commandButton value="Reset" type="reset" />
-	</h:form>
+	<h:panelGrid columns="1">
+		<h:link outcome="default" value="Default values for all elements" />
+		
+		<h:link outcome="extra" value="Additional escape attributes" />
+	</h:panelGrid>
 </h:body>
 </html>
