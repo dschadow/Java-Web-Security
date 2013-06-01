@@ -20,7 +20,7 @@
 		</table>
 	</form>
 
-	<h2>With Output-Escaping (ESAPI and Apache Commons)</h2>
+	<h2>With Output-Escaping (ESAPI)</h2>
 	
 	<form name="withOutputEscaping" method="post" action="withOutputEscaping.jsp">
 		<table>

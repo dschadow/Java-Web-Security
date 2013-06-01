@@ -9,9 +9,5 @@
 	<h1>ESAPI</h1>
 	<%@ page import="org.owasp.esapi.ESAPI" %>
 	<strong>Hello</strong> <%= ESAPI.encoder().encodeForHTML(request.getParameter("name")) %>
-	
-	<h1>Apache Commons</h1>
-	<%@ page import="org.apache.commons.lang3.StringEscapeUtils" %>
-	<strong>Hello</strong> <%= StringEscapeUtils.escapeHtml4(request.getParameter("name")) %>
 </body>
 </html>

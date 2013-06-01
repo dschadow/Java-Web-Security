@@ -21,11 +21,6 @@ Open the web application in your browser at http://localhost:8080/OutputEscaping
 			<artifactId>esapi</artifactId>
 			<version>2.0.1</version>
 		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.1</version>
-		</dependency>
 	</dependencies>
 
 	<build>
