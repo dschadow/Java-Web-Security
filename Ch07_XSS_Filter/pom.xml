@@ -9,9 +9,9 @@
 
 	<name>Ch07_XSS_Filter</name>
 	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
-	<description>XSS Filter Beispielprojekt zu Kapitel 7. Muss auf einem Server wie Apache Tomcat ausgeführt werden.
+	<description>Chapter 7 XSS filter sample project. Requires a server like Apache Tomcat.
 
-Aufruf mit http://localhost:8080/XSSFilter/</description>
+Open the web application in your browser at http://localhost:8080/XSSFilter/</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -41,7 +41,7 @@ Aufruf mit http://localhost:8080/XSSFilter/</description>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>3.1</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>

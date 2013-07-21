@@ -13,7 +13,7 @@ Open the web application in your browser at http://localhost:8080/OutputEscaping
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>3.2.2.RELEASE</spring.version>
+		<spring.version>3.2.3.RELEASE</spring.version>
 	</properties>
 
 	<dependencies>
@@ -40,7 +40,7 @@ Open the web application in your browser at http://localhost:8080/OutputEscaping
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
+				<version>3.1</version>
 				<configuration>
 					<source>1.7</source>
 					<target>1.7</target>
