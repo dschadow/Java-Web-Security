@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	
+	<h1>All security attributes for all elements</h1>
+	<h:form>
+	    <h2>selectOneMenu with Map</h2> 
+	  	<h:selectOneMenu>
+			<f:selectItems value="#{maximum.maximumMap}" itemLabelEscaped="true" />
+		</h:selectOneMenu>
+	    
+	    <h2>selectOneMenu with Array</h2>
+	  	<h:selectOneMenu>
+			<f:selectItems value="#{maximum.maximumArray}" var="a"
+				itemLabel="#{a.label}" itemValue="#{a.value}" itemLabelEscaped="true" />
+		</h:selectOneMenu>
+		
+		<h2>selectOneMenu with selectItem</h2>
+	  	<h:selectOneMenu>
+			<f:selectItem itemLabel="#{maximum.input}" itemValue="#{maximum.input}" escapeItem="true" escape="true" />
+		</h:selectOneMenu>
+		
+		<h2>outputText element</h2>
+		<h:outputText value="#{maximum.input}" escape="true" />
+		
+		<h2>outputText direct value expression</h2>
+		#{maximum.input}
+	</h:form>
+</h:body>
+</html>

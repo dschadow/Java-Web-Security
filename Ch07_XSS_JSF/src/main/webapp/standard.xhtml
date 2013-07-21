@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	
+	<h1>Default attributes for all elements</h1>
+	<h:form>
+	    <h2>selectOneMenu with Map</h2> 
+	  	<h:selectOneMenu>
+			<f:selectItems value="#{standard.standardMap}" />
+		</h:selectOneMenu>
+	    
+	    <h2>selectOneMenu with Array</h2>
+	  	<h:selectOneMenu>
+			<f:selectItems value="#{standard.standardArray}" var="a"
+				itemLabel="#{a.label}" itemValue="#{a.value}" />
+		</h:selectOneMenu>
+		
+		<h2>selectOneMenu with selectItem</h2>
+	  	<h:selectOneMenu>
+			<f:selectItem itemLabel="#{standard.input}" itemValue="#{standard.input}" />
+		</h:selectOneMenu>
+		
+		<h2>outputText element</h2>
+		<h:outputText value="#{standard.input}" />
+		
+		<h2>outputText direct value expression</h2>
+		#{standard.input}
+	</h:form>
+</h:body>
+</html>
