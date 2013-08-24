@@ -3,6 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 	<title>Output-Escaping</title>
 </head>
 <body>
@@ -13,9 +14,9 @@
 	<form name="noOutputEscaping" method="post" action="noOutputEscaping.jsp">
 		<table>
 			<tr>
-				<td>Name</td>
-				<td><input type="text" name="name"></td>
-				<td><input type="submit" value="Submit"></td>
+				<td><label for="unprotected" title="Name">Name</label></td>
+				<td><input type="text" id="unprotected" name="unprotected" /></td>
+				<td><input type="submit" value="Submit" /></td>
 			</tr>
 		</table>
 	</form>
@@ -25,9 +26,9 @@
 	<form name="withOutputEscaping" method="post" action="withOutputEscaping.jsp">
 		<table>
 			<tr>
-				<td>Name</td>
-				<td><input type="text" name="name"></td>
-				<td><input type="submit" name="submit" value="Submit"></td>
+				<td><label for="protected" title="Name">Name</label></td>
+				<td><input type="text" id="protected" name="protected" /></td>
+				<td><input type="submit" name="submit" value="Submit" /></td>
 			</tr>
 		</table>
 	</form>

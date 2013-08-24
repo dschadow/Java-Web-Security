@@ -3,9 +3,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 	<title>Without Output-Escaping</title>
 </head>
 <body>
-	<strong>Hello</strong> <%= request.getParameter("name") %>
+    <h1>Without Output-Escaping</h1>
+	<strong>Hello</strong> <%= request.getParameter("unprotected") %>
 </body>
 </html>

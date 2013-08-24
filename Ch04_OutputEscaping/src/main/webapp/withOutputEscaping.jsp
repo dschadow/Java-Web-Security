@@ -3,11 +3,15 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>With Output-Escaping</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+	<title>With ESAPI Output-Escaping</title>
 </head>
 <body>
-	<h1>ESAPI</h1>
+	<h1>With ESAPI Output-Escaping</h1>
 	<%@ page import="org.owasp.esapi.ESAPI" %>
-	<strong>Hello</strong> <%= ESAPI.encoder().encodeForHTML(request.getParameter("name")) %>
+	<p>(html) <strong>Hello</strong> <%= ESAPI.encoder().encodeForHTML(request.getParameter("protected")) %></p>
+    <p>(html attribute) <strong>Hello</strong> <%= ESAPI.encoder().encodeForHTMLAttribute(request.getParameter("protected")) %></p>
+    <p>(css) <strong>Hello</strong> <%= ESAPI.encoder().encodeForCSS(request.getParameter("protected")) %></p>
+    <p>(xml) <strong>Hello</strong> <%= ESAPI.encoder().encodeForXML(request.getParameter("protected")) %></p>
 </body>
 </html>
