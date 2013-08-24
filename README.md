@@ -5,7 +5,7 @@ WebAppSecurity
 See the following paragraphs for a short description and the requirements to execute the sample code and launch the (web) application.
 
 ###Ch04_OutputEscaping (4.3)
-Simple web application using JSPs to show the difference between doing output escaping via ESAPI and Apache Commons and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;hello&#x27;)&lt;/script&gt;* to see the difference.
+Simple web application using JSPs to show the difference between doing output escaping via ESAPI and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;hello&#x27;)&lt;/script&gt;* to see the difference.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
