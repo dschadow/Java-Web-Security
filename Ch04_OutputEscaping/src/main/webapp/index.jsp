@@ -15,7 +15,7 @@
 		<table>
 			<tr>
 				<td><label for="unprotected" title="Name">Name</label></td>
-				<td><input type="text" id="unprotected" name="unprotected" /></td>
+				<td><input type="text" id="unprotected" name="unprotected" class="text-input" /></td>
 				<td><input type="submit" value="Submit" /></td>
 			</tr>
 		</table>
@@ -27,7 +27,7 @@
 		<table>
 			<tr>
 				<td><label for="protected" title="Name">Name</label></td>
-				<td><input type="text" id="protected" name="protected" /></td>
+				<td><input type="text" id="protected" name="protected" class="text-input" /></td>
 				<td><input type="submit" name="submit" value="Submit" /></td>
 			</tr>
 		</table>
