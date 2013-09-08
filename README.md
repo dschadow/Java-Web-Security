@@ -1,41 +1,46 @@
-WebAppSecurity
+Java-Web-Security
 ==============
 
 ## Repository Content
-See the following paragraphs for a short description and the requirements to execute the sample code and launch the (web) application.
-
-###Ch04_OutputEscaping (4.3)
-Simple web application using JSPs to show the difference between doing output escaping via ESAPI and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;hello&#x27;)&lt;/script&gt;* to see the difference.
-
-**Requirements:** Apache Tomcat, Webbrowser
-
-###Ch04_OutputEscapingSpring (4.3)
-Simple Spring based web application using JSPs to show the two different possibilities to show user input in a web page with *${contact.firstname}* and *&lt;c:out value="${contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;Hello&#x27;)&lt;/script&gt;* to see the difference. Keep in mind that some browsers (like Google Chrome) provide some XSS protection and may filter your input (Firefox works fine at the moment).
-
-**Requirements:** Apache Tomcat, Webbrowser
-
-###Ch05_AccessReferenceMaps (5.3)
-Command line sample project. Both sample classes, *IntegerAccessReferenceMapSample* and *RandomAccessReferenceMapSample*, contain main() methods to start the sample.
-
-###Ch06_SQL-Injection
-
-###Ch06_XPath-Injection
-
-###Ch07_XSS
-
-###Ch07_XSS_JSF (7.4)
-Simple web application showing Cross-Site Scripting (XSS) with Java Server Faces.
-
-**Requirements:** Apache Tomcat, Webbrowser
-
-###Ch07_XSS_Filter
-
-###Ch08_CSRF
-Simple web application showing Cross-Site Request Forgery (CSRF) with GET and POST requests and how to protect forms with an anti CSRF token.
-
-**Requirements:** Apache Tomcat, Webbrowser
-
-##Setup
 All Java projects are created as Apache Maven projects (required are Java 7 and Maven 3). In Eclipse you therefore need to install the Maven integration and the git m2e connector via the update manager before you can import them as new projects.
 
 Mozilla Firefox is the recommended browser for all web applications. Keep in mind that browsers or some addons may block or filter certain attacks already.
+
+Use the Maven-Tomcat7-Plug-in to start each web application: **mvn tomcat7:run**. Open your browser and point it to **http://localhost:8080/PROJECT_NAME**, e.g. **http://localhost:8080/Ch04_OutputEscaping**. The project name is always the final part of the URL.
+
+See the following paragraphs for a short description and the requirements to execute the sample code and launch the (web) application.
+
+###Ch04_OutputEscaping
+Web application using JSPs to show the difference between doing output escaping via ESAPI and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;hello&#x27;)&lt;/script&gt;* to see the difference.
+
+**Requirements:** Apache Tomcat, Webbrowser
+
+###Ch04_OutputEscapingSpring
+Spring based web application using JSPs to show the two different possibilities to show user input in a web page with *${contact.firstname}* and *&lt;c:out value="${contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;Hello&#x27;)&lt;/script&gt;* to see the difference. Keep in mind that some browsers (like Google Chrome) provide some XSS protection and may filter your input (Firefox works fine at the moment).
+
+**Requirements:** Apache Tomcat, Webbrowser
+
+###Ch05_AccessReferenceMaps
+Command line sample project. Both sample classes, *IntegerAccessReferenceMapSample* and *RandomAccessReferenceMapSample*, contain main() methods to start the sample.
+
+###Ch05_SessionHandling
+
+###Ch06_SQLInjection
+
+###Ch06_XPathInjection
+
+###Ch07_XSS
+
+###Ch07_XSSJSF
+Web application showing Cross-Site Scripting (XSS) with Java Server Faces.
+
+**Requirements:** Apache Tomcat, Webbrowser
+
+###Ch07_XSSFilter
+
+###Ch07_XSSJSF
+
+###Ch08_CSRF
+Web application showing Cross-Site Request Forgery (CSRF) with GET and POST requests and how to protect forms with an anti CSRF token.
+
+**Requirements:** Apache Tomcat, Webbrowser
