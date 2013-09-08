@@ -5,28 +5,27 @@
 		<artifactId>javawebsecurity</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>Ch06_SQL-Injection</artifactId>
-	<packaging>jar</packaging>
-	<name>Ch06_SQL-Injection</name>
+	<artifactId>Ch07_XSSFilter</artifactId>
+	<packaging>war</packaging>
+	<name>Ch07_XSSFilter</name>
 	<url>https://github.com/dschadow/Java-Web-Security</url>
-	<description>SQL Injection Beispielprojekt zu Kapitel 6.</description>
+	<description>Chapter 7 XSS Filter sample project. Requires a server like Apache Tomcat.
+
+Open the web application in your browser at http://localhost:8080/Ch07_XSSFilter</description>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-		</dependency>
 		<dependency>
 			<groupId>org.owasp.esapi</groupId>
 			<artifactId>esapi</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
+		<finalName>Ch07_XSSFilter</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -35,6 +34,11 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.1</version>
 			</plugin>
 		</plugins>
 	</build>

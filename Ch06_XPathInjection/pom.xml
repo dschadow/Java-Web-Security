@@ -5,12 +5,12 @@
 		<artifactId>javawebsecurity</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>Ch06_XPath-Injection</artifactId>
+	<artifactId>Ch06_XPathInjection</artifactId>
 	<packaging>jar</packaging>
-	<name>Ch06_XPath-Injection</name>
+	<name>Ch06_XPathInjection</name>
 	<url>https://github.com/dschadow/Java-Web-Security</url>
 	<description>XPath Injection Beispielprojekt zu Kapitel 6.</description>
-	
+
 	<build>
 		<plugins>
 			<plugin>

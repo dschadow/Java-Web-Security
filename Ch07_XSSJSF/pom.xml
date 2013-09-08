@@ -5,13 +5,13 @@
 		<artifactId>javawebsecurity</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>Ch07_XSS_JSF</artifactId>
+	<artifactId>Ch07_XSSJSF</artifactId>
 	<packaging>war</packaging>
-	<name>Ch07_XSS_JSF</name>
+	<name>Ch07_XSSJSF</name>
 	<url>https://github.com/dschadow/Java-Web-Security</url>
 	<description>Chapter 7 XSS with JSF sample project. Requires a server like Apache Tomcat.
 
-Open the web application in your browser at http://localhost:8080/Ch07_XSS_JSF</description>
+Open the web application in your browser at http://localhost:8080/Ch07_XSSJSF</description>
 
 	<dependencies>
 		<dependency>
@@ -23,9 +23,9 @@ Open the web application in your browser at http://localhost:8080/Ch07_XSS_JSF</
 			<artifactId>jsf-impl</artifactId>
 		</dependency>
 	</dependencies>
-	
+
 	<build>
-		<finalName>Ch07_XSS_JSF</finalName>
+		<finalName>Ch07_XSSJSF</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
