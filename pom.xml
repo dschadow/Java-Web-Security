@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>javawebsecurity</artifactId>
+  <groupId>de.dominikschadow.javawebsecurity</groupId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>Java-Web-Security</name>
+
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/dschadow/Java-Web-Security/issues</url>
+  </issueManagement>
+
+  <modules>
+    <module>Ch04_OutputEscaping</module>
+    <module>Ch04_OutputEscapingSpring</module>
+    <module>Ch05_AccessReferenceMaps</module>
+    <module>Ch06_SQL-Injection</module>
+    <module>Ch06_XPath-Injection</module>
+    <module>Ch07_XSS</module>
+    <module>Ch07_XSS_Filter</module>
+    <module>Ch07_XSS_JSF</module>
+    <module>Ch08_CSRF</module>
+  </modules>
+</project>

@@ -2,10 +2,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
   http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>de.dominikschadow.webappsecurity</groupId>
+	<parent>
+		<groupId>de.dominikschadow.javawebsecurity</groupId>
+		<artifactId>javawebsecurity</artifactId>
+		<version>1.0.0</version>
+	</parent>
 	<artifactId>Ch07_XSS_JSF</artifactId>
 	<packaging>war</packaging>
-	<version>1.0.0</version>
 	<name>Ch07_XSS_JSF</name>
 	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
 	<description>Chapter 7 XSS with JSF sample project. Requires a server like Apache Tomcat.
