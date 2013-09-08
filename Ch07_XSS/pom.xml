@@ -12,7 +12,6 @@
 	<name>Ch07_XSS</name>
 
 	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<jboss.home>${env.JBOSS_HOME}</jboss.home>
 		<jboss.domain>default</jboss.domain>
 		<jboss.bom.version>1.0.2.Final</jboss.bom.version>

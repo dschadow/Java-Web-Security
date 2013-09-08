@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>de.dominikschadow.javawebsecurity</groupId>
@@ -9,21 +8,15 @@
 	<artifactId>Ch04_OutputEscapingSpring</artifactId>
 	<packaging>war</packaging>
 	<name>Ch04_OutputEscapingSpring</name>
+	<url>https://github.com/dschadow/Java-Web-Security</url>
 	<description>Chapter 4 Spring based Output Escaping sample project. Requires a server like Apache Tomcat.
 
-Open the web application in your browser at http://localhost:8080/OutputEscapingSpring/index.html</description>
-	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring.version>3.2.3.RELEASE</spring.version>
-	</properties>
+Open the web application in your browser at http://localhost:8080/Ch04_OutputEscapingSpring</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -37,9 +30,9 @@ Open the web application in your browser at http://localhost:8080/OutputEscaping
 			<version>1.2</version>
 		</dependency>
 	</dependencies>
-
+	
 	<build>
-		<finalName>OutputEscapingSpring</finalName>
+		<finalName>Ch04_OutputEscapingSpring</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

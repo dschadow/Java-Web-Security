@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>de.dominikschadow.javawebsecurity</groupId>
@@ -9,30 +8,24 @@
 	<artifactId>Ch08_CSRF</artifactId>
 	<packaging>war</packaging>
 	<name>Ch08_CSRF</name>
-	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
+	<url>https://github.com/dschadow/Java-Web-Security</url>
 	<description>Chapter 8 CSRF sample project. Requires a server like Apache Tomcat.
 
-Open the web application in your browser at http://localhost:8080/CSRF/</description>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+Open the web application in your browser at http://localhost:8080/Ch08_CSRF</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
-			<version>3.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.owasp.esapi</groupId>
 			<artifactId>esapi</artifactId>
-			<version>2.0.1</version>
 		</dependency>
 	</dependencies>
-
+	
 	<build>
-		<finalName>CSRF</finalName>
+		<finalName>Ch08_CSRF</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

@@ -1,6 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
-  http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0    http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>de.dominikschadow.javawebsecurity</groupId>
@@ -10,30 +8,24 @@
 	<artifactId>Ch07_XSS_JSF</artifactId>
 	<packaging>war</packaging>
 	<name>Ch07_XSS_JSF</name>
-	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
+	<url>https://github.com/dschadow/Java-Web-Security</url>
 	<description>Chapter 7 XSS with JSF sample project. Requires a server like Apache Tomcat.
 
-Open the web application in your browser at http://localhost:8080/XSSJSF/</description>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+Open the web application in your browser at http://localhost:8080/Ch07_XSS_JSF</description>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-api</artifactId>
-			<version>2.1.22</version>
 		</dependency>
 		<dependency>
 			<groupId>com.sun.faces</groupId>
 			<artifactId>jsf-impl</artifactId>
-			<version>2.1.22</version>
 		</dependency>
 	</dependencies>
-
+	
 	<build>
-		<finalName>XSSJSF</finalName>
+		<finalName>Ch07_XSS_JSF</finalName>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>

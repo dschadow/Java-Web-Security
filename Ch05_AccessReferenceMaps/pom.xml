@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>de.dominikschadow.javawebsecurity</groupId>
@@ -9,13 +8,20 @@
 	<artifactId>Ch05_AccessReferenceMaps</artifactId>
 	<packaging>jar</packaging>
 	<name>Ch05_AccessReferenceMaps</name>
+	<url>https://github.com/dschadow/Java-Web-Security</url>
 	<description>Chapter 5 AccessReferenceMaps sample project. Both sample classes, IntegerAccessReferenceMapSample and RandomAccessReferenceMapSample, contain main() methods to start the sample.</description>
-	<url>https://github.com/dschadow/JavaWebAppSecurity</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
+	<dependencies>
+		<dependency>
+			<groupId>org.owasp.esapi</groupId>
+			<artifactId>esapi</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+		</dependency>
+	</dependencies>
+	
 	<build>
 		<plugins>
 			<plugin>
@@ -28,16 +34,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<dependencies>
-		<dependency>
-			<groupId>org.owasp.esapi</groupId>
-			<artifactId>esapi</artifactId>
-			<version>2.0.1</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hsqldb</groupId>
-			<artifactId>hsqldb</artifactId>
-			<version>2.2.9</version>
-		</dependency>
-	</dependencies>
 </project>

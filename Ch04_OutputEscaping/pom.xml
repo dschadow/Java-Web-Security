@@ -1,5 +1,4 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>de.dominikschadow.javawebsecurity</groupId>
@@ -9,29 +8,18 @@
 	<artifactId>Ch04_OutputEscaping</artifactId>
 	<packaging>war</packaging>
 	<name>Ch04_OutputEscaping</name>
+	<url>https://github.com/dschadow/Java-Web-Security</url>
 	<description>Chapter 4 Output Escaping sample project. Requires a server like Apache Tomcat.
 
 Open the web application in your browser at http://localhost:8080/Ch04_OutputEscaping</description>
-	<url>https://github.com/dschadow/Java-Web-Security</url>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-	
 	<dependencies>
 		<dependency>
 			<groupId>org.owasp.esapi</groupId>
 			<artifactId>esapi</artifactId>
-			<version>2.0.1</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.servlet</groupId>
-                    <artifactId>servlet-api</artifactId>
-                </exclusion>
-            </exclusions>
 		</dependency>
 	</dependencies>
-
+	
 	<build>
 		<finalName>Ch04_OutputEscaping</finalName>
 		<plugins>
