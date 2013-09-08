@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.dominikschadow.javawebsecurity</groupId>
+		<artifactId>javawebsecurity</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>Ch05_SessionHandling</artifactId>
+	<packaging>jar</packaging>
+	<name>Ch05_SessionHandling</name>
+	<url>https://github.com/dschadow/Java-Web-Security</url>
+	<description>Chapter 5 Session Handling sample project. Requires a server like Apache Tomcat.
+
+Open the web application in your browser at http://localhost:8080/Ch05_SessionHandling</description>
+
+	<dependencies>
+	</dependencies>
+	
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

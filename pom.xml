@@ -72,6 +72,7 @@
     <module>Ch04_OutputEscaping</module>
     <module>Ch04_OutputEscapingSpring</module>
     <module>Ch05_AccessReferenceMaps</module>
+    <module>Ch05_SessionHandling</module>
     <module>Ch06_SQL-Injection</module>
     <module>Ch06_XPath-Injection</module>
     <module>Ch07_XSS</module>
