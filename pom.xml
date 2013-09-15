@@ -70,6 +70,7 @@
 
   <modules>
     <module>Ch04_OutputEscaping</module>
+    <module>Ch04_OutputEscapingJSF</module>
     <module>Ch04_OutputEscapingJSP</module>
     <module>Ch05_AccessReferenceMaps</module>
     <module>Ch05_SessionHandling</module>
