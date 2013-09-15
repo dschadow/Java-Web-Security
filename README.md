@@ -4,9 +4,9 @@ Java-Web-Security
 ## Repository Content
 All Java projects are created as Apache Maven projects (required are Java 7 and Maven 3). In Eclipse you therefore need to install the Maven integration and the git m2e connector via the update manager before you can import them as new projects.
 
-Mozilla Firefox is the recommended browser for all web applications. Keep in mind that browsers or some addons may block or filter certain attacks already.
+Mozilla Firefox is the recommended browser for all web applications. Keep in mind that browsers or some addons may block or filter certain attacks already. Try a different browser if a sample application is not working.
 
-Use the Maven-Tomcat7-Plug-in to start each web application: **mvn tomcat7:run**. Open your browser and point it to **http://localhost:8080/PROJECT_NAME**, e.g. **http://localhost:8080/Ch04_OutputEscaping**. The project name is always the final part of the URL.
+Use the Maven-Tomcat7-Plug-in in each project directory to start each web application: **mvn tomcat7:run-war** (or simply **mvn** in the console, since this is the default goal). Open your browser and point it to **http://localhost:8080/PROJECT_NAME**, e.g. **http://localhost:8080/Ch04_OutputEscaping**. The project name is always the final part of the URL.
 
 See the following paragraphs for a short description and the requirements to execute the sample code and launch the (web) application.
 
@@ -15,8 +15,13 @@ Web application using JSPs to show the difference between doing output escaping 
 
 **Requirements:** Apache Tomcat, Webbrowser
 
-###Ch04_OutputEscapingSpring
-Spring based web application using JSPs to show the two different possibilities to show user input in a web page with *${contact.firstname}* and *&lt;c:out value="${contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;Hello&#x27;)&lt;/script&gt;* to see the difference. Keep in mind that some browsers (like Google Chrome) provide some XSS protection and may filter your input (Firefox works fine at the moment).
+###Ch04_OutputEscapingJSP
+Spring based web application using Java Server Pages (JSP) to show the two different possibilities to show user input in a web page with *${contact.firstname}* and *&lt;c:out value="${contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;Hello&#x27;)&lt;/script&gt;* to see the difference.
+
+**Requirements:** Apache Tomcat, Webbrowser
+
+###Ch04_OutputEscapingJSF
+Web application using Java Server Faces (JSF) to show the two different possibilities to show user input in a web page with *#{contact.firstname}* and *&lt;h:outputText value="#{contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;Hello&#x27;)&lt;/script&gt;* to see the difference.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
