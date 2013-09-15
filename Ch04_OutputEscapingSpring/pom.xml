@@ -5,13 +5,12 @@
 		<artifactId>javawebsecurity</artifactId>
 		<version>1.0.0</version>
 	</parent>
-	<artifactId>Ch04_OutputEscapingSpring</artifactId>
+	<artifactId>Ch04_OutputEscapingJSP</artifactId>
 	<packaging>war</packaging>
-	<name>Ch04_OutputEscapingSpring</name>
+	<name>Ch04_OutputEscapingJSP</name>
 	<url>https://github.com/dschadow/Java-Web-Security</url>
-	<description>Chapter 4 Spring based Output Escaping sample project. Requires a server like Apache Tomcat.
-
-Open the web application in your browser at http://localhost:8080/Ch04_OutputEscapingSpring</description>
+    <description>Chapter 4 JSP Output Escaping sample project. Requires a server like Apache Tomcat or the Maven Tomcat7 plugin.
+        After starting, open the web application in your browser at http://localhost:8080/Ch04_OutputEscapingJSP</description>
 
 	<dependencies>
 		<dependency>
@@ -32,7 +31,8 @@ Open the web application in your browser at http://localhost:8080/Ch04_OutputEsc
 	</dependencies>
 	
 	<build>
-		<finalName>Ch04_OutputEscapingSpring</finalName>
+		<finalName>Ch04_OutputEscapingJSP</finalName>
+        <defaultGoal>tomcat7:run-war</defaultGoal>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
