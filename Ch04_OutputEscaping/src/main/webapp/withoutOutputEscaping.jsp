@@ -4,10 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="styles.css" />
-	<title>Without Output-Escaping</title>
+	<title>Ch04_OutputEscaping: Without Output-Escaping</title>
 </head>
 <body>
-    <h1>Without Output-Escaping</h1>
-	<strong>Hello</strong> <%= request.getParameter("unprotected") %>
+    <h1>Ch04_OutputEscaping: Without Output-Escaping</h1>
+	<p><strong>Hello</strong> <%= request.getParameter("unprotected") %></p>
 </body>
 </html>

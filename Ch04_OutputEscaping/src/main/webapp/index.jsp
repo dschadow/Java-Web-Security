@@ -4,14 +4,14 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="styles.css" />
-	<title>Output-Escaping</title>
+	<title>Ch04_OutputEscaping</title>
 </head>
 <body>
-	<h1>Output-Escaping</h1>
+	<h1>Ch04_OutputEscaping</h1>
 
 	<h2>Without Output-Escaping</h2>
 	
-	<form name="noOutputEscaping" method="post" action="noOutputEscaping.jsp">
+	<form name="withoutOutputEscaping" method="post" action="withoutOutputEscaping.jsp">
 		<table>
 			<tr>
 				<td><label for="unprotected" title="Name">Name</label></td>
