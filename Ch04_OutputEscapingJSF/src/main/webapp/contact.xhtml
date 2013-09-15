@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	
+	<h1>Ch04_OutputEscapingJSF: New Contact</h1>
+
+	<h:form>
+        <h2>Input with direct value expression</h2>
+        <p>#{contact.firstname} #{contact.lastname}</p>
+
+		<h2>Input with outputText element</h2>
+		<p><h:outputText value="#{contact.firstname}" /><h:outputText value=" " /><h:outputText value="#{contact.lastname}" /></p>
+	</h:form>
+</h:body>
+</html>
