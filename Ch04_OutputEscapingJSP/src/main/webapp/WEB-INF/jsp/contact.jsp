@@ -10,10 +10,10 @@
     <body>
         <h1>Ch04_OutputEscapingJSP: New Contact</h1>
 
-        <h2>Without Output-Escaping</h2>
+        <h2>Input with direct value expression</h2>
         <p><strong>Hello</strong> ${contact.firstname} ${contact.lastname}</p>
 
-        <h2>With Output-Escaping</h2>
+        <h2>Input with out element</h2>
         <p><strong>Hello</strong> <c:out value="${contact.firstname}" /> <c:out value="${contact.lastname}" /></p>
     </body>
 </html>
