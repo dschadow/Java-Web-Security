@@ -11,7 +11,7 @@ Use the Maven-Tomcat7-Plug-in in each project directory to start each web applic
 See the following paragraphs for a short description and the requirements to execute the sample code and launch the (web) application.
 
 ###Ch04_OutputEscaping
-Web application using JSPs to show the difference between doing output escaping via ESAPI and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;hello&#x27;)&lt;/script&gt;* to see the difference.
+Web application using Java Server Pages (JSP) to show the difference between doing output escaping via Enterprise Security API (ESAPII and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;hello&#x27;)&lt;/script&gt;* to see the difference.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
@@ -26,7 +26,9 @@ Web application using Java Server Faces (JSF) to show the two different possibil
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch05_AccessReferenceMaps
-Command line sample project. Both sample classes, *IntegerAccessReferenceMapSample* and *RandomAccessReferenceMapSample*, contain main() methods to start the sample.
+Web application using Java Server Faces (JSF) to show the difference between using unprotected and protected Maps (*IntegerAccessReferenceMaps* and *RandomAccessReferenceMaps*) with user data.
+
+**Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch05_SessionHandling
 
