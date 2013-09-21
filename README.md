@@ -26,7 +26,7 @@ Web application using Java Server Faces (JSF) to show the two different possibil
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch05_AccessReferenceMaps
-Web application using Java Server Faces (JSF) to show the difference between using unprotected and protected Maps (*IntegerAccessReferenceMaps* and *RandomAccessReferenceMaps*) with user data.
+Web application using Java Server Faces (JSF) to show the difference between using unprotected and protected Maps (with *IntegerAccessReferenceMaps* and *RandomAccessReferenceMaps*) with user data.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
