@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+	<link rel="stylesheet" type="text/css" href="styles.css" />
+	
+	<h1>Ch05_AccessReferenceMaps</h1>
+
+    <p>Your user id is <strong>#{accountBean.accountId}</strong>.</p>
+
+    <h2>Unprotected</h2>
+
+    <h:form id="unprotected">
+        <h:panelGrid columns="3">
+            <h:outputLabel value="Account ID" for="accountId" />
+            <h:inputText label="Account ID" value="#{accountBean.accountId}" id="accountId">
+                <f:validateLongRange minimum="1" maximum="100" />
+            </h:inputText>
+            <h:commandButton value="Submit" action="#{accountBean.show}" styleClass="send-button" />
+        </h:panelGrid>
+    </h:form>
+
+    <h2>Protected by IntegerAccessReferenceMap</h2>
+
+    <h:form id="protectedInteger">
+        <h:panelGrid columns="3">
+            <h:outputLabel value="Account ID" for="accountId" />
+            <h:inputText label="Account ID" value="#{accountBean.accountId}" id="accountId">
+                <f:validateLongRange minimum="1" maximum="100" />
+            </h:inputText>
+            <h:commandButton value="Submit" action="#{accountBean.show}" styleClass="send-button" />
+        </h:panelGrid>
+    </h:form>
+
+    <h2>Protected by RandomAccessReferenceMap</h2>
+
+    <h:form id="protectedRandom">
+        <h:panelGrid columns="3">
+            <h:outputLabel value="Account ID" for="accountId" />
+            <h:inputText label="Account ID" value="#{accountBean.accountId}" id="accountId">
+                <f:validateLongRange minimum="1" maximum="100" />
+            </h:inputText>
+            <h:commandButton value="Submit" action="#{accountBean.show}" styleClass="send-button" />
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>

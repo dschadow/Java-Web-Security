@@ -2,13 +2,13 @@
  * Copyright (C) 2013 Dominik Schadow, dominikschadow@gmail.com
  *
  * This file is part of JavaWebAppSecurity.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *  http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,28 +17,33 @@
  */
 package de.dominikschadow.webappsecurity;
 
-/**
- * Represents a simple user.
- *
- * @author Dominik Schadow
- */
-public class User {
-    private int userId;
-    private String name;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 
-    public int getUserId() {
-        return userId;
+@ManagedBean
+@SessionScoped
+public class AccountBean implements Serializable {
+    private Account account;
+    private int accountId = 1;
+
+    public int getAccountId() {
+        return accountId;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 
-    public String getName() {
-        return name;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
+    public String show() {
+        return "/account.xhtml";
     }
 }

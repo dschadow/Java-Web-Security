@@ -47,7 +47,7 @@ public class RandomAccessReferenceMapSample {
         RandomAccessReferenceMapSample sample = new RandomAccessReferenceMapSample();
         
         User userA = new User();
-        userA.setAccountId(42);
+        userA.setUserId(42);
         userA.setName("Marvin");
         
         List<String> accountReferences = sample.loadAccountsForUser(userA);
@@ -89,7 +89,7 @@ public class RandomAccessReferenceMapSample {
         try {
             con = DriverManager.getConnection("jdbc:hsqldb:file:src/main/resources/accountsDB; shutdown=true", "sa", "");
             pstmt = con.prepareStatement(query);
-            pstmt.setInt(1, user.getAccountId());
+            pstmt.setInt(1, user.getUserId());
             
             ResultSet rs = pstmt.executeQuery();
 
