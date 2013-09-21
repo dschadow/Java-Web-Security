@@ -29,7 +29,10 @@ import org.owasp.esapi.errors.AccessControlException;
 import org.owasp.esapi.reference.IntegerAccessReferenceMap;
 
 /**
+ * Loads accounts from the in-memory-database for the protected managed bean.
+ *
  * @author Dominik Schadow
+ * @see AccountBeanInteger
  */
 public class AccountsIntegerDAO {
     private IntegerAccessReferenceMap accounts = new IntegerAccessReferenceMap();

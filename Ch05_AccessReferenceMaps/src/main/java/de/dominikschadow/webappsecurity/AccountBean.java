@@ -24,6 +24,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Managed bean to access an account by account id. Does not verify the given account id and therefore does not provide any protection.
+ *
+ * @author Dominik Schadow
+ */
 @ManagedBean
 @SessionScoped
 public class AccountBean {

@@ -24,6 +24,11 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Managed bean to access an account by account reference (IntegerAccessReferenceMap). Only accounts belonging to the current user are contained in this map.
+ *
+ * @author Dominik Schadow
+ */
 @ManagedBean
 @SessionScoped
 public class AccountBeanInteger {

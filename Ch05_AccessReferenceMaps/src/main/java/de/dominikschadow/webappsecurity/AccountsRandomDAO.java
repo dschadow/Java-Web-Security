@@ -26,7 +26,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Loads accounts from the in-memory-database for the protected managed bean.
+ *
  * @author Dominik Schadow
+ * @see AccountBeanRandom
  */
 public class AccountsRandomDAO {
     private RandomAccessReferenceMap accounts = new RandomAccessReferenceMap();

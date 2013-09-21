@@ -20,6 +20,8 @@ package de.dominikschadow.webappsecurity;
 import java.io.Serializable;
 
 /**
+ * Simple account object representing one user account.
+ *
  * @author Dominik Schadow
  */
 public class Account implements Serializable {
