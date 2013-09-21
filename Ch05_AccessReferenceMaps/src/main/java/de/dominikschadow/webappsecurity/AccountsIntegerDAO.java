@@ -25,6 +25,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.owasp.esapi.errors.AccessControlException;
 import org.owasp.esapi.reference.IntegerAccessReferenceMap;
 
@@ -36,12 +37,13 @@ import org.owasp.esapi.reference.IntegerAccessReferenceMap;
  */
 public class AccountsIntegerDAO {
     private IntegerAccessReferenceMap accounts = new IntegerAccessReferenceMap();
+    private static final Logger LOGGER = Logger.getLogger(AccountsIntegerDAO.class);
 
     public AccountsIntegerDAO() {
         try {
             Class.forName("org.hsqldb.jdbcDriver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            LOGGER.error("Failed to load db driver", ex);
         }
     }
 
@@ -50,8 +52,8 @@ public class AccountsIntegerDAO {
 
         try {
             return accounts.getDirectReference(accountReference);
-        } catch (AccessControlException e) {
-            e.printStackTrace();
+        } catch (AccessControlException ex) {
+            LOGGER.error("Access to " + accountReference + " denied", ex);
 
             return null;
         }
@@ -86,29 +88,29 @@ public class AccountsIntegerDAO {
                 accounts.addDirectReference(account);
                 accountReferences.add(accounts.getIndirectReference(account));
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            LOGGER.error("SQL exception", ex);
         } finally {
             try {
                 if (rs != null) {
                     rs.close();
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            } catch (SQLException ex) {
+                LOGGER.error("Failed to close rs", ex);
             }
             try {
                 if (pstmt != null) {
                     pstmt.close();
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            } catch (SQLException ex) {
+                LOGGER.error("Failed to close pstmt", ex);
             }
             try {
                 if (con != null) {
                     con.close();
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            } catch (SQLException ex) {
+                LOGGER.error("Failed to close con", ex);
             }
         }
 
