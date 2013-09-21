@@ -5,13 +5,17 @@
 <h:body>
 	<link rel="stylesheet" type="text/css" href="styles.css" />
 	
-	<h1>Ch05_AccessReferenceMaps: Account Details for ID [#{accountBean.accountId}]</h1>
+	<h1>Ch05_AccessReferenceMaps: Account details (user id #{accountBean.userId})</h1>
 
-    <h:panelGrid columns="1">
-        <h:outputText value="Account name #{accountBean.account.name}" />
-        <h:outputText value="Account Type #{accountBean.account.type}" />
-        <h:outputText value="Account ID #{accountBean.account.accountId}" />
-        <h:outputText value="Account Owner #{accountBean.account.ownerId}" />
+    <h:panelGrid columns="2" rendered="#{accountBean.account != null}">
+        <strong>Account name</strong> <h:outputText value="#{accountBean.account.name}" />
+        <strong>Account type</strong> <h:outputText value="#{accountBean.account.type}" />
+        <strong>Account id</strong> <h:outputText value="#{accountBean.account.accountId}" />
+        <strong>Account owner</strong> <h:outputText value="#{accountBean.account.ownerId}" />
+    </h:panelGrid>
+
+    <h:panelGrid columns="1" rendered="#{accountBean.account == null}">
+        <p>No account found</p>
     </h:panelGrid>
 </h:body>
 </html>

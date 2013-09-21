@@ -8,7 +8,7 @@
 	
 	<h1>Ch05_AccessReferenceMaps</h1>
 
-    <p>Your user id is <strong>#{accountBean.accountId}</strong>.</p>
+    <p>Your user id is <strong>#{accountBean.userId}</strong>.</p>
 
     <h2>Unprotected</h2>
 
@@ -20,30 +20,34 @@
             </h:inputText>
             <h:commandButton value="Submit" action="#{accountBean.show}" styleClass="send-button" />
         </h:panelGrid>
+
+        <p>Valid account references for user id #{accountBean.userId} are <h:outputText value="#{accountBean.accountReferences}" />. All accounts between 1 and 5 are accessible.</p>
     </h:form>
 
     <h2>Protected by IntegerAccessReferenceMap</h2>
 
     <h:form id="protectedInteger">
         <h:panelGrid columns="3">
-            <h:outputLabel value="Account ID" for="accountId" />
-            <h:inputText label="Account ID" value="#{accountBean.accountId}" id="accountId">
+            <h:outputLabel value="Account Reference" for="accountId" />
+            <h:inputText label="Account Reference" value="#{accountBeanInteger.accountId}" id="accountId">
                 <f:validateLongRange minimum="1" maximum="100" />
             </h:inputText>
-            <h:commandButton value="Submit" action="#{accountBean.show}" styleClass="send-button" />
+            <h:commandButton value="Submit" action="#{accountBeanInteger.show}" styleClass="send-button" />
         </h:panelGrid>
+
+        <p>Valid account references for user id #{accountBeanInteger.userId} are <h:outputText value="#{accountBeanInteger.accountReferences}" />. Only these accounts are accessible.</p>
     </h:form>
 
     <h2>Protected by RandomAccessReferenceMap</h2>
 
     <h:form id="protectedRandom">
         <h:panelGrid columns="3">
-            <h:outputLabel value="Account ID" for="accountId" />
-            <h:inputText label="Account ID" value="#{accountBean.accountId}" id="accountId">
-                <f:validateLongRange minimum="1" maximum="100" />
-            </h:inputText>
-            <h:commandButton value="Submit" action="#{accountBean.show}" styleClass="send-button" />
+            <h:outputLabel value="Account Reference" for="accountId" />
+            <h:inputText label="Account Reference" value="#{accountBeanRandom.accountId}" id="accountId" />
+            <h:commandButton value="Submit" action="#{accountBeanRandom.show}" styleClass="send-button" />
         </h:panelGrid>
+
+        <p>Valid account references for user id #{accountBeanRandom.userId} are <h:outputText value="#{accountBeanRandom.accountReferences}" />. Only these accounts are accessible.</p>
     </h:form>
 </h:body>
 </html>

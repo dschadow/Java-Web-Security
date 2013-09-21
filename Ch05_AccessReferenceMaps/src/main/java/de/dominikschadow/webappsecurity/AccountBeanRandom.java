@@ -26,18 +26,17 @@ import java.util.List;
 
 @ManagedBean
 @SessionScoped
-public class AccountBean {
-    private Account account;
-    private int userId = 42;
-    private int accountId = 1;
-    private AccountsDAO dao;
+public class AccountBeanRandom {
     private List<String> accountReferences = new ArrayList<>();
+    private String accountId = "";
+    private int userId = 42;
+    private AccountsRandomDAO dao;
 
-    public int getAccountId() {
+    public String getAccountId() {
         return accountId;
     }
 
-    public void setAccountId(int accountId) {
+    public void setAccountId(String accountId) {
         this.accountId = accountId;
     }
 
@@ -46,7 +45,7 @@ public class AccountBean {
     }
 
     public Account getAccount() {
-        return account;
+        return dao.retrieveAccount(accountId);
     }
 
     public List<String> getAccountReferences() {
@@ -55,14 +54,14 @@ public class AccountBean {
 
     @PostConstruct
     public void loadData() {
-        dao = new AccountsDAO();
+        User currentUser = new User();
+        currentUser.setUserId(userId);
 
-        accountReferences = dao.getAccountsForUser(userId);
+        dao = new AccountsRandomDAO();
+        accountReferences = dao.loadAccountsForUser(currentUser);
     }
 
     public String show() {
-        account = dao.loadAccount(accountId);
-
-        return "/account.xhtml";
+        return "/accountRandom.xhtml";
     }
 }

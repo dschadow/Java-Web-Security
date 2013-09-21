@@ -2,13 +2,13 @@
  * Copyright (C) 2013 Dominik Schadow, dominikschadow@gmail.com
  *
  * This file is part of JavaWebAppSecurity.
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
- * 
+ *
  *  http://www.apache.org/licenses/LICENSE-2.0
- * 
+ *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
@@ -17,16 +17,20 @@
  */
 package de.dominikschadow.webappsecurity;
 
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
-/**
- * @author Dominik Schadow
- */
-public class Account implements Serializable {
-    private int accountId;
-    private String name;
-    private String type;
-    private int ownerId;
+@ManagedBean
+@SessionScoped
+public class AccountBeanInteger {
+    private List<String> accountReferences = new ArrayList<>();
+    private int accountId = 1;
+    private int userId = 42;
+    private AccountsIntegerDAO dao;
 
     public int getAccountId() {
         return accountId;
@@ -36,27 +40,28 @@ public class Account implements Serializable {
         this.accountId = accountId;
     }
 
-    public String getName() {
-        return name;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Account getAccount() {
+        return dao.retrieveAccount(accountId);
     }
 
-    public String getType() {
-        return type;
+    public List<String> getAccountReferences() {
+        return accountReferences;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    @PostConstruct
+    public void loadData() {
+        User currentUser = new User();
+        currentUser.setUserId(userId);
+
+        dao = new AccountsIntegerDAO();
+        accountReferences = dao.loadAccountsForUser(currentUser);
     }
 
-    public int getOwnerId() {
-        return ownerId;
-    }
-
-    public void setOwnerId(int ownerId) {
-        this.ownerId = ownerId;
+    public String show() {
+        return "/accountInteger.xhtml";
     }
 }

@@ -17,66 +17,40 @@
  */
 package de.dominikschadow.webappsecurity;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import org.owasp.esapi.errors.AccessControlException;
+import org.owasp.esapi.reference.IntegerAccessReferenceMap;
+import org.owasp.esapi.reference.RandomAccessReferenceMap;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.owasp.esapi.errors.AccessControlException;
-import org.owasp.esapi.reference.RandomAccessReferenceMap;
-
 /**
- * 
  * @author Dominik Schadow
  */
-public class RandomAccessReferenceMapSample {
+public class AccountsRandomDAO {
     private RandomAccessReferenceMap accounts = new RandomAccessReferenceMap();
 
-    public static void main(String[] args) {
+    public AccountsRandomDAO() {
         try {
             Class.forName("org.hsqldb.jdbcDriver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
-
-            return;
         }
-
-        RandomAccessReferenceMapSample sample = new RandomAccessReferenceMapSample();
-        
-        User userA = new User();
-        userA.setUserId(42);
-        userA.setName("Marvin");
-        
-        List<String> accountReferences = sample.loadAccountsForUser(userA);
-        sample.retrieveAccounts(accountReferences);
     }
-    
-    public void retrieveAccounts(List<String> accountReferences) {
-       
+
+    public Account retrieveAccount(String accountReference) {
         try {
-            for (String accountReference : accountReferences) {
-                Account account = accounts.getDirectReference(accountReference);
-                System.out.println("Indirect reference " + accountReference + " --> Account " + account.getName());
-            }
-            
-            // access not existing account
-            Account failure = accounts.getDirectReference("kfdUhd");
-            System.out.println("Indirect reference kfdUhd --> Account " + failure.getName());
+            return accounts.getDirectReference(accountReference);
         } catch (AccessControlException e) {
             e.printStackTrace();
+
+            return null;
         }
-        
     }
 
     public List<String> loadAccountsForUser(User user) {
-        List<String> accountReferences = queryAccounts(user);
-        
-        System.out.println("User " + user.getName() + " has " + accountReferences.size() + " accounts");
-        
-        return accountReferences;
+        return queryAccounts(user);
     }
 
     private List<String> queryAccounts(User user) {
@@ -85,13 +59,14 @@ public class RandomAccessReferenceMapSample {
 
         Connection con = null;
         PreparedStatement pstmt = null;
+        ResultSet rs = null;
 
         try {
             con = DriverManager.getConnection("jdbc:hsqldb:file:src/main/resources/accountsDB; shutdown=true", "sa", "");
             pstmt = con.prepareStatement(query);
             pstmt.setInt(1, user.getUserId());
-            
-            ResultSet rs = pstmt.executeQuery();
+
+            rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 Account account = new Account();
@@ -99,13 +74,20 @@ public class RandomAccessReferenceMapSample {
                 account.setName(rs.getString(2));
                 account.setType(rs.getString(3));
                 account.setOwnerId(rs.getInt(4));
-                
+
                 accounts.addDirectReference(account);
                 accountReferences.add(accounts.getIndirectReference(account));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
             try {
                 if (pstmt != null) {
                     pstmt.close();
