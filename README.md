@@ -31,6 +31,9 @@ Web application using Java Server Faces (JSF) to show the difference between usi
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch05_SessionHandling
+Web application containing a complete *web.xml* configuration showing how to protect cookies. Contains only a start page which tries to show the session cookie in a JavaScript popup.
+
+**Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch06_SQLInjection
 
