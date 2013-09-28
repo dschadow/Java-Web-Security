@@ -39,6 +39,11 @@ Web application containing a complete *web.xml* configuration showing how to pro
 
 ###Ch06_XPathInjection
 
+###Ch07_CSP
+Web application with two input processing servlet. One is unprotected and processes any input without input validation or output escaping and is prone to Cross-Site Scripting. The second servlet adds a minimal Content-Security-Policy header to the response and allows to use any source from the same page (URL). This already protects the response page from Cross-Site Scripting in supported browsers.
+
+**Requirements:** Apache Tomcat, Webbrowser
+
 ###Ch07_XSS
 
 ###Ch07_XSSJSF
