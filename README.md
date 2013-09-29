@@ -46,11 +46,6 @@ Web application with two input processing servlet. One is unprotected and proces
 
 ###Ch07_XSS
 
-###Ch07_XSSJSF
-Web application showing Cross-Site Scripting (XSS) with Java Server Faces.
-
-**Requirements:** Apache Tomcat, Webbrowser
-
 ###Ch07_XSSFilter
 
 ###Ch07_XSSJSF
