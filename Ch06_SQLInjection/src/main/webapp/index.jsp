@@ -9,6 +9,8 @@
 <body>
 	<h1>Ch06_SQLInjection</h1>
 
+    <p><strong>Valid customers are:</strong> Arthur Dent, Ford Prefect, Tricia Trillian McMillan, Zaphod Beeblebrox, Marvin, Slartibartfast</p>
+
 	<h2>Using Statement</h2>
 	
 	<form name="stmt" method="post" action="StatementServlet">
