@@ -23,6 +23,18 @@
 		</table>
 	</form>
 
+    <h2>Using Statement with Escaping</h2>
+
+    <form name="stmtEsc" method="post" action="StatementEscapingServlet">
+        <table>
+            <tr>
+                <td><label for="stmtEsc" title="Name">Name</label></td>
+                <td><input type="text" id="stmtEsc" name="name" class="text-input" /></td>
+                <td><input type="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+
 	<h2>Using Prepared Statement</h2>
 	
 	<form name="pstmt" method="post" action="PreparedStatementServlet">

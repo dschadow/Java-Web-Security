@@ -13,3 +13,10 @@ h2 {
 td {
 	font-size: 115%;
 }
+
+th {
+    background-color: darkgrey;
+    padding: 2pt;
+    font-weight: bold;
+    font-size: 125%;
+}
