@@ -11,7 +11,7 @@
 
 	<h2>Using Statement</h2>
 	
-	<form name="stmt" method="post" action="stmt.jsp">
+	<form name="stmt" method="post" action="StatementServlet">
 		<table>
 			<tr>
 				<td><label for="stmt" title="Name">Name</label></td>
@@ -23,7 +23,7 @@
 
 	<h2>Using Prepared Statement</h2>
 	
-	<form name="pstmt" method="post" action="pstmt.jsp">
+	<form name="pstmt" method="post" action="PreparedStatementServlet">
 		<table>
 			<tr>
 				<td><label for="pstmt" title="Name">Name</label></td>
@@ -35,7 +35,7 @@
 
     <h2>Using Hibernate Query Language (HQL)</h2>
 
-    <form name="hql" method="post" action="hql.jsp">
+    <form name="hql" method="post" action="HQLServlet">
         <table>
             <tr>
                 <td><label for="hql" title="Name">Name</label></td>
