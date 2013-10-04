@@ -1,0 +1,48 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+	<title>Ch06_SQLInjection</title>
+</head>
+<body>
+	<h1>Ch06_SQLInjection</h1>
+
+	<h2>Using Statement</h2>
+	
+	<form name="stmt" method="post" action="stmt.jsp">
+		<table>
+			<tr>
+				<td><label for="stmt" title="Name">Name</label></td>
+				<td><input type="text" id="stmt" name="name" class="text-input" /></td>
+				<td><input type="submit" value="Submit" /></td>
+			</tr>
+		</table>
+	</form>
+
+	<h2>Using Prepared Statement</h2>
+	
+	<form name="pstmt" method="post" action="pstmt.jsp">
+		<table>
+			<tr>
+				<td><label for="pstmt" title="Name">Name</label></td>
+				<td><input type="text" id="pstmt" name="name" class="text-input" /></td>
+				<td><input type="submit" name="submit" value="Submit" /></td>
+			</tr>
+		</table>
+	</form>
+
+    <h2>Using Hibernate Query Language (HQL)</h2>
+
+    <form name="hql" method="post" action="hql.jsp">
+        <table>
+            <tr>
+                <td><label for="hql" title="Name">Name</label></td>
+                <td><input type="text" id="hql" name="name" class="text-input" /></td>
+                <td><input type="submit" name="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
