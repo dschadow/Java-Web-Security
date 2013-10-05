@@ -9,4 +9,6 @@
 *.war
 *.ear
 *.iml
+*.log
+*.lck
 .pmd
