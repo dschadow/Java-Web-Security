@@ -17,6 +17,14 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
+import de.dominikschadow.webappsecurity.domain.Customer;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.service.ServiceRegistry;
+import org.hibernate.service.ServiceRegistryBuilder;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,6 +32,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -33,12 +43,19 @@ import java.io.PrintWriter;
 @WebServlet(name = "HQLServlet", urlPatterns = {"/HQLServlet"})
 public class HQLServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private SessionFactory sessionFactory;
+    private ServiceRegistry serviceRegistry;
 
     /**
      * @see javax.servlet.http.HttpServlet#HttpServlet()
      */
     public HQLServlet() {
         super();
+
+        Configuration configuration = new Configuration();
+        configuration.configure();
+        serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
+        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
     }
 
     /**
@@ -48,11 +65,40 @@ public class HQLServlet extends HttpServlet {
         String name = request.getParameter("name");
         System.out.println("Received " + name + " as POST parameter");
 
+        Session session = sessionFactory.openSession();
+        Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY CUST_ID");
+        query.setParameter("name", name);
+        List<Customer> customers = query.list();
+
         response.setContentType("text/html");
 
         try (PrintWriter out = response.getWriter()) {
+            out.println("<html>");
+            out.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head>");
+            out.println("<body>");
             out.println("<h1>Ch06_SQLInjection - Hibernate Query Language</h1>");
             out.println("<p><strong>Input was </strong> " + name + "</p>");
+            out.println("<h2>Customer Data</h2>");
+            out.println("<table>");
+            out.println("<tr>");
+            out.println("<th>ID</th>");
+            out.println("<th>Name</th>");
+            out.println("<th>Status</th>");
+            out.println("<th>Order Limit</th>");
+            out.println("</tr>");
+
+            for (Customer customer : customers) {
+                out.println("<tr>");
+                out.println("<td>" + customer.getCustId() + "</td>");
+                out.println("<td>" + customer.getName() + "</td>");
+                out.println("<td>" + customer.getStatus() + "</td>");
+                out.println("<td>" + customer.getOrderLimit() + "</td>");
+                out.println("</tr>");
+            }
+
+            out.println("<table>");
+            out.println("</body>");
+            out.println("</html>");
         } catch (IOException ex) {
             ex.printStackTrace();
         }
