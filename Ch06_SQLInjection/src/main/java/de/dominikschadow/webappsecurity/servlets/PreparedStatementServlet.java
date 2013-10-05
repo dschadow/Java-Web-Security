@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.dominikschadow.sqli.servlets;
+package de.dominikschadow.webappsecurity.servlets;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -30,14 +30,14 @@ import java.io.PrintWriter;
  *
  * @author Dominik Schadow
  */
-@WebServlet(name = "HQLServlet", urlPatterns = {"/HQLServlet"})
-public class HQLServlet extends HttpServlet {
+@WebServlet(name = "PreparedStatementServlet", urlPatterns = {"/PreparedStatementServlet"})
+public class PreparedStatementServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see javax.servlet.http.HttpServlet#HttpServlet()
      */
-    public HQLServlet() {
+    public PreparedStatementServlet() {
         super();
     }
 
@@ -51,7 +51,7 @@ public class HQLServlet extends HttpServlet {
         response.setContentType("text/html");
 
         try (PrintWriter out = response.getWriter()) {
-            out.println("<h1>Ch06_SQLInjection - Hibernate Query Language</h1>");
+            out.println("<h1>Ch06_SQLInjection - Prepared Statement</h1>");
             out.println("<p><strong>Input was </strong> " + name + "</p>");
         } catch (IOException ex) {
             ex.printStackTrace();

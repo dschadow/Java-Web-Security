@@ -15,7 +15,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.dominikschadow.sqli.domain;
+package de.dominikschadow.webappsecurity.domain;
 
 public class Customer {
     private int custId;

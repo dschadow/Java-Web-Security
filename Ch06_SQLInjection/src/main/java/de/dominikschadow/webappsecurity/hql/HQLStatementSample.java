@@ -1,4 +1,4 @@
-package de.dominikschadow.sqli.hql;
+package de.dominikschadow.webappsecurity.hql;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 
-import de.dominikschadow.sqli.domain.Customer;
+import de.dominikschadow.webappsecurity.domain.Customer;
 
 public class HQLStatementSample {
 

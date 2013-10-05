@@ -15,9 +15,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.dominikschadow.sqli.servlets;
+package de.dominikschadow.webappsecurity.servlets;
 
-import de.dominikschadow.sqli.domain.Customer;
+import de.dominikschadow.webappsecurity.domain.Customer;
+import org.owasp.esapi.ESAPI;
+import org.owasp.esapi.codecs.OracleCodec;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -60,7 +62,10 @@ public class StatementEscapingServlet extends HttpServlet {
         String name = request.getParameter("name");
         System.out.println("Received " + name + " as POST parameter");
 
-        String query = "SELECT * FROM customer WHERE name = '" + name + "' ORDER BY CUST_ID";
+        String safeName = ESAPI.encoder().encodeForSQL(new OracleCodec(), name);
+        System.out.println("Escaped name is " + safeName);
+
+        String query = "SELECT * FROM customer WHERE name = '" + safeName + "' ORDER BY CUST_ID";
         List<Customer> customers = new ArrayList<>();
 
         System.out.println("Final SQL query " + query);
@@ -98,7 +103,7 @@ public class StatementEscapingServlet extends HttpServlet {
             out.println("<html>");
             out.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head>");
             out.println("<body>");
-            out.println("<h1>Ch06_SQLInjection - Statement</h1>");
+            out.println("<h1>Ch06_SQLInjection - Statement with Escaping</h1>");
             out.println("<p><strong>Input was </strong> " + name + "</p>");
             out.println("<h2>Customer Data</h2>");
             out.println("<table>");

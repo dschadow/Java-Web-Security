@@ -15,9 +15,9 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.dominikschadow.sqli.servlets;
+package de.dominikschadow.webappsecurity.servlets;
 
-import de.dominikschadow.sqli.domain.Customer;
+import de.dominikschadow.webappsecurity.domain.Customer;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
