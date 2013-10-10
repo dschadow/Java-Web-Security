@@ -2,13 +2,13 @@ Java-Web-Security
 ==============
 
 ## Repository Content
-All Java projects are created as Apache Maven projects (required are Java 7 and Maven 3). In Eclipse you therefore need to install the Maven integration and the git m2e connector via the update manager before you can import them as new projects.
+All Java projects are created as **Apache Maven** projects (required are Java 7 and Maven 3). In Eclipse you therefore need to install the Maven integration and the **git m2e connector** via the Eclipse update manager before you can import them as new projects.
 
-Mozilla Firefox is the recommended browser for all web applications. Keep in mind that browsers or some addons may block or filter certain attacks already. Try a different browser if a sample application is not working.
+**Mozilla Firefox** is the recommended and up until today working browser for all web applications in this repository. Keep in mind that browsers or some addons may block or filter certain attacks already. Deactivate all blocking or intercepting addons or try a different browser if a sample application is not working.
 
-Use the Maven-Tomcat7-Plug-in in each project directory to start each web application: **mvn tomcat7:run-war** (or simply **mvn** in the console, since this is the default goal). Open your browser and point it to **http://localhost:8080/PROJECT_NAME**, e.g. **http://localhost:8080/Ch04_OutputEscaping**. The project name is always the final part of the URL.
+The easiest way to start a web application is to use the **Maven-Tomcat7-Plug-in** in each project directory to start a web application: **mvn tomcat7:run-war** (or simply **mvn** in the console, since this is the default goal). Open your browser and point it to **http://localhost:8080/PROJECT_NAME**, e.g. **http://localhost:8080/Ch04_OutputEscaping**. The project name is always the final part of the URL.
 
-See the following paragraphs for a short description and the requirements to execute the sample code and launch the (web) application.
+See the following paragraphs for a short description and the requirements to execute the sample code and launch the web application.
 
 ###Ch04_OutputEscaping
 Web application using Java Server Pages (JSP) to show the difference between doing output escaping via Enterprise Security API (ESAPII and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;hello&#x27;)&lt;/script&gt;* to see the difference.
@@ -36,6 +36,9 @@ Web application containing a complete *web.xml* configuration showing how to pro
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch06_SQLInjection
+Web application using user input to query a in-memory-database. The entered data is used as part of a normal *Statement*, an *escaped Statement*, a *Prepared Statement* and as input for a *Hibernate Query Language*.
+
+**Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch06_XPathInjection
 
