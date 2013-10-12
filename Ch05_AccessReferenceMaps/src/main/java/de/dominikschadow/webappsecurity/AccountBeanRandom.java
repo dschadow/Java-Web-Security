@@ -1,7 +1,8 @@
 /*
  * Copyright (C) 2013 Dominik Schadow, dominikschadow@gmail.com
  *
- * This file is part of JavaWebAppSecurity.
+ * This file is part of Java-Web-Security
+.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
