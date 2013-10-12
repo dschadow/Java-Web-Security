@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 import org.owasp.esapi.ESAPI;
 import org.owasp.esapi.codecs.OracleCodec;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -45,12 +46,8 @@ public class StatementEscapingServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private Connection con = null;
 
-    /**
-     * @see javax.servlet.http.HttpServlet#HttpServlet()
-     */
-    public StatementEscapingServlet() {
-        super();
-
+    @PostConstruct
+    public void init() {
         try {
             con = DriverManager.getConnection("jdbc:hsqldb:file:src/main/resources/customerDB; shutdown=true", "sa", "");
         } catch (SQLException ex) {

@@ -27,6 +27,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,12 +49,8 @@ public class HQLServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private SessionFactory sessionFactory;
 
-    /**
-     * @see javax.servlet.http.HttpServlet#HttpServlet()
-     */
-    public HQLServlet() {
-        super();
-
+    @PostConstruct
+    public void init() {
         Configuration configuration = new Configuration();
         configuration.configure();
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();

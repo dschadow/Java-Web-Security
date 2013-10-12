@@ -21,6 +21,7 @@ package de.dominikschadow.webappsecurity.servlets;
 import de.dominikschadow.webappsecurity.domain.Customer;
 import org.apache.log4j.Logger;
 
+import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -43,12 +44,8 @@ public class StatementServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private Connection con = null;
 
-    /**
-     * @see javax.servlet.http.HttpServlet#HttpServlet()
-     */
-    public StatementServlet() {
-        super();
-
+    @PostConstruct
+    public void init() {
         try {
             con = DriverManager.getConnection("jdbc:hsqldb:file:src/main/resources/customerDB; shutdown=true", "sa", "");
         } catch (SQLException ex) {
