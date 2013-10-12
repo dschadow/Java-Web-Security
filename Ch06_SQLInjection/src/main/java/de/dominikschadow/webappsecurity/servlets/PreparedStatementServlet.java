@@ -22,6 +22,7 @@ import de.dominikschadow.webappsecurity.domain.Customer;
 import org.apache.log4j.Logger;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +35,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Servlet using a Prepared Statement to query the in-memory-database. User input is not modified and used directly in the SQL query.
+ * Servlet using a Prepared Statement to query the in-memory-database.
+ * User input is not modified and used directly in the SQL query.
  *
  * @author Dominik Schadow
  */
@@ -48,6 +50,17 @@ public class PreparedStatementServlet extends HttpServlet {
     public void init() {
         try {
             con = DriverManager.getConnection("jdbc:hsqldb:file:src/main/resources/customerDB; shutdown=true", "sa", "");
+        } catch (SQLException ex) {
+            LOGGER.error(ex.getMessage(), ex);
+        }
+    }
+
+    @PreDestroy
+    public void destroy() {
+        try {
+            if (con != null) {
+                con.close();
+            }
         } catch (SQLException ex) {
             LOGGER.error(ex.getMessage(), ex);
         }

@@ -24,6 +24,7 @@ import org.owasp.esapi.ESAPI;
 import org.owasp.esapi.codecs.OracleCodec;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +37,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Servlet using a normal Statement to query the in-memory-database. User input is escaped with ESAPI and used in the SQL query afterwards.
+ * Servlet using a normal Statement to query the in-memory-database.
+ * User input is escaped with ESAPI and used in the SQL query afterwards.
  *
  * @author Dominik Schadow
  */
@@ -50,6 +52,17 @@ public class StatementEscapingServlet extends HttpServlet {
     public void init() {
         try {
             con = DriverManager.getConnection("jdbc:hsqldb:file:src/main/resources/customerDB; shutdown=true", "sa", "");
+        } catch (SQLException ex) {
+            LOGGER.error(ex.getMessage(), ex);
+        }
+    }
+
+    @PreDestroy
+    public void destroy() {
+        try {
+            if (con != null) {
+                con.close();
+            }
         } catch (SQLException ex) {
             LOGGER.error(ex.getMessage(), ex);
         }

@@ -28,6 +28,7 @@ import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,11 +36,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Servlet using Hibernate Query Language (HQL) to query the in-memory-database. User input is not modified and used directly in the HQL query.
+ * Servlet using Hibernate Query Language (HQL) to query the in-memory-database.
+ * User input is not modified and used directly in the HQL query.
  *
  * @author Dominik Schadow
  */
@@ -56,6 +57,14 @@ public class HQLServlet extends HttpServlet {
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
     }
+
+    @PreDestroy
+    public void destroy() {
+        if (sessionFactory != null) {
+            sessionFactory.close();
+        }
+    }
+
 
     /**
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
