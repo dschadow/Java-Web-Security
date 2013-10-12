@@ -18,6 +18,7 @@
 package de.dominikschadow.webappsecurity.servlets;
 
 import de.dominikschadow.webappsecurity.domain.Customer;
+import org.apache.log4j.Logger;
 import org.owasp.esapi.ESAPI;
 import org.owasp.esapi.codecs.OracleCodec;
 
@@ -33,12 +34,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Servlet using a normal Statement to query the in-memory-database. User input is escaped with ESAPI and used in the SQL query afterwards.
  *
  * @author Dominik Schadow
  */
 @WebServlet(name = "StatementEscapingServlet", urlPatterns = {"/StatementEscapingServlet"})
 public class StatementEscapingServlet extends HttpServlet {
+    private static final Logger LOGGER = Logger.getLogger(StatementEscapingServlet.class);
     private static final long serialVersionUID = 1L;
     private Connection con = null;
 
@@ -50,8 +52,8 @@ public class StatementEscapingServlet extends HttpServlet {
 
         try {
             con = DriverManager.getConnection("jdbc:hsqldb:file:src/main/resources/customerDB; shutdown=true", "sa", "");
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 
@@ -60,21 +62,22 @@ public class StatementEscapingServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        System.out.println("Received " + name + " as POST parameter");
+        LOGGER.info("Received " + name + " as POST parameter");
 
         String safeName = ESAPI.encoder().encodeForSQL(new OracleCodec(), name);
-        System.out.println("Escaped name is " + safeName);
+        LOGGER.info("Escaped name is " + safeName);
 
         String query = "SELECT * FROM customer WHERE name = '" + safeName + "' ORDER BY CUST_ID";
         List<Customer> customers = new ArrayList<>();
 
-        System.out.println("Final SQL query " + query);
+        LOGGER.info("Final SQL query " + query);
 
         Statement stmt = null;
+        ResultSet rs = null;
 
         try {
             stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            rs = stmt.executeQuery(query);
 
             while (rs.next()) {
                 Customer customer = new Customer();
@@ -85,15 +88,22 @@ public class StatementEscapingServlet extends HttpServlet {
 
                 customers.add(customer);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            LOGGER.error(ex.getMessage(), ex);
         } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException ex) {
+                LOGGER.error(ex.getMessage(), ex);
+            }
             try {
                 if (stmt != null) {
                     stmt.close();
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            } catch (SQLException ex) {
+                LOGGER.error(ex.getMessage(), ex);
             }
         }
 
@@ -104,7 +114,7 @@ public class StatementEscapingServlet extends HttpServlet {
             out.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head>");
             out.println("<body>");
             out.println("<h1>Ch06_SQLInjection - Statement with Escaping</h1>");
-            out.println("<p><strong>Input was </strong> " + name + "</p>");
+            out.println("<p><strong>Input</strong> " + name + "</p>");
             out.println("<h2>Customer Data</h2>");
             out.println("<table>");
             out.println("<tr>");
@@ -127,7 +137,7 @@ public class StatementEscapingServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            ex.printStackTrace();
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

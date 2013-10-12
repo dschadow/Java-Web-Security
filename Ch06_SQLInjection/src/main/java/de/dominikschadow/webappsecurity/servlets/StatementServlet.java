@@ -18,6 +18,7 @@
 package de.dominikschadow.webappsecurity.servlets;
 
 import de.dominikschadow.webappsecurity.domain.Customer;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,12 +32,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Servlet using a normal Statement to query the in-memory-database. User input is not modified and used directly in the SQL query.
  *
  * @author Dominik Schadow
  */
 @WebServlet(name = "StatementServlet", urlPatterns = {"/StatementServlet"})
 public class StatementServlet extends HttpServlet {
+    private static final Logger LOGGER = Logger.getLogger(StatementServlet.class);
     private static final long serialVersionUID = 1L;
     private Connection con = null;
 
@@ -48,8 +50,8 @@ public class StatementServlet extends HttpServlet {
 
         try {
             con = DriverManager.getConnection("jdbc:hsqldb:file:src/main/resources/customerDB; shutdown=true", "sa", "");
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 
@@ -58,18 +60,19 @@ public class StatementServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        System.out.println("Received " + name + " as POST parameter");
+        LOGGER.info("Received " + name + " as POST parameter");
 
         String query = "SELECT * FROM customer WHERE name = '" + name + "' ORDER BY CUST_ID";
         List<Customer> customers = new ArrayList<>();
 
-        System.out.println("Final SQL query " + query);
+        LOGGER.info("Final SQL query " + query);
 
         Statement stmt = null;
+        ResultSet rs = null;
 
         try {
             stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
+            rs = stmt.executeQuery(query);
 
             while (rs.next()) {
                 Customer customer = new Customer();
@@ -80,15 +83,22 @@ public class StatementServlet extends HttpServlet {
 
                 customers.add(customer);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException ex) {
+            LOGGER.error(ex.getMessage(), ex);
         } finally {
+            try {
+                if (rs != null) {
+                    rs.close();
+                }
+            } catch (SQLException ex) {
+                LOGGER.error(ex.getMessage(), ex);
+            }
             try {
                 if (stmt != null) {
                     stmt.close();
                 }
-            } catch (SQLException e) {
-                e.printStackTrace();
+            } catch (SQLException ex) {
+                LOGGER.error(ex.getMessage(), ex);
             }
         }
 
@@ -99,7 +109,7 @@ public class StatementServlet extends HttpServlet {
             out.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head>");
             out.println("<body>");
             out.println("<h1>Ch06_SQLInjection - Statement</h1>");
-            out.println("<p><strong>Input was </strong> " + name + "</p>");
+            out.println("<p><strong>Input</strong> " + name + "</p>");
             out.println("<h2>Customer Data</h2>");
             out.println("<table>");
             out.println("<tr>");
@@ -122,7 +132,7 @@ public class StatementServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            ex.printStackTrace();
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

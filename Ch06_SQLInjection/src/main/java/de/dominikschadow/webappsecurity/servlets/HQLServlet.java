@@ -18,6 +18,7 @@
 package de.dominikschadow.webappsecurity.servlets;
 
 import de.dominikschadow.webappsecurity.domain.Customer;
+import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -36,15 +37,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Servlet using Hibernate Query Language (HQL) to query the in-memory-database. User input is not modified and used directly in the HQL query.
  *
  * @author Dominik Schadow
  */
 @WebServlet(name = "HQLServlet", urlPatterns = {"/HQLServlet"})
 public class HQLServlet extends HttpServlet {
+    private static final Logger LOGGER = Logger.getLogger(HQLServlet.class);
     private static final long serialVersionUID = 1L;
     private SessionFactory sessionFactory;
-    private ServiceRegistry serviceRegistry;
 
     /**
      * @see javax.servlet.http.HttpServlet#HttpServlet()
@@ -54,7 +55,7 @@ public class HQLServlet extends HttpServlet {
 
         Configuration configuration = new Configuration();
         configuration.configure();
-        serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
+        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
     }
 
@@ -63,7 +64,7 @@ public class HQLServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        System.out.println("Received " + name + " as POST parameter");
+        LOGGER.info("Received " + name + " as POST parameter");
 
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY CUST_ID");
@@ -77,7 +78,7 @@ public class HQLServlet extends HttpServlet {
             out.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head>");
             out.println("<body>");
             out.println("<h1>Ch06_SQLInjection - Hibernate Query Language</h1>");
-            out.println("<p><strong>Input was </strong> " + name + "</p>");
+            out.println("<p><strong>Input</strong> " + name + "</p>");
             out.println("<h2>Customer Data</h2>");
             out.println("<table>");
             out.println("<tr>");
@@ -100,7 +101,7 @@ public class HQLServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            ex.printStackTrace();
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }
