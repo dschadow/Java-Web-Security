@@ -11,7 +11,7 @@ The easiest way to start a web application is to use the **Maven-Tomcat7-Plug-in
 See the following paragraphs for a short description and the requirements to execute the sample code and launch the web application.
 
 ###Ch04_OutputEscaping
-Web application using Java Server Pages (JSP) to show the difference between doing output escaping via Enterprise Security API (ESAPII and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;hello&#x27;)&lt;/script&gt;* to see the difference.
+Web application using Java Server Pages (JSP) to show the difference between doing output escaping via Enterprise Security API (ESAPI) and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;hello&#x27;)&lt;/script&gt;* to see the difference.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
