@@ -52,6 +52,9 @@ Web application with two input processing servlets. One is unprotected and proce
 ###Ch07_XSSFilter
 
 ###Ch07_XSSJSF
+Java Server Faces (JSF) based web application accepting user input in two forms. The first form results into an output page showing the user input in drop down boxes and output text fields with all default attributes active. The second form results into an output page using the same output fields with any additional security related attribute set to the maximum. Use an input like *&lt;script&gt;alert(&#x27;Hello&#x27;)&lt;/script&gt;* to challenge the JSF XSS protection.
+
+**Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch08_CSRF
 Web application showing Cross-Site Request Forgery (CSRF) with GET and POST requests and how to protect forms with an anti CSRF token.
