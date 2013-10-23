@@ -58,9 +58,14 @@ public class WithCSPServlet extends HttpServlet {
 //        response.setHeader("Content-Security-Policy", "default-src 'self' 'unsafe-inline'");
 
         try (PrintWriter out = response.getWriter()) {
+            out.println("<html>");
+            out.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head>");
+            out.println("<body>");
             out.println("<h1>Ch07_CSP</h1>");
             out.println("<h2>With Content Security Policy</h2>");
             out.println("<p><strong>Hello</strong> " + name + "</p>");
+            out.println("</body>");
+            out.println("</html>");
         } catch (IOException ex) {
             ex.printStackTrace();
         }

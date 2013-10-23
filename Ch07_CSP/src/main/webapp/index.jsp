@@ -32,5 +32,17 @@
 			</tr>
 		</table>
 	</form>
+
+    <h2>With Content Security Policy Reporting</h2>
+
+    <form name="withCSPReporting" method="post" action="WithCSPReportingServlet">
+        <table>
+            <tr>
+                <td><label for="reporting" title="Name">Name</label></td>
+                <td><input type="text" id="reporting" name="reporting" class="text-input" /></td>
+                <td><input type="submit" name="submit" value="Submit" /></td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>
