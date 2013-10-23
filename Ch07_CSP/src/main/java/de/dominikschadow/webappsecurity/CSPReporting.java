@@ -53,17 +53,17 @@ public class CSPReporting extends HttpServlet {
         System.out.println("CSP-Reporting-Servlet");
 
         try {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(request.getInputStream()));
-            StringBuilder responseStrBuilder = new StringBuilder();
+            BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()));
+            StringBuilder responseBuilder = new StringBuilder();
 
             String inputStr;
-            while ((inputStr = bufferedReader.readLine()) != null) {
-                responseStrBuilder.append(inputStr);
+            while ((inputStr = reader.readLine()) != null) {
+                responseBuilder.append(inputStr);
             }
 
-            JSONObject json = new JSONObject(responseStrBuilder.toString());
-            System.out.println("JSON " + json.toString());
+            System.out.println("REPORT " + responseBuilder.toString());
 
+            JSONObject json = new JSONObject(responseBuilder.toString());
             JSONObject cspReport = json.getJSONObject("csp-report");
             System.out.println("document-uri: " + cspReport.getString("document-uri"));
             System.out.println("referrer: " + cspReport.getString("referrer"));
@@ -72,9 +72,7 @@ public class CSPReporting extends HttpServlet {
             System.out.println("source-file: " + cspReport.getString("source-file"));
             System.out.println("script-sample: " + cspReport.getString("script-sample"));
             System.out.println("line-number: " + cspReport.getString("line-number"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
+        } catch (IOException | JSONException e) {
             e.printStackTrace();
         }
     }
