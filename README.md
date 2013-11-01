@@ -30,6 +30,11 @@ Web application using Java Server Faces (JSF) to show the difference between usi
 
 **Requirements:** Apache Tomcat, Webbrowser
 
+###Ch05_SessionFixation
+Web application invalidating an existing session and its session id before continuing in the login process. This web application requires the included special *context.xml* configuration for Tomcat in order to display the current session id via JavaScript.
+
+**Requirements:** Apache Tomcat, Webbrowser
+
 ###Ch05_SessionHandling
 Web application containing a complete *web.xml* configuration showing how to protect cookies. Contains only a start page which tries to show the session cookie in a JavaScript popup.
 

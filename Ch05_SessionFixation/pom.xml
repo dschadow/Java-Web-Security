@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.dominikschadow.javawebsecurity</groupId>
+		<artifactId>javawebsecurity</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>Ch05_SessionFixation</artifactId>
+	<packaging>war</packaging>
+	<name>Ch05_SessionFixation</name>
+	<url>https://github.com/dschadow/Java-Web-Security</url>
+    <description>Chapter 5 Session Fixation sample project. Requires a server like Apache Tomcat or the Maven Tomcat7 plugin.
+        After starting, open the web application in your browser at http://localhost:8080/Ch05_SessionFixation</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+	</dependencies>
+
+    <build>
+        <finalName>Ch05_SessionFixation</finalName>
+        <defaultGoal>tomcat7:run-war</defaultGoal>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.7</source>
+                    <target>1.7</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <version>2.1</version>
+                <configuration>
+                    <contextFile>${project.basedir}/src/main/resources/context.xml</contextFile>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
