@@ -15,6 +15,21 @@
         After starting, open the web application in your browser at http://localhost:8080/Ch06_XPathInjection
     </description>
 
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.owasp.esapi</groupId>
+            <artifactId>esapi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>Ch06_XPathInjection</finalName>
         <defaultGoal>tomcat7:run-war</defaultGoal>
