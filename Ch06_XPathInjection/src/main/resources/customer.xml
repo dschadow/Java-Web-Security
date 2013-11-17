@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <customers>
-	<customer id="1" name="Arthur Dent" password="Arthur">
+	<customer id="1" password="Arthur">
+        <name>Arthur Dent</name>
 		<status>A</status>
 		<orderLimit>10000</orderLimit>
 	</customer>	
-	<customer id="2" name="Ford Prefect" password="Ford">
+	<customer id="2" password="Ford">
+        <name>Ford Prefect</name>
 		<status>B</status>
 		<orderLimit>5000</orderLimit>
 	</customer>	
-	<customer id="3" name="Tricia Trillian McMillan" password="Tricia">
+	<customer id="3" password="Tricia">
+        <name>Tricia Trillian McMillan</name>
 		<status>C</status>
 		<orderLimit>1000</orderLimit>
 	</customer>	
-	<customer id="4" name="Zaphod Beeblebrox" password="Zaphod">
+	<customer id="4" password="Zaphod">
+        <name>Zaphod Beeblebrox</name>
 		<status>D</status>
 		<orderLimit>500</orderLimit>
 	</customer>	
-	<customer id="5" name="Marvin" password="Marvin">
+	<customer id="5" password="Marvin">
+        <name>Marvin</name>
 		<status>A</status>
 		<orderLimit>100000</orderLimit>
 	</customer>
-    <customer id="5" name="Slartibartfast" password="Slartibartfast">
+    <customer id="5" password="Slartibartfast">
+        <name>Slartibartfast</name>
         <status>D</status>
         <orderLimit>100</orderLimit>
     </customer>
