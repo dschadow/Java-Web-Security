@@ -46,6 +46,9 @@ Web application using user input to query a in-memory-database. The entered data
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch06_XPathInjection
+Web application using user input to query a simple XML document. The entered data (name and password) is used as part of a normal *XPath expression* without any escaping and escaped as part of another *XPath expression*. The unescaped version is prune to XPath Injection, which makes it possible to retrieve more data of the XML document as the intended order limit.
+
+**Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch07_CSP
 Web application with three input processing servlets. One is unprotected and processes any input without input validation or output escaping and is prone to Cross-Site Scripting. The second servlet adds a minimal *Content-Security-Policy* header to the response and allows to use any source from the same page (URL). This already protects the response page from Cross-Site Scripting in supported browsers. The third form adds a *Content-Security-Policy-Report-Only* header and shows how easy the reported data can be processed.
