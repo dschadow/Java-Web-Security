@@ -30,6 +30,11 @@ Web application using Java Server Faces (JSF) to show the difference between usi
 
 **Requirements:** Apache Tomcat, Webbrowser
 
+###Ch05_HSTS
+Web application using a Servlet filter to add the *Strict-Transport-Security* header to each response.
+
+**Requirements:** Apache Tomcat, Webbrowser
+
 ###Ch05_SessionFixation
 Web application invalidating an existing session and its session id before continuing in the login process. This web application requires the included special *context.xml* configuration for Tomcat in order to display the current session id via JavaScript.
 

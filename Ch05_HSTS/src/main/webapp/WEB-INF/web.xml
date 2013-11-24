@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="HSTS" version="3.0">
+    <display-name>HSTS</display-name>
+    <filter>
+        <filter-name>HSTSFilter</filter-name>
+        <filter-class>de.dominikschadow.webappsecurity.filter.HSTSFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>HSTSFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>

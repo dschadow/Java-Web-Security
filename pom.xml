@@ -113,5 +113,6 @@
         <module>Ch07_XSSFilter</module>
         <module>Ch07_XSSJSF</module>
         <module>Ch08_CSRF</module>
+        <module>Ch05_HSTS</module>
     </modules>
 </project>
