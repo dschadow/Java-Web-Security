@@ -54,7 +54,7 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>4.2.8</version>
+                <version>4.2.8.Final</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.faces</groupId>
