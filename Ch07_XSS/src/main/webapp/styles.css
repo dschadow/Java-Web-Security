@@ -6,6 +6,20 @@ li {
     font-size: 18px;
 }
 
+th {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+td {
+    font-size: 18px;
+    padding: 5px;
+}
+
+p {
+    font-size: 20px;
+}
+
 .send-button {
 	margin-left: 25px;
 }
