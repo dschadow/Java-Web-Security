@@ -12,6 +12,8 @@
         <h:link outcome="/index.xhtml" value="Home" /> | <h:link outcome="/createCustomer.xhtml" value="Create Customer" /> | <h:link outcome="/showCustomers.xhtml" value="Show Customers" /> | <h:link outcome="/search.xhtml" value="Search Customer" />
     </h:form>
 
+    <p>Your search for <strong><h:outputText value="#{searchBean.customer.name}" escape="false"/></strong> returned the following results:</p>
+
     <h:form>
         <h:dataTable var="customer" value="#{searchBean.customers}">
             <h:column>
