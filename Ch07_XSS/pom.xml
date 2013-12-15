@@ -47,6 +47,9 @@
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <contextFile>${project.basedir}/src/main/resources/context.xml</contextFile>
+                </configuration>
             </plugin>
         </plugins>
     </build>
