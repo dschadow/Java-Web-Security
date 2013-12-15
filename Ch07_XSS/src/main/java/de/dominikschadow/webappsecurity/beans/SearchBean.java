@@ -29,13 +29,14 @@ import java.util.List;
  *
  * @author Dominik Schadow
  */
-@ManagedBean(name = "customerBean")
+@ManagedBean(name = "searchBean")
 @RequestScoped
-public class CustomerBean {
+public class SearchBean {
     private Customer customer;
     private CustomerDAO customerDAO;
+    private List<Customer> customers;
 
-    public CustomerBean() {
+    public SearchBean() {
         customer = new Customer();
         customerDAO = new CustomerDAO();
     }
@@ -49,12 +50,12 @@ public class CustomerBean {
     }
 
     public List<Customer> getCustomers() {
-        return customerDAO.getAllCustomers();
+        return customers;
     }
 
-    public String save() {
-        customerDAO.createCustomer(customer);
+    public String search() {
+        customers = customerDAO.findCustomers(customer);
 
-        return "/showCustomers.xhtml";
+        return "/searchCustomer.xhtml";
     }
 }
