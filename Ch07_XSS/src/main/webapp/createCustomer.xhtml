@@ -1,24 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	template="/WEB-INF/templates/template.xhtml">
-	<ui:define name="content">
-		<h1>Kunde anlegen</h1>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 
-		<h:form>
-			<h:panelGrid columns="2">
-				<h:outputLabel value="Name" for="name" />
-				<h:inputText value="#{currentCustomer.name}" label="Name" id="name "/>
-				
-				<h:outputLabel value="Status" for="status" />
-				<h:inputText value="#{currentCustomer.status}" label="Status" id="status "/>
-				
-				<h:outputLabel value="Order Limit" for="orderLimit" />
-				<h:inputText value="#{currentCustomer.orderLimit}" label="Order Limit" id="orderLimit "/>
-			</h:panelGrid>
-			<h:commandButton value="Speichern" action="#{customerController.saveNewCustomer()}" />
-		</h:form>
-	</ui:define>
-</ui:composition>
+    <h1>Create Customer</h1>
+
+    <h:form>
+        <h:link outcome="/index.xhtml" value="Home" /> | <h:link outcome="/showCustomers.xhtml" value="Show Customers" /> | <h:link outcome="/search.xhtml" value="Search Customer" />
+    </h:form>
+
+    <h:form id="createCustomer">
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Name" for="cName" />
+            <h:inputText value="#{customerBean.customer.name}" label="Name" id="cName"/>
+
+            <h:outputLabel value="Status" for="cStatus" />
+            <h:inputText value="#{customerBean.customer.status}" label="Status" id="cStatus"/>
+
+            <h:outputLabel value="Order Limit" for="cOrderLimit" />
+            <h:inputText value="#{customerBean.customer.orderLimit}" label="Order Limit" id="cOrderLimit"/>
+
+            <h:outputLabel value="Comment" for="cComment" title="Customer comment with HTML enabled"/>
+            <h:inputTextarea value="#{customerBean.customer.comment}" label="Comment" id="cComment"/>
+        </h:panelGrid>
+        <h:commandButton value="Save" action="#{customerBean.save}" styleClass="send-button" />
+    </h:form>
+</h:body>
+</html>

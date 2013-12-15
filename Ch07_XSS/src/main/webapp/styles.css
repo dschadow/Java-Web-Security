@@ -1,0 +1,19 @@
+.text-input {
+    width: 250px;
+}
+
+li {
+    font-size: 18px;
+}
+
+.send-button {
+	margin-left: 25px;
+}
+
+h1 {
+	font-size: 125%;
+}
+
+h2 {
+	font-size: 110%;
+}

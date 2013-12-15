@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <h1>Search Customers</h1>
+
+    <h:form>
+        <h:link outcome="/index.xhtml" value="Home" /> | <h:link outcome="/createCustomer.xhtml" value="Create Customer" /> | <h:link outcome="/showCustomers.xhtml" value="Show Customers" />
+    </h:form>
+
+    <h:form id="searchCustomers">
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Name" for="cName" />
+            <h:inputText value="#{searchBean.customer.name}" label="Name" id="cName"/>
+        </h:panelGrid>
+        <h:commandButton value="Search" action="#{searchBean.search}" styleClass="send-button" />
+    </h:form>
+</h:body>
+</html>

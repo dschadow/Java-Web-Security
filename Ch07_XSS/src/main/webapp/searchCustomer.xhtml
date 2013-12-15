@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:body>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <h1>Search Customers</h1>
+
+    <h:form>
+        <h:link outcome="/index.xhtml" value="Home" /> | <h:link outcome="/createCustomer.xhtml" value="Create Customer" /> | <h:link outcome="/showCustomers.xhtml" value="Show Customers" /> | <h:link outcome="/search.xhtml" value="Search Customer" />
+    </h:form>
+
+    <h:form>
+        <h:dataTable var="customer" value="#{searchBean.customers}">
+            <h:column>
+                <f:facet name="header">ID</f:facet>
+                <h:outputText value="#{customer.custId}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Name</f:facet>
+                <h:outputText value="#{customer.name}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Status</f:facet>
+                <h:outputText value="#{customer.status}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Order Limit</f:facet>
+                <h:outputText value="#{customer.orderLimit}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Comment</f:facet>
+                <h:outputText escape="false" value="#{customer.comment}" />
+            </h:column>
+        </h:dataTable>
+    </h:form>
+</h:body>
+</html>
