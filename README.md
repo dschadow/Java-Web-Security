@@ -61,6 +61,11 @@ Web application with three input processing servlets. One is unprotected and pro
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch07_XSS
+Web application to test the three XSS types *stored*, *reflected* and *DOM based*. The comment input field is vulnerable to XSS and can be easily protected by enabling output escaping. Cookie could be protected by removing the special *context.xml* and by setting the corresponding *web.xml* parameter.
+
+This web application requires the included special *context.xml* configuration for Tomcat in order to display the current session id via JavaScript.
+
+**Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch07_XSSFilter
 
