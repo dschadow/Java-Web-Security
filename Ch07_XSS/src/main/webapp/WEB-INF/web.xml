@@ -1,13 +1,30 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+	xmlns="http://java.sun.com/xml/ns/javaee"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	id="XSS" version="3.0">
-	<display-name>Cross-Site Scripting Sample Application</display-name>
+    <display-name>Ch07_XSS</display-name>
+
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+    <welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file>
+    </welcome-file-list>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
 	
-	<!-- der session-config Block muss auskommentiert werden, damit XSS auf den Cookie funktioniert -->
 	<session-config>
+	    <!-- http-only must be on false in order for a working XSS sample attack -->
 		<cookie-config>
-			<http-only>true</http-only>
+			<http-only>false</http-only>
 		</cookie-config>
 		<tracking-mode>COOKIE</tracking-mode>
 	</session-config>
