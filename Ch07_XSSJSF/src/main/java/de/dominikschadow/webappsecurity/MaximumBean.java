@@ -17,46 +17,44 @@
  */
 package de.dominikschadow.webappsecurity;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
 
 /**
  * Bean representing user input into the maximum protected output page
  * (with additional security related attributes).
- * 
+ *
  * @author Dominik Schadow
  */
 @ManagedBean(name = "maximum")
 @SessionScoped
 public class MaximumBean implements Serializable {
-	private static final long serialVersionUID = 600561947836364528L;
+    private static final long serialVersionUID = 600561947836364528L;
+    private String input = "<script>alert('XSS with JSF')</script>";
+    private Map<String, String> maximumMap = null;
+    private Status[] maximumArray = null;
 
-	private String input = "<script>alert('XSS with JSF')</script>";
+    public Map<String, String> getMaximumMap() {
+        return maximumMap;
+    }
 
-	private Map<String, String> maximumMap = null;
-	private Status[] maximumArray = null;
+    public Status[] getMaximumArray() {
+        return maximumArray;
+    }
 
-	public Map<String, String> getMaximumMap() {
-		return maximumMap;
-	}
-	
-	public Status[] getMaximumArray() {
-	    return maximumArray;
-	}
-
-	public String getInput() {
+    public String getInput() {
         return input;
     }
 
     public void setInput(String input) {
         this.input = input;
-        
-        maximumMap = new LinkedHashMap<String, String>();
+
+        maximumMap = new LinkedHashMap<>();
         maximumMap.put(input, input);
-        
+
         maximumArray = new Status[1];
         maximumArray[0] = new Status(input);
     }

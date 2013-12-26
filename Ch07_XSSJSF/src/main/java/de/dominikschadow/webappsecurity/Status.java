@@ -21,7 +21,7 @@ import java.io.Serializable;
 
 /**
  * Represents one Status array entry.
- * 
+ *
  * @author Dominik Schadow
  */
 public class Status implements Serializable {
