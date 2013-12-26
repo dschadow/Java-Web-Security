@@ -68,6 +68,9 @@ This web application requires the included special *context.xml* configuration f
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch07_XSSFilter
+Web application showing the differences between a blacklist and an ESAPI based request filtering. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to see the different output on the output pages.
+
+**Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch07_XSSJSF
 Java Server Faces (JSF) based web application accepting user input in two forms. The first form results into an output page showing the user input in drop down boxes and output text fields with all default attributes active. The second form results into an output page using the same output fields with any additional security related attribute set to the maximum. Use an input like *&lt;script&gt;alert(&#x27;Hello&#x27;)&lt;/script&gt;* to challenge the JSF XSS protection.
