@@ -11,17 +11,17 @@ The easiest way to start a web application is to use the **Maven-Tomcat7-Plug-in
 See the following paragraphs for a short description and the requirements to execute the sample code and launch the web application.
 
 ###Ch04_OutputEscaping
-Web application using Java Server Pages (JSP) to show the difference between doing output escaping via Enterprise Security API (ESAPI) and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;hello&#x27;)&lt;/script&gt;* to see the difference.
+Web application using Java Server Pages (JSP) to show the difference between doing output escaping via Enterprise Security API (ESAPI) and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to see the difference.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch04_OutputEscapingJSF
-Web application using Java Server Faces (JSF) to show the two different possibilities to show user input in a web page with *#{contact.firstname}* and *&lt;h:outputText value="#{contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;Hello&#x27;)&lt;/script&gt;* to see the difference.
+Web application using Java Server Faces (JSF) to show the two different possibilities to show user input in a web page with *#{contact.firstname}* and *&lt;h:outputText value="#{contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to see the difference.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch04_OutputEscapingJSP
-Spring based web application using Java Server Pages (JSP) to show the two different possibilities to show user input in a web page with *${contact.firstname}* and *&lt;c:out value="${contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;Hello&#x27;)&lt;/script&gt;* to see the difference.
+Spring based web application using Java Server Pages (JSP) to show the two different possibilities to show user input in a web page with *${contact.firstname}* and *&lt;c:out value="${contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to see the difference.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
@@ -73,7 +73,7 @@ Web application showing the differences between a blacklist and an ESAPI based r
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch07_XSSJSF
-Java Server Faces (JSF) based web application accepting user input in two forms. The first form results into an output page showing the user input in drop down boxes and output text fields with all default attributes active. The second form results into an output page using the same output fields with any additional security related attribute set to the maximum. Use an input like *&lt;script&gt;alert(&#x27;Hello&#x27;)&lt;/script&gt;* to challenge the JSF XSS protection.
+Java Server Faces (JSF) based web application accepting user input in two forms. The first form results into an output page showing the user input in drop down boxes and output text fields with all default attributes active. The second form results into an output page using the same output fields with any additional security related attribute set to the maximum. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to challenge the JSF XSS protection.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
