@@ -15,8 +15,8 @@
 		<table>
 			<tr>
 				<td>Name</td>
-				<td><input type="text" name="name"></td>
-				<td><input type="submit" value="Submit"></td>
+				<td><input type="text" name="name" class="text-input"></td>
+				<td><input type="submit" value="Submit" class="send-button"></td>
 			</tr>
 		</table>
 	</form>
@@ -27,8 +27,8 @@
         <table>
             <tr>
                 <td>Name</td>
-                <td><input type="text" name="name"></td>
-                <td><input type="submit" value="Submit"></td>
+                <td><input type="text" name="name" class="text-input"></td>
+                <td><input type="submit" value="Submit" class="send-button"></td>
             </tr>
         </table>
     </form>
