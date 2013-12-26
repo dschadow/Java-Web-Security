@@ -16,46 +16,52 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.dominikschadow.webappsecurity;
+package de.dominikschadow.webappsecurity.servlets;
 
-import java.io.IOException;
-import java.io.PrintWriter;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
+ * Basic unprotected servlet for GET and POST requests. Prints out all information to standard out
+ * and returns the received parameter as response.
+ *
  * @author Dominik Schadow
  */
 @WebServlet(name = "CSRFServlet", urlPatterns = {"/CSRFServlet"})
 public class CSRFServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CSRFServlet() {
-        super();
-    }
+    private static final Logger LOGGER = Logger.getLogger(CSRFServlet.class);
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        System.out.println("Processing unprotected GET request");
-
         String name = request.getParameter("name");
-        System.out.println("Unprotected: Received " + name + " as GET parameter");
+        LOGGER.info("Processing unprotected GET request: Received " + name + " as parameter");
 
         response.setContentType("text/html");
 
         try (PrintWriter out = response.getWriter()) {
-            out.println("Received " + name + " as GET parameter");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Ch08_CSRF</title>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" />");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Ch08_CSRF</h1>");
+            out.println("<p>Received <b>" + name + "</b> as GET parameter.</p>");
+            out.println("<p><a href=\"requests-unprotected.jsp\">Back</a></p>");
+            out.println("</body>");
+            out.println("</html>");
         } catch (IOException ex) {
-            ex.printStackTrace();
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 
@@ -63,17 +69,25 @@ public class CSRFServlet extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        System.out.println("Processing unprotected POST request");
-
         String name = request.getParameter("name");
-        System.out.println("Unprotected: Received " + name + " as POST parameter");
+        LOGGER.info("Processing unprotected POST request: Received " + name + " as parameter");
 
         response.setContentType("text/html");
 
         try (PrintWriter out = response.getWriter()) {
-            out.println("Received " + name + " as POST parameter");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Ch08_CSRF</title>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" />");
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Ch08_CSRF</h1>");
+            out.println("<p>Received <b>" + name + "</b> as POST parameter.</p>");
+            out.println("<p><a href=\"requests-unprotected.jsp\">Back</a></p>");
+            out.println("</body>");
+            out.println("</html>");
         } catch (IOException ex) {
-            ex.printStackTrace();
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

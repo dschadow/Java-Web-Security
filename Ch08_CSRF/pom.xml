@@ -22,6 +22,10 @@ Open the web application in your browser at http://localhost:8080/Ch08_CSRF</des
 			<groupId>org.owasp.esapi</groupId>
 			<artifactId>esapi</artifactId>
 		</dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
 	</dependencies>
 	
 	<build>

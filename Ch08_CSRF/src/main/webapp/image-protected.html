@@ -1,12 +1,17 @@
 <html>
 <head>
-  <title>Cross-Site Request Forgery</title>
+    <title>Ch08_CSRF</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
 </head>
 <body>
-  <h1>GET with an image</h1>
-  
-  &lt;img src=&quot;ProtectedServlet?name=CSRF-Image&quot; width=&quot;0&quot; height=&quot;0&quot; /&gt;
-  
-  <img src="ProtectedServlet?name=CSRF-Image" width="0" height="0" />
+    <h1>Ch08_CSRF</h1>
+
+    <h2>GET request executed with a hidden image</h2>
+
+    <p>&lt;img src=&quot;ProtectedServlet?name=HiddenImage&quot; width=&quot;0&quot; height=&quot;0&quot; /&gt;</p>
+
+    <img src="ProtectedServlet?name=HiddenImage" width="0" height="0" />
+
+    <p><a href="requests-protected.jsp">Back</a></p>
 </body>
 </html>
