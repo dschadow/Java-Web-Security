@@ -3,19 +3,34 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Cross-Site Scripting Filter</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+	<title>Ch07_XSSFilter</title>
 </head>
 <body>
-	<h1>Cross-Site Scripting Filter</h1>
+	<h1>Ch07_XSSFilter</h1>
 
-	<form name="output" method="post" action="output.jsp">
+    <h2>EASPI Filter</h2>
+
+	<form name="esapi" method="post" action="output_esapi.jsp">
 		<table>
 			<tr>
 				<td>Name</td>
 				<td><input type="text" name="name"></td>
-				<td><input type="submit" value="Senden"></td>
+				<td><input type="submit" value="Submit"></td>
 			</tr>
 		</table>
 	</form>
+
+    <h2>Blacklist Filter</h2>
+
+    <form name="blacklist" method="post" action="output_blacklist.jsp">
+        <table>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" name="name"></td>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </form>
 </body>
 </html>

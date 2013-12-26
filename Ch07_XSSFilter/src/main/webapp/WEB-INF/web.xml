@@ -1,15 +1,24 @@
 <?xml version="1.0"?>
-<web-app id="Filter" version="3.0"
+<web-app id="Ch07_XSSFilter" version="3.0"
 	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-	<display-name>Cross-Site Scripting Filter Sample Application</display-name>
+	<display-name>Ch07_XSSFilter</display-name>
 	<filter>
-		<display-name>XSSFilter</display-name>
-		<filter-name>XSSFilter</filter-name>
-		<filter-class>de.dominikschadow.webappsecurity.filter.XSSFilter</filter-class>
+		<display-name>ESAPIFilter</display-name>
+		<filter-name>ESAPIFilter</filter-name>
+		<filter-class>de.dominikschadow.webappsecurity.filter.ESAPIFilter</filter-class>
 	</filter>
+    <filter>
+        <display-name>BlacklistFilter</display-name>
+        <filter-name>BlacklistFilter</filter-name>
+        <filter-class>de.dominikschadow.webappsecurity.filter.BlacklistFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>ESAPIFilter</filter-name>
+        <url-pattern>/output_esapi.jsp</url-pattern>
+    </filter-mapping>
 	<filter-mapping>
-		<filter-name>XSSFilter</filter-name>
-		<url-pattern>/*</url-pattern>
+		<filter-name>BlacklistFilter</filter-name>
+		<url-pattern>/output_blacklist.jsp</url-pattern>
 	</filter-mapping>
 </web-app>

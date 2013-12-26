@@ -3,9 +3,12 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Cross-Site Scripting Filter</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+	<title>Ch07_XSSFilter</title>
 </head>
 <body>
-	<strong>Hallo</strong> <%= request.getParameter("name") %>
+    <h1>Ch07_XSSFilter - ESAPI Filter</h1>
+
+    <p><strong>Hello</strong> <%= request.getParameter("name") %></p>
 </body>
 </html>
