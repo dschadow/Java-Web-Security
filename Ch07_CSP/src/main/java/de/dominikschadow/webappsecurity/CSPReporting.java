@@ -47,8 +47,7 @@ public class CSPReporting extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         LOGGER.info("CSP-Reporting-Servlet");
 
-        try {
-            BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()));
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()))) {
             StringBuilder responseBuilder = new StringBuilder();
 
             String inputStr;
