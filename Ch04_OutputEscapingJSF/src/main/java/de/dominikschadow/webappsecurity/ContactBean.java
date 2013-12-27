@@ -17,11 +17,9 @@
  */
 package main.java.de.dominikschadow.webappsecurity;
 
-import java.io.Serializable;
-import java.util.LinkedHashMap;
-import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 
 /**
  * Bean representing user input (no additional security related attributes).

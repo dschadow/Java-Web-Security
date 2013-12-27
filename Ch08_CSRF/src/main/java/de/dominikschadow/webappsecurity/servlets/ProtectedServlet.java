@@ -18,19 +18,18 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
+import de.dominikschadow.webappsecurity.token.CSRFTokenHandler;
+import org.apache.log4j.Logger;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import de.dominikschadow.webappsecurity.token.CSRFTokenHandler;
-import org.apache.log4j.Logger;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 
 /**
  * Basic protected servlet for GET and POST requests. Checks the CSRF-Token value to identify
