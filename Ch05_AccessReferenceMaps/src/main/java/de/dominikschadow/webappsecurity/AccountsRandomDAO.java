@@ -20,7 +20,6 @@ package de.dominikschadow.webappsecurity;
 
 import org.apache.log4j.Logger;
 import org.owasp.esapi.errors.AccessControlException;
-import org.owasp.esapi.reference.IntegerAccessReferenceMap;
 import org.owasp.esapi.reference.RandomAccessReferenceMap;
 
 import java.sql.*;
