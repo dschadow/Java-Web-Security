@@ -19,6 +19,7 @@
 package de.dominikschadow.webappsecurity.controller;
 
 import de.dominikschadow.webappsecurity.domain.Contact;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -34,9 +35,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @SessionAttributes
 public class ContactController {
+    private static final Logger LOGGER = Logger.getLogger(ContactController.class);
+
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)
     public ModelAndView addContact(@ModelAttribute("contact") Contact contact, BindingResult result) {
-        System.out.println("Firstname: " + contact.getFirstname() + ", Lastname: " + contact.getLastname());
+        LOGGER.info("Firstname: " + contact.getFirstname() + ", Lastname: " + contact.getLastname());
 
         return new ModelAndView("contact", "command", contact);
     }
