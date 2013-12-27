@@ -18,6 +18,8 @@
  */
 package de.dominikschadow.webappsecurity;
 
+import org.apache.log4j.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,22 +37,16 @@ import java.io.PrintWriter;
 @WebServlet(name = "WithCSPServlet", urlPatterns = {"/WithCSPServlet"})
 public class WithCSPServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
-    /**
-     * @see javax.servlet.http.HttpServlet#HttpServlet()
-     */
-    public WithCSPServlet() {
-        super();
-    }
+    private static final Logger LOGGER = Logger.getLogger(WithCSPServlet.class);
 
     /**
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        System.out.println("Processing POST request with Content Security Policy");
+        LOGGER.info("Processing POST request with Content Security Policy");
 
         String name = request.getParameter("protected");
-        System.out.println("Received " + name + " as POST parameter");
+        LOGGER.info("Received " + name + " as POST parameter");
 
         response.setContentType("text/html");
         response.setHeader("Content-Security-Policy", "default-src 'self'");
@@ -67,7 +63,7 @@ public class WithCSPServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            ex.printStackTrace();
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

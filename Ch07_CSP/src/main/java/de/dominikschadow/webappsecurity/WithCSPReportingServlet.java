@@ -18,6 +18,8 @@
  */
 package de.dominikschadow.webappsecurity;
 
+import org.apache.log4j.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,22 +37,16 @@ import java.io.PrintWriter;
 @WebServlet(name = "WithCSPReportingServlet", urlPatterns = {"/WithCSPReportingServlet"})
 public class WithCSPReportingServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
-    /**
-     * @see javax.servlet.http.HttpServlet#HttpServlet()
-     */
-    public WithCSPReportingServlet() {
-        super();
-    }
+    private static final Logger LOGGER = Logger.getLogger(WithCSPReportingServlet.class);
 
     /**
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        System.out.println("Processing POST request with Content Security Policy Reporting");
+        LOGGER.info("Processing POST request with Content Security Policy Reporting");
 
         String name = request.getParameter("reporting");
-        System.out.println("Received " + name + " as POST parameter");
+        LOGGER.info("Received " + name + " as POST parameter");
 
         response.setContentType("text/html");
         // the following line only reports violations and does not block anything
@@ -69,7 +65,7 @@ public class WithCSPReportingServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            ex.printStackTrace();
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }
