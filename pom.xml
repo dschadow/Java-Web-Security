@@ -71,6 +71,11 @@
                 <artifactId>log4j</artifactId>
                 <version>1.2.17</version>
             </dependency>
+            <dependency>
+                <groupId>org.codehaus.jettison</groupId>
+                <artifactId>jettison</artifactId>
+                <version>1.3.5</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -105,6 +110,7 @@
         <module>Ch04_OutputEscapingJSF</module>
         <module>Ch04_OutputEscapingJSP</module>
         <module>Ch05_AccessReferenceMaps</module>
+        <module>Ch05_HSTS</module>
         <module>Ch05_SessionFixation</module>
         <module>Ch05_SessionHandling</module>
         <module>Ch06_SQLInjection</module>
@@ -114,6 +120,5 @@
         <module>Ch07_XSSFilter</module>
         <module>Ch07_XSSJSF</module>
         <module>Ch08_CSRF</module>
-        <module>Ch05_HSTS</module>
     </modules>
 </project>
