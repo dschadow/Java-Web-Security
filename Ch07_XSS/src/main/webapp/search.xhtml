@@ -17,7 +17,7 @@
     <h:form id="searchCustomers">
         <h:panelGrid columns="2">
             <h:outputLabel value="Name" for="cName" />
-            <h:inputText value="#{searchBean.customer.name}" label="Name" id="cName"/>
+            <h:inputText value="#{searchBean.customerName}" label="Name" id="cName"/>
         </h:panelGrid>
         <h:commandButton value="Search" action="#{searchBean.search}" styleClass="send-button" />
     </h:form>

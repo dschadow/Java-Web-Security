@@ -15,7 +15,7 @@
         <h:link outcome="index" value="Home" /> | <h:link outcome="createCustomer" value="Create Customer" /> | <h:link outcome="showCustomers" value="Show Customers" /> | <h:link outcome="search" value="Search Customer" />
     </h:form>
 
-    <p>Your search for <strong><h:outputText value="#{searchBean.customer.name}" escape="false"/></strong> returned the following results:</p>
+    <p>Your search for <strong><h:outputText value="#{searchBean.customerName}" escape="false"/></strong> returned the following results:</p>
 
     <h:form>
         <h:dataTable var="customer" value="#{searchBean.customers}">
