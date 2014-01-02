@@ -13,3 +13,5 @@
 *.lck
 .pmd
 .forge_settings
+accountsDB.properties
+customerDB.properties
