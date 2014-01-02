@@ -13,18 +13,16 @@
 
     <h2>Normal Usage</h2>
 
-    <h:form>
-        <ul>
-            <li><h:link outcome="createCustomer" value="Create Customer" /></li>
-            <li><h:link outcome="showCustomers" value="Show Customers" /></li>
-            <li><h:link outcome="search" value="Search Customer" /></li>
-        </ul>
-    </h:form>
+    <ul>
+        <li><h:link outcome="createCustomer" value="Create Customer" /></li>
+        <li><h:link outcome="showCustomers" value="Show Customers" /></li>
+        <li><h:link outcome="search" value="Search Customer" /></li>
+    </ul>
 
     <h2>Attacks</h2>
 
     <ul>
-        <li>Stored XSS</li>
+        <li><h:link outcome="showCustomers" value="Stored XSS" /></li>
         <li>
             <h:form>
                 <h:commandLink action="#{searchBean.search}" value="Relected XSS">
