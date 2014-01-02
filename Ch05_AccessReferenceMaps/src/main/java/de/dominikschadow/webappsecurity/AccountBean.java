@@ -68,6 +68,6 @@ public class AccountBean {
     public String show() {
         account = dao.loadAccount(accountId);
 
-        return "/account.xhtml";
+        return "account";
     }
 }

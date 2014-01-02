@@ -67,6 +67,6 @@ public class AccountBeanInteger {
     }
 
     public String show() {
-        return "/accountInteger.xhtml";
+        return "accountInteger";
     }
 }

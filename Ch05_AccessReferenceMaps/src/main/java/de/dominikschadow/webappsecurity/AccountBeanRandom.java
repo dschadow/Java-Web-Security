@@ -67,6 +67,6 @@ public class AccountBeanRandom {
     }
 
     public String show() {
-        return "/accountRandom.xhtml";
+        return "accountRandom";
     }
 }
