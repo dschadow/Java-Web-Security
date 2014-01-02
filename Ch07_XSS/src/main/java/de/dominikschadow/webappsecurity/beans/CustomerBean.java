@@ -55,6 +55,6 @@ public class CustomerBean {
     public String save() {
         customerDAO.createCustomer(customer);
 
-        return "/showCustomers.xhtml";
+        return "showCustomers";
     }
 }
