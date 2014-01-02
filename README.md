@@ -1,7 +1,7 @@
 Java-Web-Security
 ==============
 
-All Java projects are created as **Apache Maven** projects (required are Java 7 and Maven 3). In Eclipse you therefore need to install the Maven integration and the **git m2e connector** via the Eclipse update manager before you can import them as new projects.
+All Java projects are created as **Apache Maven** projects (required are [Java 7](http://www.oracle.com/technetwork/java) and [Maven 3.0](http://maven.apache.org)). In Eclipse you therefore need to install the Maven integration and the **git m2e connector** via the Eclipse update manager before you can import them as new projects.
 
 **Mozilla Firefox** is the recommended and up until today working browser for all web applications in this repository. Keep in mind that browsers or some addons may block or filter certain attacks already. Deactivate all blocking or intercepting addons or try a different browser if a sample application is not working.
 
