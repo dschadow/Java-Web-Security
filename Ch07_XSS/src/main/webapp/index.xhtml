@@ -7,30 +7,40 @@
     <title>Ch07_XSS</title>
 </h:head>
 <h:body>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
 
     <h1>Ch07_XSS</h1>
 
     <h2>Normal Usage</h2>
 
     <ul>
-        <li><h:link outcome="createCustomer" value="Create Customer" /></li>
-        <li><h:link outcome="showCustomers" value="Show Customers" /></li>
-        <li><h:link outcome="search" value="Search Customer" /></li>
+        <li><h:link outcome="createCustomer" value="Create Customer"/></li>
+        <li>
+            <h:link outcome="showCustomers" value="Show Customers">
+                <f:param name="currency" value="Euro"/>
+            </h:link>
+        </li>
+        <li><h:link outcome="search" value="Search Customer"/></li>
     </ul>
 
     <h2>Attacks</h2>
 
     <ul>
-        <li><h:link outcome="showCustomers" value="Stored XSS" /></li>
+        <li><h:link outcome="showCustomers" value="Stored XSS"/></li>
         <li>
             <h:form>
-                <h:commandLink action="#{searchBean.search}" value="Relected XSS">
-                    <f:param name="customerName" value="Dummy&lt;script&gt;alert('Reflected XSS - Session ID: ' + document.cookie)&lt;/script&gt;" />
+                <h:commandLink action="#{searchBean.search}" value="Reflected XSS">
+                    <f:param name="customerName"
+                             value="Dummy&lt;script&gt;alert('Reflected XSS - Session ID: ' + document.cookie)&lt;/script&gt;"/>
                 </h:commandLink>
             </h:form>
         </li>
-        <li>DOM Based XSS</li>
+        <li>
+            <h:link outcome="showCustomers" value="DOM Based XSS">
+                <f:param name="currency"
+                         value="&lt;script&gt;alert(&quot;DOM&nbsp;Based&nbsp;XSS&nbsp;-&nbsp;Session&nbsp;ID:&nbsp;&quot;+document.cookie)&lt;/script&gt;"/>
+            </h:link>
+        </li>
     </ul>
 
 </h:body>

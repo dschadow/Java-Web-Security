@@ -1,25 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
     <title>Search Customers</title>
 </h:head>
 <h:body>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
 
     <h1>Search Customers</h1>
 
     <h:form>
-        <h:link outcome="index" value="Home" /> | <h:link outcome="createCustomer" value="Create Customer" /> | <h:link outcome="showCustomers" value="Show Customers" />
+        <h:link outcome="index" value="Home"/> | <h:link outcome="createCustomer" value="Create Customer"/> | <h:link
+            outcome="showCustomers" value="Show Customers"><f:param name="currency" value="Euro"/></h:link>
     </h:form>
 
     <h:form id="searchCustomers">
         <h:panelGrid columns="2">
-            <h:outputLabel value="Name" for="cName" />
+            <h:outputLabel value="Name" for="cName"/>
             <h:inputText value="#{searchBean.customerName}" label="Name" id="cName"/>
         </h:panelGrid>
-        <h:commandButton value="Search" action="#{searchBean.search}" styleClass="send-button" />
+        <h:commandButton value="Search" action="#{searchBean.search}" styleClass="send-button"/>
     </h:form>
 </h:body>
 </html>

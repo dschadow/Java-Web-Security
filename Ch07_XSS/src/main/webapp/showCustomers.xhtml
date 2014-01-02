@@ -7,35 +7,41 @@
     <title>Show Customers</title>
 </h:head>
 <h:body>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
 
     <h1>Show Customers</h1>
 
     <h:form>
-        <h:link outcome="index" value="Home" /> | <h:link outcome="createCustomer" value="Create Customer" /> | <h:link outcome="search" value="Search Customer" />
+        <h:link outcome="index" value="Home"/> | <h:link outcome="createCustomer" value="Create Customer"/> | <h:link
+            outcome="search" value="Search Customer"/>
     </h:form>
 
     <h:form>
         <h:dataTable var="customer" value="#{customerBean.customers}">
             <h:column>
                 <f:facet name="header">ID</f:facet>
-                <h:outputText value="#{customer.custId}" />
+                <h:outputText value="#{customer.custId}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">Name</f:facet>
-                <h:outputText value="#{customer.name}" />
+                <h:outputText value="#{customer.name}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">Status</f:facet>
-                <h:outputText value="#{customer.status}" />
+                <h:outputText value="#{customer.status}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">Order Limit</f:facet>
-                <h:outputText value="#{customer.orderLimit}" />
+                <h:outputText value="#{customer.orderLimit}"/>
+                <script type="text/javascript">
+                    var pos = document.URL.indexOf("currency=") + 9;
+                    var currency = document.URL.substring(pos, document.URL.length);
+                    document.write(decodeURIComponent(currency));
+                </script>
             </h:column>
             <h:column>
                 <f:facet name="header">Comment</f:facet>
-                <h:outputText escape="false" value="#{customer.comment}" />
+                <h:outputText escape="false" value="#{customer.comment}"/>
             </h:column>
         </h:dataTable>
     </h:form>

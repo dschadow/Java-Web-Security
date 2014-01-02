@@ -1,34 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
     <title>Create Customer</title>
 </h:head>
 <h:body>
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css"/>
 
     <h1>Create Customer</h1>
 
     <h:form>
-        <h:link outcome="index" value="Home" /> | <h:link outcome="showCustomers" value="Show Customers" /> | <h:link outcome="search" value="Search Customer" />
+        <h:link outcome="index" value="Home"/> | <h:link outcome="showCustomers" value="Show Customers"><f:param
+            name="currency" value="Euro"/></h:link> | <h:link outcome="search" value="Search Customer"/>
     </h:form>
 
     <h:form id="createCustomer">
         <h:panelGrid columns="2">
-            <h:outputLabel value="Name" for="cName" />
+            <h:outputLabel value="Name" for="cName"/>
             <h:inputText value="#{customerBean.customer.name}" label="Name" id="cName"/>
 
-            <h:outputLabel value="Status" for="cStatus" />
+            <h:outputLabel value="Status" for="cStatus"/>
             <h:inputText value="#{customerBean.customer.status}" label="Status" id="cStatus"/>
 
-            <h:outputLabel value="Order Limit" for="cOrderLimit" />
+            <h:outputLabel value="Order Limit" for="cOrderLimit"/>
             <h:inputText value="#{customerBean.customer.orderLimit}" label="Order Limit" id="cOrderLimit"/>
 
             <h:outputLabel value="Comment" for="cComment" title="Customer comment with HTML enabled"/>
             <h:inputTextarea value="#{customerBean.customer.comment}" label="Comment" id="cComment"/>
         </h:panelGrid>
-        <h:commandButton value="Save" action="#{customerBean.save}" styleClass="send-button" />
+        <h:commandButton value="Save" action="#{customerBean.save}" styleClass="send-button"/>
     </h:form>
 </h:body>
 </html>
