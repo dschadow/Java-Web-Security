@@ -10,12 +10,16 @@
 
     <h1>Ch07_XSS</h1>
 
+    <h2>Normal Usage</h2>
+
     <h:form>
         <ul>
-            <li><h:link outcome="/createCustomer.xhtml" value="Create Customer" /></li>
-            <li><h:link outcome="/showCustomers.xhtml" value="Show Customers" /></li>
-            <li><h:link outcome="/search.xhtml" value="Search Customer" /></li>
+            <li><h:link outcome="createCustomer" value="Create Customer" /></li>
+            <li><h:link outcome="showCustomers" value="Show Customers" /></li>
+            <li><h:link outcome="search" value="Search Customer" /></li>
         </ul>
     </h:form>
+
+    <h2>Attacks</h2>
 </h:body>
 </html>
