@@ -1,4 +1,5 @@
 *.class
+.idea
 .classpath
 .project
 .DS_Store
