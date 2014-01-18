@@ -19,12 +19,13 @@
 package de.dominikschadow.webappsecurity.daos;
 
 import de.dominikschadow.webappsecurity.domain.Customer;
-import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -35,14 +36,14 @@ import java.util.List;
  * @see de.dominikschadow.webappsecurity.beans.CustomerBean
  */
 public class CustomerDAO {
-    private static final Logger LOGGER = Logger.getLogger(CustomerDAO.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public List<Customer> getAllCustomers() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("FROM Customer");
         List<Customer> customers = query.list();
 
-        LOGGER.info("Found " + customers.size() + " customers");
+        logger.info("Found " + customers.size() + " customers");
 
         session.close();
 
@@ -64,7 +65,7 @@ public class CustomerDAO {
 
         List<Customer> customers = criteria.list();
 
-        LOGGER.info("Found " + customers.size() + " customers");
+        logger.info("Found " + customers.size() + " customers");
 
         session.close();
 
