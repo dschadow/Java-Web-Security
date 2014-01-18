@@ -18,7 +18,8 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,14 +38,14 @@ import java.io.PrintWriter;
 @WebServlet(name = "CSRFServlet", urlPatterns = {"/CSRFServlet"})
 public class CSRFServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final Logger LOGGER = Logger.getLogger(CSRFServlet.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        LOGGER.info("Processing unprotected GET request: Received " + name + " as parameter");
+        logger.info("Processing unprotected GET request: Received " + name + " as parameter");
 
         response.setContentType("text/html");
 
@@ -61,7 +62,7 @@ public class CSRFServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 
@@ -70,7 +71,7 @@ public class CSRFServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        LOGGER.info("Processing unprotected POST request: Received " + name + " as parameter");
+        logger.info("Processing unprotected POST request: Received " + name + " as parameter");
 
         response.setContentType("text/html");
 
@@ -87,7 +88,7 @@ public class CSRFServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 }

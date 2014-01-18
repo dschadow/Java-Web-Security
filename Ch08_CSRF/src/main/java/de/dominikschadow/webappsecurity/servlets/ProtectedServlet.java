@@ -19,7 +19,8 @@
 package de.dominikschadow.webappsecurity.servlets;
 
 import de.dominikschadow.webappsecurity.token.CSRFTokenHandler;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,37 +42,37 @@ import java.security.NoSuchProviderException;
 @WebServlet(name = "ProtectedServlet", urlPatterns = {"/ProtectedServlet"})
 public class ProtectedServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final Logger LOGGER = Logger.getLogger(ProtectedServlet.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        LOGGER.info("Processing protected GET request");
+        logger.info("Processing protected GET request");
 
         response.setContentType("text/html");
         
         try {
             if (!CSRFTokenHandler.isValid(request)) {
-                LOGGER.warn("CSRF token is invalid");
+                logger.warn("CSRF token is invalid");
                 response.setStatus(401);
 
                 try (PrintWriter out = response.getWriter()) {
                     out.println("CSRF token is invalid");
                 } catch (IOException ex) {
-                    LOGGER.error(ex.getMessage(), ex);
+                    logger.error(ex.getMessage(), ex);
                 }
                 
                 return;
             }
         } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
 
-        LOGGER.info("CSRF token is valid");
+        logger.info("CSRF token is valid");
 
         String name = request.getParameter("name");
-        LOGGER.info("Received " + name + " as GET parameter");
+        logger.info("Received " + name + " as GET parameter");
 
         try (PrintWriter out = response.getWriter()) {
             out.println("<html>");
@@ -86,7 +87,7 @@ public class ProtectedServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 
@@ -94,31 +95,31 @@ public class ProtectedServlet extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        LOGGER.info("Processing protected POST request");
+        logger.info("Processing protected POST request");
 
         response.setContentType("text/html");
         
         try {
             if (!CSRFTokenHandler.isValid(request)) {
-                LOGGER.warn("CSRF token is invalid");
+                logger.warn("CSRF token is invalid");
                 response.setStatus(401);
 
                 try (PrintWriter out = response.getWriter()) {
                     out.println("CSRF token is invalid");
                 } catch (IOException ex) {
-                    LOGGER.error(ex.getMessage(), ex);
+                    logger.error(ex.getMessage(), ex);
                 }
                 
                 return;
             }
         } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
 
-        LOGGER.info("CSRF token is valid");
+        logger.info("CSRF token is valid");
 
         String name = request.getParameter("name");
-        LOGGER.info("Received " + name + " as POST parameter");
+        logger.info("Received " + name + " as POST parameter");
 
         try (PrintWriter out = response.getWriter()) {
             out.println("<html>");
@@ -133,7 +134,7 @@ public class ProtectedServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 }
