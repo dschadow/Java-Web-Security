@@ -18,7 +18,8 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -50,7 +51,7 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "XPathServlet", urlPatterns = {"/XPathServlet"})
 public class XPathServlet extends HttpServlet {
-    private static final Logger LOGGER = Logger.getLogger(XPathServlet.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
     private static final long serialVersionUID = 1L;
     private Document doc;
 
@@ -62,7 +63,7 @@ public class XPathServlet extends HttpServlet {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             doc = dBuilder.parse(xmlFile);
         } catch (SAXException | IOException | ParserConfigurationException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 
@@ -72,7 +73,7 @@ public class XPathServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
-        LOGGER.info("Received " + name + " and " + password + " as parameter");
+        logger.info("Received " + name + " and " + password + " as parameter");
 
         StringBuilder xpathExpression = new StringBuilder();
         xpathExpression.append("/customers/customer[name='");
@@ -85,7 +86,7 @@ public class XPathServlet extends HttpServlet {
     }
 
     private void printOrderLimit(String xpath, String name, HttpServletResponse response) {
-        LOGGER.info("XPath expression is " + xpath);
+        logger.info("XPath expression is " + xpath);
 
         try (PrintWriter out = response.getWriter()) {
             XPathExpression expression = XPathFactory.newInstance().newXPath().compile(xpath);
@@ -107,7 +108,7 @@ public class XPathServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (XPathExpressionException | IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 }

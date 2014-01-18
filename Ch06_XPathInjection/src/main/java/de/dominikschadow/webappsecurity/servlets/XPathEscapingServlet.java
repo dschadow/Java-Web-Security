@@ -18,8 +18,9 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
-import org.apache.log4j.Logger;
 import org.owasp.esapi.ESAPI;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -51,7 +52,7 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "XPathEscapingServlet", urlPatterns = {"/XPathEscapingServlet"})
 public class XPathEscapingServlet extends HttpServlet {
-    private static final Logger LOGGER = Logger.getLogger(XPathEscapingServlet.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
     private static final long serialVersionUID = 1L;
     private Document doc;
 
@@ -63,7 +64,7 @@ public class XPathEscapingServlet extends HttpServlet {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             doc = dBuilder.parse(xmlFile);
         } catch (SAXException | IOException | ParserConfigurationException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 
@@ -73,11 +74,11 @@ public class XPathEscapingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
-        LOGGER.info("Received " + name + " and " + password + " as parameter");
+        logger.info("Received " + name + " and " + password + " as parameter");
 
         String safeName = ESAPI.encoder().encodeForXPath(name);
         String safePassword = ESAPI.encoder().encodeForXPath(password);
-        LOGGER.info("Using safe name " + safeName + " and " + safePassword);
+        logger.info("Using safe name " + safeName + " and " + safePassword);
 
         StringBuilder xpathExpression = new StringBuilder();
         xpathExpression.append("/customers/customer[name='");
@@ -90,7 +91,7 @@ public class XPathEscapingServlet extends HttpServlet {
     }
 
     private void printOrderLimit(String xpath, String name, HttpServletResponse response) {
-        LOGGER.info("XPath expression is " + xpath);
+        logger.info("XPath expression is " + xpath);
 
         try (PrintWriter out = response.getWriter()) {
             XPathExpression expression = XPathFactory.newInstance().newXPath().compile(xpath);
@@ -112,7 +113,7 @@ public class XPathEscapingServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (XPathExpressionException | IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 }
