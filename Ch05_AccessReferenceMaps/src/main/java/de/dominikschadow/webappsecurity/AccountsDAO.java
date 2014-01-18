@@ -18,7 +18,8 @@
  */
 package de.dominikschadow.webappsecurity;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -31,13 +32,13 @@ import java.util.List;
  * @see AccountBean
  */
 public class AccountsDAO {
-    private static final Logger LOGGER = Logger.getLogger(AccountsDAO.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public AccountsDAO() {
         try {
             Class.forName("org.hsqldb.jdbcDriver");
         } catch (ClassNotFoundException ex) {
-            LOGGER.error("Failed to load db driver", ex);
+            logger.error("Failed to load db driver", ex);
         }
     }
 
@@ -73,28 +74,28 @@ public class AccountsDAO {
                 return account;
             }
         } catch (SQLException ex) {
-            LOGGER.error("SQL exception", ex);
+            logger.error("SQL exception", ex);
         } finally {
             try {
                 if (rs != null) {
                     rs.close();
                 }
             } catch (SQLException ex) {
-                LOGGER.error("Failed to close rs", ex);
+                logger.error("Failed to close rs", ex);
             }
             try {
                 if (pstmt != null) {
                     pstmt.close();
                 }
             } catch (SQLException ex) {
-                LOGGER.error("Failed to close pstmt", ex);
+                logger.error("Failed to close pstmt", ex);
             }
             try {
                 if (con != null) {
                     con.close();
                 }
             } catch (SQLException ex) {
-                LOGGER.error("Failed to close con", ex);
+                logger.error("Failed to close con", ex);
             }
         }
 
@@ -120,28 +121,28 @@ public class AccountsDAO {
                 accountReferences.add(rs.getString(1));
             }
         } catch (SQLException ex) {
-            LOGGER.error("SQL exception", ex);
+            logger.error("SQL exception", ex);
         } finally {
             try {
                 if (rs != null) {
                     rs.close();
                 }
             } catch (SQLException ex) {
-                LOGGER.error("Failed to close rs", ex);
+                logger.error("Failed to close rs", ex);
             }
             try {
                 if (pstmt != null) {
                     pstmt.close();
                 }
             } catch (SQLException ex) {
-                LOGGER.error("Failed to close pstmt", ex);
+                logger.error("Failed to close pstmt", ex);
             }
             try {
                 if (con != null) {
                     con.close();
                 }
             } catch (SQLException ex) {
-                LOGGER.error("Failed to close con", ex);
+                logger.error("Failed to close con", ex);
             }
         }
 

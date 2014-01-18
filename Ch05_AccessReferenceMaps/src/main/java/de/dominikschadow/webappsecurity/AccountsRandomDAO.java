@@ -18,9 +18,10 @@
  */
 package de.dominikschadow.webappsecurity;
 
-import org.apache.log4j.Logger;
 import org.owasp.esapi.errors.AccessControlException;
 import org.owasp.esapi.reference.RandomAccessReferenceMap;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -34,13 +35,13 @@ import java.util.List;
  */
 public class AccountsRandomDAO {
     private RandomAccessReferenceMap accounts = new RandomAccessReferenceMap();
-    private static final Logger LOGGER = Logger.getLogger(AccountsRandomDAO.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     public AccountsRandomDAO() {
         try {
             Class.forName("org.hsqldb.jdbcDriver");
         } catch (ClassNotFoundException ex) {
-            LOGGER.error("Failed to load db driver", ex);
+            logger.error("Failed to load db driver", ex);
         }
     }
 
@@ -48,7 +49,7 @@ public class AccountsRandomDAO {
         try {
             return accounts.getDirectReference(accountReference);
         } catch (AccessControlException ex) {
-            LOGGER.error("Access to " + accountReference + " denied", ex);
+            logger.error("Access to " + accountReference + " denied", ex);
 
             return null;
         }
@@ -84,28 +85,28 @@ public class AccountsRandomDAO {
                 accountReferences.add(accounts.getIndirectReference(account));
             }
         } catch (SQLException ex) {
-            LOGGER.error("SQL exception", ex);
+            logger.error("SQL exception", ex);
         } finally {
             try {
                 if (rs != null) {
                     rs.close();
                 }
             } catch (SQLException ex) {
-                LOGGER.error("Failed to close rs", ex);
+                logger.error("Failed to close rs", ex);
             }
             try {
                 if (pstmt != null) {
                     pstmt.close();
                 }
             } catch (SQLException ex) {
-                LOGGER.error("Failed to close pstmt", ex);
+                logger.error("Failed to close pstmt", ex);
             }
             try {
                 if (con != null) {
                     con.close();
                 }
             } catch (SQLException ex) {
-                LOGGER.error("Failed to close con", ex);
+                logger.error("Failed to close con", ex);
             }
         }
 
