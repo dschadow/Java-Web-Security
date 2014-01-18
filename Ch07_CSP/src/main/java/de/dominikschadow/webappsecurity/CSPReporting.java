@@ -18,9 +18,10 @@
  */
 package de.dominikschadow.webappsecurity;
 
-import org.apache.log4j.Logger;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,13 +40,13 @@ import java.io.InputStreamReader;
 @WebServlet(name = "CSPReporting", urlPatterns = {"/CSPReporting"})
 public class CSPReporting extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final Logger LOGGER = Logger.getLogger(CSPReporting.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        LOGGER.info("CSP-Reporting-Servlet");
+        logger.info("CSP-Reporting-Servlet");
 
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()))) {
             StringBuilder responseBuilder = new StringBuilder();
@@ -55,19 +56,19 @@ public class CSPReporting extends HttpServlet {
                 responseBuilder.append(inputStr);
             }
 
-            LOGGER.info("REPORT " + responseBuilder.toString());
+            logger.info("REPORT " + responseBuilder.toString());
 
             JSONObject json = new JSONObject(responseBuilder.toString());
             JSONObject cspReport = json.getJSONObject("csp-report");
-            LOGGER.info("document-uri: " + cspReport.getString("document-uri"));
-            LOGGER.info("referrer: " + cspReport.getString("referrer"));
-            LOGGER.info("blocked-uri: " + cspReport.getString("blocked-uri"));
-            LOGGER.info("violated-directive: " + cspReport.getString("violated-directive"));
-            LOGGER.info("source-file: " + cspReport.getString("source-file"));
-            LOGGER.info("script-sample: " + cspReport.getString("script-sample"));
-            LOGGER.info("line-number: " + cspReport.getString("line-number"));
+            logger.info("document-uri: " + cspReport.getString("document-uri"));
+            logger.info("referrer: " + cspReport.getString("referrer"));
+            logger.info("blocked-uri: " + cspReport.getString("blocked-uri"));
+            logger.info("violated-directive: " + cspReport.getString("violated-directive"));
+            logger.info("source-file: " + cspReport.getString("source-file"));
+            logger.info("script-sample: " + cspReport.getString("script-sample"));
+            logger.info("line-number: " + cspReport.getString("line-number"));
         } catch (IOException | JSONException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 }

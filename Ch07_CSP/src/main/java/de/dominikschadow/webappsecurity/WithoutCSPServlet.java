@@ -18,7 +18,8 @@
  */
 package de.dominikschadow.webappsecurity;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,16 +37,16 @@ import java.io.PrintWriter;
 @WebServlet(name = "WithoutCSPServlet", urlPatterns = {"/WithoutCSPServlet"})
 public class WithoutCSPServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static final Logger LOGGER = Logger.getLogger(WithoutCSPServlet.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        LOGGER.info("Processing POST request without Content Security Policy");
+        logger.info("Processing POST request without Content Security Policy");
 
         String name = request.getParameter("unprotected");
-        LOGGER.info("Received " + name + " as POST parameter");
+        logger.info("Received " + name + " as POST parameter");
 
         response.setContentType("text/html");
 
@@ -59,7 +60,7 @@ public class WithoutCSPServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 }
