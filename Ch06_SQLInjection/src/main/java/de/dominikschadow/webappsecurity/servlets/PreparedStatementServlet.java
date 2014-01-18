@@ -19,7 +19,8 @@
 package de.dominikschadow.webappsecurity.servlets;
 
 import de.dominikschadow.webappsecurity.domain.Customer;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -42,7 +43,7 @@ import java.util.List;
  */
 @WebServlet(name = "PreparedStatementServlet", urlPatterns = {"/PreparedStatementServlet"})
 public class PreparedStatementServlet extends HttpServlet {
-    private static final Logger LOGGER = Logger.getLogger(PreparedStatementServlet.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
     private static final long serialVersionUID = 1L;
     private Connection con = null;
 
@@ -51,7 +52,7 @@ public class PreparedStatementServlet extends HttpServlet {
         try {
             con = DriverManager.getConnection("jdbc:hsqldb:file:src/main/resources/customerDB; shutdown=true", "sa", "");
         } catch (SQLException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 
@@ -62,7 +63,7 @@ public class PreparedStatementServlet extends HttpServlet {
                 con.close();
             }
         } catch (SQLException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 
@@ -71,7 +72,7 @@ public class PreparedStatementServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        LOGGER.info("Received " + name + " as POST parameter");
+        logger.info("Received " + name + " as POST parameter");
 
         String query = "SELECT * FROM customer WHERE name = ? ORDER BY CUST_ID";
         List<Customer> customers = new ArrayList<>();
@@ -93,21 +94,21 @@ public class PreparedStatementServlet extends HttpServlet {
                 customers.add(customer);
             }
         } catch (SQLException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         } finally {
             try {
                 if (rs != null) {
                     rs.close();
                 }
             } catch (SQLException ex) {
-                LOGGER.error(ex.getMessage(), ex);
+                logger.error(ex.getMessage(), ex);
             }
             try {
                 if (stmt != null) {
                     stmt.close();
                 }
             } catch (SQLException ex) {
-                LOGGER.error(ex.getMessage(), ex);
+                logger.error(ex.getMessage(), ex);
             }
         }
 
@@ -141,7 +142,7 @@ public class PreparedStatementServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 }

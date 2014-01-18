@@ -19,13 +19,14 @@
 package de.dominikschadow.webappsecurity.servlets;
 
 import de.dominikschadow.webappsecurity.domain.Customer;
-import org.apache.log4j.Logger;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.service.ServiceRegistry;
 import org.hibernate.service.ServiceRegistryBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
@@ -46,7 +47,7 @@ import java.util.List;
  */
 @WebServlet(name = "HQLServlet", urlPatterns = {"/HQLServlet"})
 public class HQLServlet extends HttpServlet {
-    private static final Logger LOGGER = Logger.getLogger(HQLServlet.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
     private static final long serialVersionUID = 1L;
     private SessionFactory sessionFactory;
 
@@ -71,7 +72,7 @@ public class HQLServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        LOGGER.info("Received " + name + " as POST parameter");
+        logger.info("Received " + name + " as POST parameter");
 
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY CUST_ID");
@@ -108,7 +109,7 @@ public class HQLServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 }
