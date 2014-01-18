@@ -18,7 +18,8 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -36,7 +37,7 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
-    private static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
     private static final long serialVersionUID = 1L;
 
     /**
@@ -44,7 +45,7 @@ public class LoginServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        LOGGER.info("Received " + name + " as POST parameter");
+        logger.info("Received " + name + " as POST parameter");
 
         // invalidate the current session
         request.getSession().invalidate();
@@ -63,7 +64,7 @@ public class LoginServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
+            logger.error(ex.getMessage(), ex);
         }
     }
 }
