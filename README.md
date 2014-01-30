@@ -1,9 +1,9 @@
 Java-Web-Security
 ==============
 
-All Java projects are created as **Apache Maven** projects (required are [Java 7](http://www.oracle.com/technetwork/java) and [Maven 3.0](http://maven.apache.org)). In Eclipse you therefore need to install the Maven integration and the **git m2e connector** via the Eclipse update manager before you can import them as new projects.
+All Java projects are created as **Maven** projects (required are [Java 7](http://www.oracle.com/technetwork/java) and [Apache Maven 3.0.x](http://maven.apache.org)). In **Eclipse** you therefore need to install the Maven integration via the Eclipse update manager. After that, you can either use the **git m2e connector (m2e-egit)** to import the new projects directly from the repository. Alternatively, you can clone the repository and use **Import Maven Projects** instead (no connector required here). **IntelliJ IDEA** supports this out of the box.
 
-**Mozilla Firefox** is the recommended and up until today working browser for all web applications in this repository. Keep in mind that browsers or some addons may block or filter certain attacks already. Deactivate all blocking or intercepting addons or try a different browser if a sample application is not working.
+**Mozilla Firefox** is the recommended and up until today working browser for all web applications in this repository. Keep in mind that browsers or some add-ons may block or filter certain attacks already. Deactivate all blocking or intercepting add-ons or try a different browser if a sample application is not working.
 
 The easiest way to start a web application is to use the **Maven-Tomcat7-Plug-in** in each project directory to start a web application: **mvn tomcat7:run-war** (or simply **mvn** in the console, since this is the default goal). Open your browser and point it to **http://localhost:8080/PROJECT_NAME**, e.g. **http://localhost:8080/Ch04_OutputEscaping**. The project name is always the final part of the URL.
 
