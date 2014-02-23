@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+    <h:outputStylesheet library="css" value="styles.css" name="styles.css" />
+    <title>Ch05_AccessReferenceMaps</title>
+</h:head>
 <h:body>
-	<link rel="stylesheet" type="text/css" href="styles.css" />
-	
 	<h1>Ch05_AccessReferenceMaps: Account details (user id #{accountBeanRandom.userId})</h1>
 
     <h:panelGrid columns="2" rendered="#{accountBeanRandom.account != null}">

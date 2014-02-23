@@ -21,6 +21,7 @@ package de.dominikschadow.webappsecurity;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,18 +32,18 @@ import java.util.List;
  */
 @ManagedBean
 @SessionScoped
-public class AccountBeanInteger {
+public class AccountBeanInteger implements Serializable {
     private List<String> accountReferences = new ArrayList<>();
-    private int accountId = 1;
+    private int iaAccountId = 1;
     private int userId = 42;
     private AccountsIntegerDAO dao;
 
-    public int getAccountId() {
-        return accountId;
+    public int getIaAccountId() {
+        return iaAccountId;
     }
 
-    public void setAccountId(int accountId) {
-        this.accountId = accountId;
+    public void setIaAccountId(int iaAccountId) {
+        this.iaAccountId = iaAccountId;
     }
 
     public int getUserId() {
@@ -50,7 +51,7 @@ public class AccountBeanInteger {
     }
 
     public Account getAccount() {
-        return dao.retrieveAccount(accountId);
+        return dao.retrieveAccount(iaAccountId);
     }
 
     public List<String> getAccountReferences() {

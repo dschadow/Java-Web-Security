@@ -21,6 +21,7 @@ package de.dominikschadow.webappsecurity;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,7 +32,7 @@ import java.util.List;
  */
 @ManagedBean
 @SessionScoped
-public class AccountBean {
+public class AccountBean implements Serializable {
     private Account account;
     private int userId = 42;
     private int accountId = 1;

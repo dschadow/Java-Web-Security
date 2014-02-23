@@ -18,12 +18,14 @@
  */
 package de.dominikschadow.webappsecurity;
 
+import java.io.Serializable;
+
 /**
  * Represents a simple user.
  *
  * @author Dominik Schadow
  */
-public class User {
+public class User implements Serializable {
     private int userId;
     private String name;
 
