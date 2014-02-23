@@ -31,7 +31,7 @@ import java.util.List;
  * Loads accounts from the in-memory-database for the protected managed bean.
  *
  * @author Dominik Schadow
- * @see AccountBeanInteger
+ * @see AccountIntegerController
  */
 public class AccountsIntegerDAO {
     private IntegerAccessReferenceMap accounts = new IntegerAccessReferenceMap();

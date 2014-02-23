@@ -30,9 +30,9 @@ import java.util.List;
  *
  * @author Dominik Schadow
  */
-@ManagedBean
+@ManagedBean(name = "account")
 @SessionScoped
-public class AccountBean implements Serializable {
+public class AccountController implements Serializable {
     private Account account;
     private int userId = 42;
     private int accountId = 1;

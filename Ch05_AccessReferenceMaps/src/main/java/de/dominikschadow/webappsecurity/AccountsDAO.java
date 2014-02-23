@@ -29,7 +29,7 @@ import java.util.List;
  * Loads accounts from the in-memory-database for the unprotected managed bean.
  *
  * @author Dominik Schadow
- * @see AccountBean
+ * @see AccountController
  */
 public class AccountsDAO {
     private Logger logger = LoggerFactory.getLogger(getClass());

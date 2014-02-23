@@ -7,16 +7,16 @@
     <title>Ch05_AccessReferenceMaps</title>
 </h:head>
 <h:body>
-	<h1>Ch05_AccessReferenceMaps: Account details (user id #{accountBeanRandom.userId})</h1>
+	<h1>Ch05_AccessReferenceMaps: Account details (user id #{accountRandom.userId})</h1>
 
-    <h:panelGrid columns="2" rendered="#{accountBeanRandom.account != null}">
-        <strong>Account name</strong> <h:outputText value="#{accountBeanRandom.account.name}" />
-        <strong>Account type</strong> <h:outputText value="#{accountBeanRandom.account.type}" />
-        <strong>Account id</strong> <h:outputText value="#{accountBeanRandom.account.accountId}" />
-        <strong>Account owner</strong> <h:outputText value="#{accountBeanRandom.account.ownerId}" />
+    <h:panelGrid columns="2" rendered="#{accountRandom.account != null}">
+        <strong>Account name</strong> <h:outputText value="#{accountRandom.account.name}" />
+        <strong>Account type</strong> <h:outputText value="#{accountRandom.account.type}" />
+        <strong>Account id</strong> <h:outputText value="#{accountRandom.account.accountId}" />
+        <strong>Account owner</strong> <h:outputText value="#{accountRandom.account.ownerId}" />
     </h:panelGrid>
 
-    <h:panelGrid columns="1" rendered="#{accountBeanRandom.account == null}">
+    <h:panelGrid columns="1" rendered="#{accountRandom.account == null}">
         <p>No account found</p>
     </h:panelGrid>
 </h:body>

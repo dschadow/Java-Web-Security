@@ -26,24 +26,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Managed bean to access an account by account reference (RandomAccessReferenceMap). Only accounts belonging to the current user are contained in this map.
+ * Managed bean to access an account by account reference (IntegerAccessReferenceMap). Only accounts belonging to the current user are contained in this map.
  *
  * @author Dominik Schadow
  */
-@ManagedBean
+@ManagedBean(name = "accountInteger")
 @SessionScoped
-public class AccountBeanRandom implements Serializable {
+public class AccountIntegerController implements Serializable {
     private List<String> accountReferences = new ArrayList<>();
-    private String raAccountId = "";
+    private int iaAccountId = 1;
     private int userId = 42;
-    private AccountsRandomDAO dao;
+    private AccountsIntegerDAO dao;
 
-    public String getRaAccountId() {
-        return raAccountId;
+    public int getIaAccountId() {
+        return iaAccountId;
     }
 
-    public void setRaAccountId(String raAccountId) {
-        this.raAccountId = raAccountId;
+    public void setIaAccountId(int iaAccountId) {
+        this.iaAccountId = iaAccountId;
     }
 
     public int getUserId() {
@@ -51,7 +51,7 @@ public class AccountBeanRandom implements Serializable {
     }
 
     public Account getAccount() {
-        return dao.retrieveAccount(raAccountId);
+        return dao.retrieveAccount(iaAccountId);
     }
 
     public List<String> getAccountReferences() {
@@ -63,11 +63,11 @@ public class AccountBeanRandom implements Serializable {
         User currentUser = new User();
         currentUser.setUserId(userId);
 
-        dao = new AccountsRandomDAO();
+        dao = new AccountsIntegerDAO();
         accountReferences = dao.loadAccountsForUser(currentUser);
     }
 
     public String show() {
-        return "accountRandom";
+        return "accountInteger";
     }
 }
