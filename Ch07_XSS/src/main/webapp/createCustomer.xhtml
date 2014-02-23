@@ -18,18 +18,18 @@
     <h:form id="createCustomer">
         <h:panelGrid columns="2">
             <h:outputLabel value="Name" for="cName"/>
-            <h:inputText value="#{customerBean.customer.name}" label="Name" id="cName"/>
+            <h:inputText value="#{customer.customer.name}" label="Name" id="cName"/>
 
             <h:outputLabel value="Status" for="cStatus"/>
-            <h:inputText value="#{customerBean.customer.status}" label="Status" id="cStatus"/>
+            <h:inputText value="#{customer.customer.status}" label="Status" id="cStatus"/>
 
             <h:outputLabel value="Order Limit" for="cOrderLimit"/>
-            <h:inputText value="#{customerBean.customer.orderLimit}" label="Order Limit" id="cOrderLimit"/>
+            <h:inputText value="#{customer.customer.orderLimit}" label="Order Limit" id="cOrderLimit"/>
 
             <h:outputLabel value="Comment" for="cComment" title="Customer comment with HTML enabled"/>
-            <h:inputTextarea value="#{customerBean.customer.comment}" label="Comment" id="cComment"/>
+            <h:inputTextarea value="#{customer.customer.comment}" label="Comment" id="cComment"/>
         </h:panelGrid>
-        <h:commandButton value="Save" action="#{customerBean.save}" styleClass="send-button"/>
+        <h:commandButton value="Save" action="#{customer.save}" styleClass="send-button"/>
     </h:form>
 </h:body>
 </html>

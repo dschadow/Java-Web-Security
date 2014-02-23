@@ -20,41 +20,54 @@ package de.dominikschadow.webappsecurity.beans;
 
 import de.dominikschadow.webappsecurity.daos.CustomerDAO;
 import de.dominikschadow.webappsecurity.domain.Customer;
+import org.apache.commons.lang3.StringUtils;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 import java.util.List;
+import java.util.Map;
 
 /**
+ * Searches customers by the given customer name. The search string can be passed via
+ * <code>customerName</code> setter method or as a <code>customerName</code> parameter.
  *
  * @author Dominik Schadow
  */
-@ManagedBean(name = "customerBean")
+@ManagedBean(name = "search")
 @RequestScoped
-public class CustomerBean {
-    private Customer customer;
+public class SearchController {
+    private String customerName;
     private CustomerDAO customerDAO;
+    private List<Customer> customers;
 
-    public CustomerBean() {
-        customer = new Customer();
+    public SearchController() {
         customerDAO = new CustomerDAO();
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public String getCustomerName() {
+        return customerName;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
 
     public List<Customer> getCustomers() {
-        return customerDAO.getAllCustomers();
+        return customers;
     }
 
-    public String save() {
-        customerDAO.createCustomer(customer);
+    public String search() {
+        if (StringUtils.isEmpty(customerName)) {
+            Map requestMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+            customerName = (String) requestMap.get("customerName");
+        }
 
-        return "showCustomers";
+        Customer search = new Customer();
+        search.setName(customerName);
+
+        customers = customerDAO.findCustomers(search);
+
+        return "searchCustomer";
     }
 }

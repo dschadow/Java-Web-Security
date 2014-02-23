@@ -28,7 +28,7 @@
         <li><h:link outcome="showCustomers" value="Stored XSS"/></li>
         <li>
             <h:form>
-                <h:commandLink action="#{searchBean.search}" value="Reflected XSS">
+                <h:commandLink action="#{search.search}" value="Reflected XSS">
                     <f:param name="customerName"
                              value="Dummy&lt;script&gt;alert('Reflected XSS - Session ID: ' + document.cookie)&lt;/script&gt;"/>
                 </h:commandLink>

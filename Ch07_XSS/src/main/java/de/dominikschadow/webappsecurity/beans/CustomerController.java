@@ -20,54 +20,41 @@ package de.dominikschadow.webappsecurity.beans;
 
 import de.dominikschadow.webappsecurity.daos.CustomerDAO;
 import de.dominikschadow.webappsecurity.domain.Customer;
-import org.apache.commons.lang3.StringUtils;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
 import java.util.List;
-import java.util.Map;
 
 /**
- * Searches customers by the given customer name. The search string can be passed via
- * <code>customerName</code> setter method or as a <code>customerName</code> parameter.
  *
  * @author Dominik Schadow
  */
-@ManagedBean(name = "searchBean")
+@ManagedBean(name = "customer")
 @RequestScoped
-public class SearchBean {
-    private String customerName;
+public class CustomerController {
+    private Customer customer;
     private CustomerDAO customerDAO;
-    private List<Customer> customers;
 
-    public SearchBean() {
+    public CustomerController() {
+        customer = new Customer();
         customerDAO = new CustomerDAO();
     }
 
-    public String getCustomerName() {
-        return customerName;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     public List<Customer> getCustomers() {
-        return customers;
+        return customerDAO.getAllCustomers();
     }
 
-    public String search() {
-        if (StringUtils.isEmpty(customerName)) {
-            Map requestMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-            customerName = (String) requestMap.get("customerName");
-        }
+    public String save() {
+        customerDAO.createCustomer(customer);
 
-        Customer search = new Customer();
-        search.setName(customerName);
-
-        customers = customerDAO.findCustomers(search);
-
-        return "searchCustomer";
+        return "showCustomers";
     }
 }

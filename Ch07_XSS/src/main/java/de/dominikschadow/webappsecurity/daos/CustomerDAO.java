@@ -33,7 +33,7 @@ import java.util.List;
  * Loads customers from the in-memory-database for the managed beans.
  *
  * @author Dominik Schadow
- * @see de.dominikschadow.webappsecurity.beans.CustomerBean
+ * @see de.dominikschadow.webappsecurity.beans.CustomerController
  */
 public class CustomerDAO {
     private Logger logger = LoggerFactory.getLogger(getClass());

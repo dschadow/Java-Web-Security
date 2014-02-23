@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
-    <h:outputStylesheet library="css" value="styles.css" name="styles.css" />
+    <h:outputStylesheet library="css" value="styles.css" name="styles.css"/>
     <title>Ch07_XSS</title>
 </h:head>
 <h:body>
@@ -16,30 +16,30 @@
             outcome="search" value="Search Customer"/>
     </h:form>
 
-    <p>Your search for <strong><h:outputText value="#{searchBean.customerName}"
+    <p>Your search for <strong><h:outputText value="#{search.customerName}"
                                              escape="false"/></strong> returned the following results:</p>
 
     <h:form>
-        <h:dataTable var="customer" value="#{searchBean.customers}">
+        <h:dataTable var="c" value="#{search.customers}">
             <h:column>
                 <f:facet name="header">ID</f:facet>
-                <h:outputText value="#{customer.custId}"/>
+                <h:outputText value="#{c.custId}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">Name</f:facet>
-                <h:outputText value="#{customer.name}"/>
+                <h:outputText value="#{c.name}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">Status</f:facet>
-                <h:outputText value="#{customer.status}"/>
+                <h:outputText value="#{c.status}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">Order Limit</f:facet>
-                <h:outputText value="#{customer.orderLimit}"/>
+                <h:outputText value="#{c.orderLimit}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">Comment</f:facet>
-                <h:outputText escape="false" value="#{customer.comment}"/>
+                <h:outputText escape="false" value="#{c.comment}"/>
             </h:column>
         </h:dataTable>
     </h:form>

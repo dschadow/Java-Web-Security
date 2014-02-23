@@ -16,22 +16,22 @@
     </h:form>
 
     <h:form>
-        <h:dataTable var="customer" value="#{customerBean.customers}">
+        <h:dataTable var="c" value="#{customer.customers}">
             <h:column>
                 <f:facet name="header">ID</f:facet>
-                <h:outputText value="#{customer.custId}"/>
+                <h:outputText value="#{c.custId}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">Name</f:facet>
-                <h:outputText value="#{customer.name}"/>
+                <h:outputText value="#{c.name}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">Status</f:facet>
-                <h:outputText value="#{customer.status}"/>
+                <h:outputText value="#{c.status}"/>
             </h:column>
             <h:column>
                 <f:facet name="header">Order Limit</f:facet>
-                <h:outputText value="#{customer.orderLimit}"/>
+                <h:outputText value="#{c.orderLimit}"/>
                 <script type="text/javascript">
                     var pos = document.URL.indexOf("currency=") + 9;
                     var currency = document.URL.substring(pos, document.URL.length);
@@ -40,7 +40,7 @@
             </h:column>
             <h:column>
                 <f:facet name="header">Comment</f:facet>
-                <h:outputText escape="false" value="#{customer.comment}"/>
+                <h:outputText escape="false" value="#{c.comment}"/>
             </h:column>
         </h:dataTable>
     </h:form>
