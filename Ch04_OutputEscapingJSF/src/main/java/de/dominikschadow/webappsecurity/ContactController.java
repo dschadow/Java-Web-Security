@@ -28,7 +28,7 @@ import java.io.Serializable;
  */
 @ManagedBean(name = "contact")
 @SessionScoped
-public class ContactBean implements Serializable {
+public class ContactController implements Serializable {
     private static final long serialVersionUID = 4083596061570021965L;
 
     private String firstname;
