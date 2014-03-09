@@ -9,7 +9,7 @@ All Java projects are created as **Maven** projects (required are [Java 7](http:
 
 The easiest way to start a web application is to use the **Maven-Tomcat7-Plug-in** in each project directory to start a web application: **mvn tomcat7:run-war** (or simply **mvn** in the console, since this is the default goal). Open your browser and point it to **http://localhost:8080/PROJECT_NAME**, e.g. **http://localhost:8080/Ch04_OutputEscaping**. The project name is always the final part of the URL.
 
-See the following paragraphs for a short description and the requirements to execute the sample code and launch the web application.
+See the following paragraphs for a short description and the requirements to execute the sample code and launch each web application.
 
 ###Ch04_OutputEscaping
 Web application using Java Server Pages (JSP) to show the difference between doing output escaping via Enterprise Security API (ESAPI) and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to see the difference.
