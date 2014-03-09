@@ -1,6 +1,8 @@
 Java-Web-Security
 ==============
 
+This repository contains the complete code samples from my book **Java-Web-Security - Sichere Webanwendungen mit Java entwickeln**, available as [Print](http://www.dpunkt.de/buecher/4198/java-web-security.html), as [PDF/EPub](http://www.dpunkt.de/buecher/4825/java-web-security.html) and for [Kindle](http://www.amazon.de/gp/product/B00IUJM3J4/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B00IUJM3J4&linkCode=as2&tag=dominikswelt).
+
 All Java projects are created as **Maven** projects (required are [Java 7](http://www.oracle.com/technetwork/java) and [Apache Maven 3.0.x](http://maven.apache.org)). In **Eclipse** you therefore need to install the Maven integration via the Eclipse update manager. After that, you can either use the **git m2e connector (m2e-egit)** to import the new projects directly from the repository. Alternatively, you can clone the repository and use **Import Maven Projects** instead (no connector required here). **IntelliJ IDEA** supports this out of the box.
 
 **Mozilla Firefox** is the recommended and up until today working browser for all web applications in this repository. Keep in mind that browsers or some add-ons may block or filter certain attacks already. Deactivate all blocking or intercepting add-ons or try a different browser if a sample application is not working.
