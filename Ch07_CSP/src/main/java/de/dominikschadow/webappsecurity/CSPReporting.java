@@ -18,8 +18,7 @@
  */
 package de.dominikschadow.webappsecurity;
 
-import org.codehaus.jettison.json.JSONException;
-import org.codehaus.jettison.json.JSONObject;
+import com.cedarsoftware.util.io.JsonWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -46,8 +45,6 @@ public class CSPReporting extends HttpServlet {
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        logger.info("CSP-Reporting-Servlet");
-
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()))) {
             StringBuilder responseBuilder = new StringBuilder();
 
@@ -56,18 +53,8 @@ public class CSPReporting extends HttpServlet {
                 responseBuilder.append(inputStr);
             }
 
-            logger.info("REPORT " + responseBuilder.toString());
-
-            JSONObject json = new JSONObject(responseBuilder.toString());
-            JSONObject cspReport = json.getJSONObject("csp-report");
-            logger.info("document-uri: " + cspReport.getString("document-uri"));
-            logger.info("referrer: " + cspReport.getString("referrer"));
-            logger.info("blocked-uri: " + cspReport.getString("blocked-uri"));
-            logger.info("violated-directive: " + cspReport.getString("violated-directive"));
-            logger.info("source-file: " + cspReport.getString("source-file"));
-            logger.info("script-sample: " + cspReport.getString("script-sample"));
-            logger.info("line-number: " + cspReport.getString("line-number"));
-        } catch (IOException | JSONException ex) {
+            logger.info("REPORT " + JsonWriter.formatJson(responseBuilder.toString()));
+        } catch (IOException ex) {
             logger.error(ex.getMessage(), ex);
         }
     }
