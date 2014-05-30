@@ -39,12 +39,12 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
-                <version>3.2.8.RELEASE</version>
+                <version>3.2.9.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
-                <version>3.2.8.RELEASE</version>
+                <version>3.2.9.RELEASE</version>
             </dependency>
             <dependency>
                 <groupId>org.hsqldb</groupId>
@@ -54,7 +54,7 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>4.2.8.Final</version>
+                <version>4.2.13.Final</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.faces</groupId>
@@ -69,12 +69,12 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.7.6</version>
+                <version>1.7.7</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-log4j12</artifactId>
-                <version>1.7.6</version>
+                <version>1.7.7</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
