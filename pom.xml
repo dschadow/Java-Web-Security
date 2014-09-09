@@ -15,6 +15,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.version>3.2.11.RELEASE</spring.version>
     </properties>
 
     <dependencyManagement>
@@ -39,12 +40,12 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-core</artifactId>
-                <version>3.2.9.RELEASE</version>
+                <version>${spring.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-webmvc</artifactId>
-                <version>3.2.9.RELEASE</version>
+                <version>${spring.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.hsqldb</groupId>
@@ -54,7 +55,7 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>4.2.13.Final</version>
+                <version>4.2.14.Final</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.faces</groupId>
