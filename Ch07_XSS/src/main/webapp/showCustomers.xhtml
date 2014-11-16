@@ -33,8 +33,14 @@
                 <f:facet name="header">Order Limit</f:facet>
                 <h:outputText value="#{c.orderLimit}"/>
                 <script type="text/javascript">
-                    var pos = document.URL.indexOf("currency=") + 9;
-                    var currency = document.URL.substring(pos, document.URL.length);
+                    var pos = document.URL.indexOf("currency=");
+                    var currency = "Euro";
+
+                    if (pos > 0) {
+                        pos = pos + 9;
+                        currency = document.URL.substring(pos, document.URL.length);
+                    }
+
                     document.write(decodeURIComponent(currency));
                 </script>
             </h:column>
