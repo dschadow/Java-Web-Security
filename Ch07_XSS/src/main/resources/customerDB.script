@@ -52,6 +52,3 @@ INSERT INTO CUSTOMER VALUES(4,'Zaphod Beeblebrox','D',500,'President of the Gala
 INSERT INTO CUSTOMER VALUES(5,'Marvin','A',100000,'Depressive')
 INSERT INTO CUSTOMER VALUES(6,'Slartibartfast','D',100,'42')
 INSERT INTO CUSTOMER VALUES(7,'Stored XSS','X',9999,'<script>alert("Stored XSS - Session ID: " + document.cookie)</script>')
-INSERT INTO CUSTOMER VALUES(8,'Bla','1',1,'Test')
-INSERT INTO CUSTOMER VALUES(9,'Hallo','A',0,'Test')
-INSERT INTO CUSTOMER VALUES(10,'Neuer Versuch','B',0,'')
