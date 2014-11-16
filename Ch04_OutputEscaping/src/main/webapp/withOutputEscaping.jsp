@@ -4,19 +4,21 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
 	<title>Ch04_OutputEscaping: With Output-Escaping (ESAPI)</title>
 </head>
 <body>
 	<h1>Ch04_OutputEscaping: With Output-Escaping (ESAPI)</h1>
 
     <h2>HTML</h2>
-	<p><strong>Hello</strong> <%= ESAPI.encoder().encodeForHTML(request.getParameter("protected")) %></p>
+	<p><strong>Hello</strong> [<%= ESAPI.encoder().encodeForHTML(request.getParameter("protected")) %>]</p>
 
     <h2>CSS</h2>
-    <p><strong>Hello</strong> <%= ESAPI.encoder().encodeForCSS(request.getParameter("protected")) %></p>
+    <p><strong>Hello</strong> [<%= ESAPI.encoder().encodeForCSS(request.getParameter("protected")) %>]</p>
 
     <h2>XML</h2>
-    <p><strong>Hello</strong> <%= ESAPI.encoder().encodeForXML(request.getParameter("protected")) %></p>
+    <p><strong>Hello</strong> [<%= ESAPI.encoder().encodeForXML(request.getParameter("protected")) %>]</p>
+
+    <p><a href="index.jsp">Home</a></p>
 </body>
 </html>

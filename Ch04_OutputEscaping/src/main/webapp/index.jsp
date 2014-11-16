@@ -3,34 +3,28 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
 	<title>Ch04_OutputEscaping</title>
 </head>
 <body>
 	<h1>Ch04_OutputEscaping</h1>
 
-	<h2>Without Output-Escaping</h2>
-	
 	<form name="withoutOutputEscaping" method="post" action="withoutOutputEscaping.jsp">
-		<table>
-			<tr>
-				<td><label for="unprotected" title="Name">Name</label></td>
-				<td><input type="text" id="unprotected" name="unprotected" class="text-input" /></td>
-				<td><input type="submit" value="Submit" /></td>
-			</tr>
-		</table>
+		<fieldset>
+			<legend>Without Output-Escaping</legend>
+			<label for="unprotected" title="Name">Name</label>
+			<input type="text" id="unprotected" name="unprotected" class="text-input" />
+			<input type="submit" value="Submit" />
+		</fieldset>
 	</form>
 
-	<h2>With Output-Escaping (ESAPI)</h2>
-	
 	<form name="withOutputEscaping" method="post" action="withOutputEscaping.jsp">
-		<table>
-			<tr>
-				<td><label for="protected" title="Name">Name</label></td>
-				<td><input type="text" id="protected" name="protected" class="text-input" /></td>
-				<td><input type="submit" name="submit" value="Submit" /></td>
-			</tr>
-		</table>
+		<fieldset>
+			<legend>With Output-Escaping (ESAPI)</legend>
+			<label for="protected" title="Name">Name</label>
+			<input type="text" id="protected" name="protected" class="text-input" />
+			<input type="submit" value="Submit" />
+		</fieldset>
 	</form>
 </body>
 </html>

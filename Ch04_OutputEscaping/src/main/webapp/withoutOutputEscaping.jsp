@@ -3,11 +3,13 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="styles.css" />
+	<link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
 	<title>Ch04_OutputEscaping: Without Output-Escaping</title>
 </head>
 <body>
     <h1>Ch04_OutputEscaping: Without Output-Escaping</h1>
-	<p><strong>Hello</strong> <%= request.getParameter("unprotected") %></p>
+	<p><strong>Hello</strong> [<%= request.getParameter("unprotected") %>]</p>
+
+	<p><a href="index.jsp">Home</a></p>
 </body>
 </html>
