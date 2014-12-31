@@ -7,6 +7,8 @@
     <version>1.0.0</version>
     <packaging>pom</packaging>
     <name>Java-Web-Security</name>
+    <url>https://github.com/dschadow/Java-Web-Security</url>
+    <description>This repository contains the complete code samples from my book 'Java-Web-Security - Sichere Webanwendungen mit Java entwickeln' (dpunkt.verlag, ISBN 978-3-86490-146-1).</description>
 
     <issueManagement>
         <system>GitHub</system>
