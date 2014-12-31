@@ -82,3 +82,6 @@ JavaServer Faces (JSF) based web application accepting user input in two forms. 
 Web application showing Cross-Site Request Forgery (CSRF) with GET and POST requests and how to protect forms with an anti CSRF token. All requests on the **Unprotected Requests** page are successful and reach the backend as a normal request. The **Protected Requests** page contains successful (with token) and unsuccessful (without token) requests; only the valid requests are processed in the backend.
 
 **Requirements:** Apache Tomcat, Webbrowser
+
+##Meta
+[![Build Status](https://travis-ci.org/dschadow/Java-Web-Security.svg)](https://travis-ci.org/dschadow/Java-Web-Security)
