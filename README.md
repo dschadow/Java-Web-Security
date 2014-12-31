@@ -3,26 +3,26 @@ Java-Web-Security
 
 This repository contains the complete code samples from my book **Java-Web-Security - Sichere Webanwendungen mit Java entwickeln**, available as [Print](http://www.dpunkt.de/buecher/4198/java-web-security.html), as [PDF/EPub](http://www.dpunkt.de/buecher/4825/java-web-security.html) and for [Kindle](http://www.amazon.de/gp/product/B00IUJM3J4/ref=as_li_qf_sp_asin_tl?ie=UTF8&camp=1638&creative=6742&creativeASIN=B00IUJM3J4&linkCode=as2&tag=dominikswelt).
 
-All Java projects are created as **Maven** projects (required are [Java 7](http://www.oracle.com/technetwork/java) and [Apache Maven 3.0.x](http://maven.apache.org)). In **Eclipse** you therefore need to install the Maven integration via the Eclipse update manager. After that, you can either use the **git m2e connector (m2e-egit)** to import the new projects directly from the repository. Alternatively, you can clone the repository and use **Import Maven Projects** instead (no connector required here). **IntelliJ IDEA** supports this out of the box.
+All Java projects are created as **Maven** projects and require [Java 7](http://www.oracle.com/technetwork/java) and [Apache Maven 3](http://maven.apache.org) or newer. In **Eclipse** you therefore need to install the Maven integration via the Eclipse update manager. After that, you can either use the **git m2e connector (m2e-egit)** to import the new projects directly from the repository. Alternatively, you can clone the repository and use **Import Maven Projects** instead (no connector required here). **IntelliJ IDEA** supports this out of the box.
 
-**Mozilla Firefox** is the recommended and up until today working browser for all web applications in this repository. Keep in mind that browsers or some add-ons may block or filter certain attacks already. Deactivate all blocking or intercepting add-ons or try a different browser if a sample application is not working.
+**Mozilla Firefox** is the recommended and up until today working browser for all vulnerable web applications in this repository. Keep in mind that browsers or some add-ons may block or filter certain attacks already. Deactivate all blocking or intercepting add-ons or try a different browser if a sample application is not working.
 
-The easiest way to start a web application is to use the **Maven-Tomcat7-Plug-in** in each project directory to start a web application: **mvn tomcat7:run-war** (or simply **mvn** in the console, since this is the default goal). Open your browser and point it to **http://localhost:8080/PROJECT_NAME**, e.g. **http://localhost:8080/Ch04_OutputEscaping**. The project name is always the final part of the URL.
+The easiest way to start a web application is to use the **Maven-Tomcat7-Plug-in** in each project: **mvn tomcat7:run-war** (or simply **mvn** in the console, since this is the default goal). Open your browser and point it to **http://localhost:8080/PROJECT_NAME**, e.g. **http://localhost:8080/Ch04_OutputEscaping**. The project name is always the final part of the URL.
 
-See the following paragraphs for a short description and the requirements to execute the sample code and launch each web application.
+See the following subsections for a short description and the requirements to execute the sample code and launch the web application.
 
 ###Ch04_OutputEscaping
-Web application using JavaServer Pages (JSP) to show the difference between doing output escaping via Enterprise Security API (ESAPI) and not doing output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to see the difference.
+Web application using JavaServer Pages (JSP) to show the difference between output escaping via Enterprise Security API (ESAPI) and no output escaping at all. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to examine the difference.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch04_OutputEscapingJSF
-Web application using JavaServer Faces (JSF) to show the two different possibilities to show user input in a web page with *#{contact.firstname}* and *&lt;h:outputText value="#{contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to see the difference.
+Web application using JavaServer Faces (JSF) to demonstrate the two different possibilities to show user input in a web page with *#{contact.firstname}* and *&lt;h:outputText value="#{contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to examine the difference.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch04_OutputEscapingJSP
-Spring based web application using JavaServer Pages (JSP) to show the two different possibilities to show user input in a web page with *${contact.firstname}* and *&lt;c:out value="${contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to see the difference.
+Spring based web application using JavaServer Pages (JSP) to demonstrate the two different possibilities to show user input in a web page with *${contact.firstname}* and *&lt;c:out value="${contact.firstname}" /&gt;*. Use an input like *&lt;script&gt;alert(&#x27;XSS&#x27;)&lt;/script&gt;* to examine the difference.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
@@ -37,12 +37,12 @@ Web application using a Servlet filter to add the *Strict-Transport-Security* he
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch05_SessionFixation
-Web application invalidating an existing session and its session id before continuing in the login process. This web application requires the included special *context.xml* configuration for Tomcat in order to display the current session id via JavaScript.
+Web application invalidating an existing session and its session id before continuing the login process. This web application requires the included special *context.xml* configuration for Tomcat in order to display the current session id via JavaScript.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch05_SessionHandling
-Web application containing a complete *web.xml* configuration showing how to protect cookies. Contains only a start page which tries to show the session cookie in a JavaScript popup.
+Web application containing a complete *web.xml* configuration showing how to protect cookies and other session data. Contains only a start page which fails trying to show the session cookie in a JavaScript popup.
 
 **Requirements:** Apache Tomcat, Webbrowser
 
@@ -62,7 +62,7 @@ Web application with three input processing servlets. One is unprotected and pro
 **Requirements:** Apache Tomcat, Webbrowser
 
 ###Ch07_XSS
-Web application to test the three XSS types *stored*, *reflected* and *DOM based*. The comment input field is vulnerable to XSS and can be easily protected by enabling output escaping. Cookie could be protected by removing the special *context.xml* and by setting the corresponding *web.xml* parameter.
+Web application to test the three XSS types *stored*, *reflected* and *DOM based*. The input textfield is vulnerable to XSS and can be easily protected by enabling output escaping. Cookie could be protected by removing the special *context.xml* and by setting the corresponding *web.xml* parameter.
 
 This web application requires the included special *context.xml* configuration for Tomcat in order to display the current session id via JavaScript.
 
