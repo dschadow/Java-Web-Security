@@ -8,7 +8,9 @@
     <packaging>pom</packaging>
     <name>Java-Web-Security</name>
     <url>https://github.com/dschadow/Java-Web-Security</url>
-    <description>This repository contains the complete code samples from my book 'Java-Web-Security - Sichere Webanwendungen mit Java entwickeln' (dpunkt.verlag, ISBN 978-3-86490-146-1).</description>
+    <description>This repository contains the complete code samples from my book 'Java-Web-Security - Sichere
+        Webanwendungen mit Java entwickeln' (dpunkt.verlag, ISBN 978-3-86490-146-1).
+    </description>
 
     <issueManagement>
         <system>GitHub</system>
@@ -17,7 +19,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>3.2.13.RELEASE</spring.version>
+        <spring.version>4.1.4.RELEASE</spring.version>
         <slf4j.version>1.7.9</slf4j.version>
         <jsf.version>2.2.9</jsf.version>
     </properties>
@@ -29,6 +31,18 @@
                 <artifactId>javax.servlet-api</artifactId>
                 <version>3.1.0</version>
                 <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>2.3.1</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>jstl</artifactId>
+                <version>1.2</version>
+                <scope>compile</scope>
             </dependency>
             <dependency>
                 <groupId>org.owasp.esapi</groupId>
@@ -43,8 +57,9 @@
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
+                <artifactId>spring-test</artifactId>
                 <version>${spring.version}</version>
+                <scope>test</scope>
             </dependency>
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -97,6 +112,12 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>3.3.2</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+                <scope>test</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
