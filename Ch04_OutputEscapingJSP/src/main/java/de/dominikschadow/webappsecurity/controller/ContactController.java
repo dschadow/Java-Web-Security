@@ -35,6 +35,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @SessionAttributes
+@RequestMapping(value = "/contacts")
 public class ContactController {
     private Logger logger = LoggerFactory.getLogger(getClass());
 

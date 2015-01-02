@@ -11,7 +11,7 @@
 <body>
 	<h1>Ch04_OutputEscapingJSP</h1>
 
-	<form:form method="post" action="addContact">
+	<form:form method="post" action="contacts/addContact">
 		<table>
 			<tr>
 				<td><form:label path="firstname">Firstname</form:label></td>
