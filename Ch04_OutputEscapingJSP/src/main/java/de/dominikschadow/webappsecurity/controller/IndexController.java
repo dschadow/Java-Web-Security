@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2014 Dominik Schadow, dominikschadow@gmail.com
+ * Copyright (C) 2015 Dominik Schadow, dominikschadow@gmail.com
  *
  * This file is part of Java-Web-Security
 .
@@ -23,14 +23,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
+
 /**
- * 
+ * Controller to handle GET requests for the home page.
+ *
  * @author Dominik Schadow
  */
 @Controller
+@RequestMapping(value = "/")
 public class IndexController {
-    @RequestMapping("/index")
-    public ModelAndView showContacts() {
+    @RequestMapping(method = GET)
+    public ModelAndView index() {
         return new ModelAndView("index", "command", new Contact());
     }
 }
