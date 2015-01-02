@@ -1,8 +1,7 @@
 /*
- * Copyright (C) 2014 Dominik Schadow, dominikschadow@gmail.com
+ * Copyright (C) 2015 Dominik Schadow, info@dominikschadow.de
  *
- * This file is part of Java-Web-Security
-.
+ * This file is part of the Java-Web-Security project.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
