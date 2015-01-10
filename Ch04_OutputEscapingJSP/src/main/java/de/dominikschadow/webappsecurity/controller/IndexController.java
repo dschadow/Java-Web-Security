@@ -17,9 +17,7 @@
  */
 package de.dominikschadow.webappsecurity.controller;
 
-import de.dominikschadow.webappsecurity.domain.Contact;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -33,9 +31,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 @RequestMapping(value = "/")
 public class IndexController {
     @RequestMapping(method = GET)
-    public String index(Model model) {
-        model.addAttribute("contact", new Contact());
-
+    public String index() {
         return "index";
     }
 }
