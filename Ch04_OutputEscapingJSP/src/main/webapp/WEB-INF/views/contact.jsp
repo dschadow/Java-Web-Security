@@ -17,6 +17,6 @@
         <p><strong>Contact details:</strong> <c:out value="${contact.firstname}" /> <c:out value="${contact.lastname}" /></p>
 
         <h2>Input displayed inside Spring escapeBody element as direct value expression</h2>
-        <p><strong>Contact details:</strong> <s:escapeBody htmlEscape="true">${contact.firstname} ${contact.lastname}</s:escapeBody> </p>
+        <p><strong>Contact details:</strong> <s:escapeBody htmlEscape="true">${contact.firstname} ${contact.lastname}</s:escapeBody></p>
     </body>
 </html>
