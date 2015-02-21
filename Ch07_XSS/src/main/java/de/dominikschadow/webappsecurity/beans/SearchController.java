@@ -58,8 +58,8 @@ public class SearchController {
 
     public String search() {
         if (StringUtils.isEmpty(customerName)) {
-            Map requestMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
-            customerName = (String) requestMap.get("customerName");
+            Map<String, String> requestMap = FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+            customerName = requestMap.get("customerName");
         }
 
         Customer search = new Customer();
