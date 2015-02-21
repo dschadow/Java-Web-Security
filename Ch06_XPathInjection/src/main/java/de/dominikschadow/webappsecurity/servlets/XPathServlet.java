@@ -17,11 +17,9 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 
 import javax.annotation.PostConstruct;
 import javax.servlet.ServletException;
@@ -36,9 +34,12 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 /**
  * Servlet using an XPath expression to query the customer XML document.
@@ -56,13 +57,23 @@ public class XPathServlet extends HttpServlet {
 
     @PostConstruct
     public void init() {
+    	InputStream inputStream = null;
+    	
         try {
-            File xmlFile = new File("src/main/resources/customer.xml");
+        	inputStream = getClass().getClassLoader().getResourceAsStream("/customer.xml"); 
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            doc = dBuilder.parse(xmlFile);
+            doc = dBuilder.parse(inputStream);
         } catch (SAXException | IOException | ParserConfigurationException ex) {
             logger.error(ex.getMessage(), ex);
+        } finally {
+        	if (inputStream != null) {
+        		try {
+					inputStream.close();
+				} catch (IOException ex) {
+		            logger.error(ex.getMessage(), ex);
+				}
+        	}
         }
     }
 
