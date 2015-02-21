@@ -32,7 +32,9 @@ import java.util.List;
 @ManagedBean(name = "accountRandom")
 @SessionScoped
 public class AccountRandomController implements Serializable {
-    private List<String> accountReferences = new ArrayList<>();
+	private static final long serialVersionUID = -1993232852833249965L;
+
+	private List<String> accountReferences = new ArrayList<>();
     private String raAccountId = "";
     private int userId = 42;
     private AccountsRandomDAO dao;

@@ -32,7 +32,9 @@ import java.util.List;
 @ManagedBean(name = "accountInteger")
 @SessionScoped
 public class AccountIntegerController implements Serializable {
-    private List<String> accountReferences = new ArrayList<>();
+	private static final long serialVersionUID = -7028823778341291008L;
+
+	private List<String> accountReferences = new ArrayList<>();
     private int iaAccountId = 1;
     private int userId = 42;
     private AccountsIntegerDAO dao;

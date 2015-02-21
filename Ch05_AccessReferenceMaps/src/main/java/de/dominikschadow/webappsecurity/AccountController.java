@@ -32,7 +32,9 @@ import java.util.List;
 @ManagedBean(name = "account")
 @SessionScoped
 public class AccountController implements Serializable {
-    private Account account;
+	private static final long serialVersionUID = -9118791523118467771L;
+
+	private Account account;
     private int userId = 42;
     private int accountId = 1;
     private AccountsDAO dao;

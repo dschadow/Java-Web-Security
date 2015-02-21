@@ -29,7 +29,9 @@ import java.io.Serializable;
  */
 @Entity
 public class Customer implements Serializable {
-    @Id
+	private static final long serialVersionUID = -7895805439708336685L;
+
+	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int custId;
     private String name;
