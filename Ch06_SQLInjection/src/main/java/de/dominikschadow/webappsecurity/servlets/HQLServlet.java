@@ -17,7 +17,18 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
-import de.dominikschadow.webappsecurity.domain.Customer;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.List;
+
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -27,16 +38,7 @@ import org.hibernate.service.ServiceRegistryBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
+import de.dominikschadow.webappsecurity.domain.Customer;
 
 /**
  * Servlet using Hibernate Query Language (HQL) to query the in-memory-database.
@@ -65,7 +67,6 @@ public class HQLServlet extends HttpServlet {
         }
     }
 
-
     /**
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
      */
@@ -76,7 +77,8 @@ public class HQLServlet extends HttpServlet {
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY CUST_ID");
         query.setParameter("name", name);
-        List<Customer> customers = query.list();
+        @SuppressWarnings("unchecked")
+		List<Customer> customers = query.list();
 
         response.setContentType("text/html");
 

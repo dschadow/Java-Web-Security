@@ -18,6 +18,7 @@
 package de.dominikschadow.webappsecurity.daos;
 
 import de.dominikschadow.webappsecurity.domain.Customer;
+
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -40,6 +41,7 @@ public class CustomerDAO {
     public List<Customer> getAllCustomers() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         Query query = session.createQuery("FROM Customer");
+        @SuppressWarnings("unchecked")
         List<Customer> customers = query.list();
 
         logger.info("Found " + customers.size() + " customers");
@@ -62,6 +64,7 @@ public class CustomerDAO {
         Criteria criteria = session.createCriteria(Customer.class);
         criteria.add(Restrictions.like("name", "%" + customer.getName()+ "%"));
 
+        @SuppressWarnings("unchecked")
         List<Customer> customers = criteria.list();
 
         logger.info("Found " + customers.size() + " customers");
