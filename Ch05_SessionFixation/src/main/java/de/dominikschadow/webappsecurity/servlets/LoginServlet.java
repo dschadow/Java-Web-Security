@@ -17,17 +17,17 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.io.PrintWriter;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * Servlet faking a user login. Invalidates the current session (and its session id) and creates a new one afterwards.
@@ -50,7 +50,7 @@ public class LoginServlet extends HttpServlet {
         request.getSession().invalidate();
 
         // create a new one and continue in the "login" process
-        HttpSession session = request.getSession(true);
+        request.getSession(true);
 
         response.setContentType("text/html");
 
