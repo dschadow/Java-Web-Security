@@ -18,6 +18,7 @@
 package de.dominikschadow.webappsecurity.servlets;
 
 import de.dominikschadow.webappsecurity.domain.Customer;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,6 +29,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.*;
@@ -49,8 +51,9 @@ public class PreparedStatementServlet extends HttpServlet {
     @PostConstruct
     public void init() {
         try {
-            con = DriverManager.getConnection("jdbc:hsqldb:file:src/main/resources/customerDB; shutdown=true", "sa", "");
-        } catch (SQLException ex) {
+        	Class.forName("org.hsqldb.jdbcDriver");
+            con = DriverManager.getConnection("jdbc:hsqldb:res:/customerDB; shutdown=true", "sa", "");
+        } catch (ClassNotFoundException | SQLException ex) {
             logger.error(ex.getMessage(), ex);
         }
     }

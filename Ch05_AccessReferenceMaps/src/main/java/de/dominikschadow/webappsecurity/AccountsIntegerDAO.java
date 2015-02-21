@@ -69,7 +69,7 @@ public class AccountsIntegerDAO {
         ResultSet rs = null;
 
         try {
-            con = DriverManager.getConnection("jdbc:hsqldb:file:src/main/resources/accountsDB; shutdown=true", "sa", "");
+            con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", "");
             pstmt = con.prepareStatement(query);
             pstmt.setInt(1, user.getUserId());
 
