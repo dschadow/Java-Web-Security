@@ -56,6 +56,7 @@ public class XPathServlet extends HttpServlet {
     private Document doc;
 
     @PostConstruct
+    @Override
     public void init() {
         InputStream inputStream = null;
 

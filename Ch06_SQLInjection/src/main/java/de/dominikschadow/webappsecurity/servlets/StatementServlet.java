@@ -49,6 +49,7 @@ public class StatementServlet extends HttpServlet {
     private transient Connection con = null;
 
     @PostConstruct
+    @Override
     public void init() {
         try {
             Class.forName("org.hsqldb.jdbcDriver");
@@ -59,6 +60,7 @@ public class StatementServlet extends HttpServlet {
     }
 
     @PreDestroy
+    @Override
     public void destroy() {
         try {
             if (con != null) {

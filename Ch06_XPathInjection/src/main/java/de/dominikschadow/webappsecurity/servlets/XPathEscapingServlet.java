@@ -56,6 +56,7 @@ public class XPathEscapingServlet extends HttpServlet {
     private Document doc;
 
     @PostConstruct
+    @Override
     public void init() {
         try {
             File xmlFile = new File("src/main/resources/customer.xml");
