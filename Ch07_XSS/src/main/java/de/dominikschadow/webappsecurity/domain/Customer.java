@@ -24,14 +24,13 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- *
  * @author Dominik Schadow
  */
 @Entity
 public class Customer implements Serializable {
-	private static final long serialVersionUID = -7895805439708336685L;
+    private static final long serialVersionUID = -7895805439708336685L;
 
-	@Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int custId;
     private String name;
@@ -87,7 +86,7 @@ public class Customer implements Serializable {
         customer.append(", Status ").append(status);
         customer.append(", Order Limit ").append(orderLimit);
         customer.append(", Comment ").append(comment);
-        
+
         return customer.toString();
     }
 }

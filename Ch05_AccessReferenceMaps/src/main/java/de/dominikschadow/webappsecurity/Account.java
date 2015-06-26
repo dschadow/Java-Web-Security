@@ -25,9 +25,9 @@ import java.io.Serializable;
  * @author Dominik Schadow
  */
 public class Account implements Serializable {
-	private static final long serialVersionUID = 4793967348395291417L;
+    private static final long serialVersionUID = 4793967348395291417L;
 
-	private int accountId;
+    private int accountId;
     private String name;
     private String type;
     private int ownerId;

@@ -25,16 +25,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Managed bean to access an account by account reference (RandomAccessReferenceMap). Only accounts belonging to the current user are contained in this map.
+ * Managed bean to access an account by account reference (RandomAccessReferenceMap). Only accounts belonging to the
+ * current user are contained in this map.
  *
  * @author Dominik Schadow
  */
 @ManagedBean(name = "accountRandom")
 @SessionScoped
 public class AccountRandomController implements Serializable {
-	private static final long serialVersionUID = -1993232852833249965L;
+    private static final long serialVersionUID = -1993232852833249965L;
 
-	private List<String> accountReferences = new ArrayList<>();
+    private List<String> accountReferences = new ArrayList<>();
     private String raAccountId = "";
     private int userId = 42;
     private transient AccountsRandomDAO dao;

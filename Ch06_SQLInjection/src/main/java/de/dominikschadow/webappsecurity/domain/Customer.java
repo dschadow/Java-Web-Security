@@ -54,7 +54,7 @@ public class Customer {
     public void setOrderLimit(int orderLimit) {
         this.orderLimit = orderLimit;
     }
-    
+
     @Override
     public String toString() {
         StringBuilder customer = new StringBuilder();
@@ -62,7 +62,7 @@ public class Customer {
         customer.append(", Name ").append(name);
         customer.append(", Status ").append(status);
         customer.append(", Order Limit ").append(orderLimit);
-        
+
         return customer.toString();
     }
 }

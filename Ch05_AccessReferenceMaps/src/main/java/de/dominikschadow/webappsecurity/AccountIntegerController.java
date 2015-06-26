@@ -25,16 +25,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Managed bean to access an account by account reference (IntegerAccessReferenceMap). Only accounts belonging to the current user are contained in this map.
+ * Managed bean to access an account by account reference (IntegerAccessReferenceMap). Only accounts belonging to the
+ * current user are contained in this map.
  *
  * @author Dominik Schadow
  */
 @ManagedBean(name = "accountInteger")
 @SessionScoped
 public class AccountIntegerController implements Serializable {
-	private static final long serialVersionUID = -7028823778341291008L;
+    private static final long serialVersionUID = -7028823778341291008L;
 
-	private List<String> accountReferences = new ArrayList<>();
+    private List<String> accountReferences = new ArrayList<>();
     private int iaAccountId = 1;
     private int userId = 42;
     private transient AccountsIntegerDAO dao;
