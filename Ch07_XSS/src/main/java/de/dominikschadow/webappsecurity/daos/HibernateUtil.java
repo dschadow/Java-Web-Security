@@ -27,6 +27,12 @@ import org.hibernate.service.ServiceRegistryBuilder;
  * @author Dominik Schadow
  */
 public class HibernateUtil {
+    /**
+     * Util class, no constructor required.
+     */
+    private HibernateUtil() {
+    }
+
     public static SessionFactory getSessionFactory() throws HibernateException {
         Configuration configuration = new Configuration();
         configuration.configure();
