@@ -37,7 +37,7 @@ public class AccountIntegerController implements Serializable {
 	private List<String> accountReferences = new ArrayList<>();
     private int iaAccountId = 1;
     private int userId = 42;
-    private AccountsIntegerDAO dao;
+    private transient AccountsIntegerDAO dao;
 
     public int getIaAccountId() {
         return iaAccountId;

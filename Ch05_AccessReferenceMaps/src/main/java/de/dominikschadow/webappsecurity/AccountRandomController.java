@@ -37,7 +37,7 @@ public class AccountRandomController implements Serializable {
 	private List<String> accountReferences = new ArrayList<>();
     private String raAccountId = "";
     private int userId = 42;
-    private AccountsRandomDAO dao;
+    private transient AccountsRandomDAO dao;
 
     public String getRaAccountId() {
         return raAccountId;

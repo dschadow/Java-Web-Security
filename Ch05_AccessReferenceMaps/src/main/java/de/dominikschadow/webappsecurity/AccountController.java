@@ -37,7 +37,7 @@ public class AccountController implements Serializable {
 	private Account account;
     private int userId = 42;
     private int accountId = 1;
-    private AccountsDAO dao;
+    private transient AccountsDAO dao;
     private List<String> accountReferences = new ArrayList<>();
 
     public int getAccountId() {
