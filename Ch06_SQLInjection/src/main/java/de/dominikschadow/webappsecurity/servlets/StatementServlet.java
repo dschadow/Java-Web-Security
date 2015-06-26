@@ -46,7 +46,7 @@ import java.util.List;
 public class StatementServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(StatementServlet.class);
     private static final long serialVersionUID = 1L;
-    private Connection con = null;
+    private transient Connection con = null;
 
     @PostConstruct
     public void init() {
