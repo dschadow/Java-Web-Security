@@ -37,14 +37,14 @@ import java.io.PrintWriter;
 @WebServlet(name = "CSRFServlet", urlPatterns = {"/CSRFServlet"})
 public class CSRFServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(CSRFServlet.class);
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        logger.info("Processing unprotected GET request: Received " + name + " as parameter");
+        LOGGER.info("Processing unprotected GET request: Received " + name + " as parameter");
 
         response.setContentType("text/html");
 
@@ -61,7 +61,7 @@ public class CSRFServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 
@@ -70,7 +70,7 @@ public class CSRFServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        logger.info("Processing unprotected POST request: Received " + name + " as parameter");
+        LOGGER.info("Processing unprotected POST request: Received " + name + " as parameter");
 
         response.setContentType("text/html");
 
@@ -87,7 +87,7 @@ public class CSRFServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

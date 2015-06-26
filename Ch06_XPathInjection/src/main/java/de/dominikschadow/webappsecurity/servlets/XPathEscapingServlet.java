@@ -51,7 +51,7 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "XPathEscapingServlet", urlPatterns = {"/XPathEscapingServlet"})
 public class XPathEscapingServlet extends HttpServlet {
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(XPathEscapingServlet.class);
     private static final long serialVersionUID = 1L;
     private Document doc;
 
@@ -63,7 +63,7 @@ public class XPathEscapingServlet extends HttpServlet {
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             doc = dBuilder.parse(xmlFile);
         } catch (SAXException | IOException | ParserConfigurationException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 
@@ -73,11 +73,11 @@ public class XPathEscapingServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
-        logger.info("Received " + name + " and " + password + " as parameter");
+        LOGGER.info("Received " + name + " and " + password + " as parameter");
 
         String safeName = ESAPI.encoder().encodeForXPath(name);
         String safePassword = ESAPI.encoder().encodeForXPath(password);
-        logger.info("Using safe name " + safeName + " and " + safePassword);
+        LOGGER.info("Using safe name " + safeName + " and " + safePassword);
 
         StringBuilder xpathExpression = new StringBuilder();
         xpathExpression.append("/customers/customer[name='");
@@ -90,7 +90,7 @@ public class XPathEscapingServlet extends HttpServlet {
     }
 
     private void printOrderLimit(String xpath, String name, HttpServletResponse response) {
-        logger.info("XPath expression is " + xpath);
+        LOGGER.info("XPath expression is " + xpath);
 
         try (PrintWriter out = response.getWriter()) {
             XPathExpression expression = XPathFactory.newInstance().newXPath().compile(xpath);
@@ -112,7 +112,7 @@ public class XPathEscapingServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (XPathExpressionException | IOException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

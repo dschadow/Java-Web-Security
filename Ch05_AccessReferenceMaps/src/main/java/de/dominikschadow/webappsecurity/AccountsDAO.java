@@ -31,13 +31,13 @@ import java.util.List;
  * @see AccountController
  */
 public class AccountsDAO {
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(AccountsDAO.class);
 
     public AccountsDAO() {
         try {
             Class.forName("org.hsqldb.jdbcDriver");
         } catch (ClassNotFoundException ex) {
-            logger.error("Failed to load db driver", ex);
+            LOGGER.error("Failed to load db driver", ex);
         }
     }
 
@@ -73,28 +73,28 @@ public class AccountsDAO {
                 return account;
             }
         } catch (SQLException ex) {
-            logger.error("SQL exception", ex);
+            LOGGER.error("SQL exception", ex);
         } finally {
             try {
                 if (rs != null) {
                     rs.close();
                 }
             } catch (SQLException ex) {
-                logger.error("Failed to close rs", ex);
+                LOGGER.error("Failed to close rs", ex);
             }
             try {
                 if (pstmt != null) {
                     pstmt.close();
                 }
             } catch (SQLException ex) {
-                logger.error("Failed to close pstmt", ex);
+                LOGGER.error("Failed to close pstmt", ex);
             }
             try {
                 if (con != null) {
                     con.close();
                 }
             } catch (SQLException ex) {
-                logger.error("Failed to close con", ex);
+                LOGGER.error("Failed to close con", ex);
             }
         }
 
@@ -120,28 +120,28 @@ public class AccountsDAO {
                 accountReferences.add(rs.getString(1));
             }
         } catch (SQLException ex) {
-            logger.error("SQL exception", ex);
+            LOGGER.error("SQL exception", ex);
         } finally {
             try {
                 if (rs != null) {
                     rs.close();
                 }
             } catch (SQLException ex) {
-                logger.error("Failed to close rs", ex);
+                LOGGER.error("Failed to close rs", ex);
             }
             try {
                 if (pstmt != null) {
                     pstmt.close();
                 }
             } catch (SQLException ex) {
-                logger.error("Failed to close pstmt", ex);
+                LOGGER.error("Failed to close pstmt", ex);
             }
             try {
                 if (con != null) {
                     con.close();
                 }
             } catch (SQLException ex) {
-                logger.error("Failed to close con", ex);
+                LOGGER.error("Failed to close con", ex);
             }
         }
 

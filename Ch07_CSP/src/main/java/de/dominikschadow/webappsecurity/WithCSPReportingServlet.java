@@ -37,16 +37,16 @@ import java.io.PrintWriter;
 @WebServlet(name = "WithCSPReportingServlet", urlPatterns = {"/WithCSPReportingServlet"})
 public class WithCSPReportingServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(WithCSPReportingServlet.class);
 
     /**
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        logger.info("Processing POST request with Content Security Policy Reporting");
+        LOGGER.info("Processing POST request with Content Security Policy Reporting");
 
         String name = request.getParameter("reporting");
-        logger.info("Received " + name + " as POST parameter");
+        LOGGER.info("Received " + name + " as POST parameter");
 
         response.setContentType("text/html");
         // the following line only reports violations and does not block anything
@@ -65,7 +65,7 @@ public class WithCSPReportingServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

@@ -35,11 +35,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 @SessionAttributes
 @RequestMapping(value = "/contacts")
 public class ContactController {
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(ContactController.class);
 
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)
     public String addContact(@ModelAttribute Contact contact, Model model) {
-        logger.info("Firstname: " + contact.getFirstname() + ", Lastname: " + contact.getLastname());
+        LOGGER.info("Firstname: " + contact.getFirstname() + ", Lastname: " + contact.getLastname());
 
         model.addAttribute("contact", contact);
 

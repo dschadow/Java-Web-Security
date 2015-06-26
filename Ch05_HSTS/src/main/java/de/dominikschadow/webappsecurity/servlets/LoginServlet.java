@@ -36,7 +36,7 @@ import org.slf4j.LoggerFactory;
  */
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(LoginServlet.class);
     private static final long serialVersionUID = 1L;
 
     /**
@@ -44,7 +44,7 @@ public class LoginServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        logger.info("Received " + name + " as POST parameter");
+        LOGGER.info("Received " + name + " as POST parameter");
 
         // invalidate the current session
         request.getSession().invalidate();
@@ -63,7 +63,7 @@ public class LoginServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

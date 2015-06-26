@@ -41,37 +41,37 @@ import java.security.NoSuchProviderException;
 @WebServlet(name = "ProtectedServlet", urlPatterns = {"/ProtectedServlet"})
 public class ProtectedServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProtectedServlet.class);
 
     /**
      * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        logger.info("Processing protected GET request");
+        LOGGER.info("Processing protected GET request");
 
         response.setContentType("text/html");
         
         try {
             if (!CSRFTokenHandler.isValid(request)) {
-                logger.warn("CSRF token is invalid");
+                LOGGER.warn("CSRF token is invalid");
                 response.setStatus(401);
 
                 try (PrintWriter out = response.getWriter()) {
                     out.println("CSRF token is invalid");
                 } catch (IOException ex) {
-                    logger.error(ex.getMessage(), ex);
+                    LOGGER.error(ex.getMessage(), ex);
                 }
                 
                 return;
             }
         } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
 
-        logger.info("CSRF token is valid");
+        LOGGER.info("CSRF token is valid");
 
         String name = request.getParameter("name");
-        logger.info("Received " + name + " as GET parameter");
+        LOGGER.info("Received " + name + " as GET parameter");
 
         try (PrintWriter out = response.getWriter()) {
             out.println("<html>");
@@ -86,7 +86,7 @@ public class ProtectedServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 
@@ -94,31 +94,31 @@ public class ProtectedServlet extends HttpServlet {
      * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        logger.info("Processing protected POST request");
+        LOGGER.info("Processing protected POST request");
 
         response.setContentType("text/html");
         
         try {
             if (!CSRFTokenHandler.isValid(request)) {
-                logger.warn("CSRF token is invalid");
+                LOGGER.warn("CSRF token is invalid");
                 response.setStatus(401);
 
                 try (PrintWriter out = response.getWriter()) {
                     out.println("CSRF token is invalid");
                 } catch (IOException ex) {
-                    logger.error(ex.getMessage(), ex);
+                    LOGGER.error(ex.getMessage(), ex);
                 }
                 
                 return;
             }
         } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
 
-        logger.info("CSRF token is valid");
+        LOGGER.info("CSRF token is valid");
 
         String name = request.getParameter("name");
-        logger.info("Received " + name + " as POST parameter");
+        LOGGER.info("Received " + name + " as POST parameter");
 
         try (PrintWriter out = response.getWriter()) {
             out.println("<html>");
@@ -133,7 +133,7 @@ public class ProtectedServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

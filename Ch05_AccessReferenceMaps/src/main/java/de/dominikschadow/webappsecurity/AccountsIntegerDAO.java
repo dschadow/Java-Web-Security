@@ -34,13 +34,13 @@ import java.util.List;
  */
 public class AccountsIntegerDAO {
     private IntegerAccessReferenceMap accounts = new IntegerAccessReferenceMap();
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(AccountsIntegerDAO.class);
 
     public AccountsIntegerDAO() {
         try {
             Class.forName("org.hsqldb.jdbcDriver");
         } catch (ClassNotFoundException ex) {
-            logger.error("Failed to load db driver", ex);
+            LOGGER.error("Failed to load db driver", ex);
         }
     }
 
@@ -50,7 +50,7 @@ public class AccountsIntegerDAO {
         try {
             return accounts.getDirectReference(accountReference);
         } catch (AccessControlException ex) {
-            logger.error("Access to " + accountReference + " denied", ex);
+            LOGGER.error("Access to " + accountReference + " denied", ex);
 
             return null;
         }
@@ -86,28 +86,28 @@ public class AccountsIntegerDAO {
                 accountReferences.add(accounts.getIndirectReference(account));
             }
         } catch (SQLException ex) {
-            logger.error("SQL exception", ex);
+            LOGGER.error("SQL exception", ex);
         } finally {
             try {
                 if (rs != null) {
                     rs.close();
                 }
             } catch (SQLException ex) {
-                logger.error("Failed to close rs", ex);
+                LOGGER.error("Failed to close rs", ex);
             }
             try {
                 if (pstmt != null) {
                     pstmt.close();
                 }
             } catch (SQLException ex) {
-                logger.error("Failed to close pstmt", ex);
+                LOGGER.error("Failed to close pstmt", ex);
             }
             try {
                 if (con != null) {
                     con.close();
                 }
             } catch (SQLException ex) {
-                logger.error("Failed to close con", ex);
+                LOGGER.error("Failed to close con", ex);
             }
         }
 

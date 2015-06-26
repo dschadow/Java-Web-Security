@@ -36,16 +36,16 @@ import java.io.PrintWriter;
 @WebServlet(name = "WithoutCSPServlet", urlPatterns = {"/WithoutCSPServlet"})
 public class WithoutCSPServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(WithoutCSPServlet.class);
 
     /**
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        logger.info("Processing POST request without Content Security Policy");
+        LOGGER.info("Processing POST request without Content Security Policy");
 
         String name = request.getParameter("unprotected");
-        logger.info("Received " + name + " as POST parameter");
+        LOGGER.info("Received " + name + " as POST parameter");
 
         response.setContentType("text/html");
 
@@ -59,7 +59,7 @@ public class WithoutCSPServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

@@ -30,17 +30,17 @@ import java.io.IOException;
  * @author Dominik Schadow
  */
 public class HSTSFilter implements Filter {
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(HSTSFilter.class);
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        logger.info("HSTSFilter init");
+        LOGGER.info("HSTSFilter init");
     }
 
     @Override
     public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
         ((HttpServletResponse) res).setHeader("Strict-Transport-Security", "max-age=12960000; includeSubdomains");
-        logger.info("Added Strict-Transport-Security header to response");
+        LOGGER.info("Added Strict-Transport-Security header to response");
 
         chain.doFilter(req, res);
     }

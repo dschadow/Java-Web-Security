@@ -38,7 +38,7 @@ import java.io.InputStreamReader;
 @WebServlet(name = "CSPReporting", urlPatterns = {"/CSPReporting"})
 public class CSPReporting extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(CSPReporting.class);
 
     /**
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
@@ -52,9 +52,9 @@ public class CSPReporting extends HttpServlet {
                 responseBuilder.append(inputStr);
             }
 
-            logger.info("\n{}", JsonWriter.formatJson(responseBuilder.toString()));
+            LOGGER.info("\n{}", JsonWriter.formatJson(responseBuilder.toString()));
         } catch (IOException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

@@ -36,7 +36,7 @@ import java.util.List;
  * @see de.dominikschadow.webappsecurity.beans.CustomerController
  */
 public class CustomerDAO {
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomerDAO.class);
 
     public List<Customer> getAllCustomers() {
         Session session = HibernateUtil.getSessionFactory().openSession();
@@ -44,7 +44,7 @@ public class CustomerDAO {
         @SuppressWarnings("unchecked")
         List<Customer> customers = query.list();
 
-        logger.info("Found " + customers.size() + " customers");
+        LOGGER.info("Found " + customers.size() + " customers");
 
         session.close();
 
@@ -67,7 +67,7 @@ public class CustomerDAO {
         @SuppressWarnings("unchecked")
         List<Customer> customers = criteria.list();
 
-        logger.info("Found " + customers.size() + " customers");
+        LOGGER.info("Found " + customers.size() + " customers");
 
         session.close();
 

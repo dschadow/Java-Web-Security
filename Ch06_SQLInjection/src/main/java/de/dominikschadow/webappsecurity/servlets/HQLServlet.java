@@ -48,7 +48,7 @@ import de.dominikschadow.webappsecurity.domain.Customer;
  */
 @WebServlet(name = "HQLServlet", urlPatterns = {"/HQLServlet"})
 public class HQLServlet extends HttpServlet {
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    private static final Logger LOGGER = LoggerFactory.getLogger(HQLServlet.class);
     private static final long serialVersionUID = 1L;
     private SessionFactory sessionFactory;
 
@@ -72,7 +72,7 @@ public class HQLServlet extends HttpServlet {
      */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        logger.info("Received " + name + " as POST parameter");
+        LOGGER.info("Received " + name + " as POST parameter");
 
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY CUST_ID");
@@ -110,7 +110,7 @@ public class HQLServlet extends HttpServlet {
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
-            logger.error(ex.getMessage(), ex);
+            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }
