@@ -25,8 +25,9 @@ import java.util.regex.Pattern;
 
 /**
  * Filter HTML tags which can be used for a XSS attack with a blacklist.<br/>
- *
- * Originally based on Ricardo Zuasti {@link http://www.javacodegeeks.com/2012/07/anti-cross-site-scripting-xss-filter.html}
+ * <p>
+ * Originally based on Ricardo Zuasti {@link http://www.javacodegeeks
+ * .com/2012/07/anti-cross-site-scripting-xss-filter.html}
  *
  * @author Dominik Schadow
  */

@@ -44,7 +44,7 @@ import java.io.PrintWriter;
 /**
  * Servlet using an XPath expression to query the customer XML document.
  * User input is escaped before being used in the XPath expression.
- * <p/>
+ * <p>
  * Use <code>' or '1' = '1</code> or <code>'] | /* | /foo[bar='</code> as password.
  *
  * @author Dominik Schadow
@@ -67,9 +67,7 @@ public class XPathEscapingServlet extends HttpServlet {
         }
     }
 
-    /**
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
-     */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         String password = request.getParameter("password");

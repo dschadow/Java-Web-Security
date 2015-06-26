@@ -43,14 +43,12 @@ public class ProtectedServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = LoggerFactory.getLogger(ProtectedServlet.class);
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         LOGGER.info("Processing protected GET request");
 
         response.setContentType("text/html");
-        
+
         try {
             if (!CSRFTokenHandler.isValid(request)) {
                 LOGGER.warn("CSRF token is invalid");
@@ -61,7 +59,7 @@ public class ProtectedServlet extends HttpServlet {
                 } catch (IOException ex) {
                     LOGGER.error(ex.getMessage(), ex);
                 }
-                
+
                 return;
             }
         } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
@@ -90,14 +88,12 @@ public class ProtectedServlet extends HttpServlet {
         }
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         LOGGER.info("Processing protected POST request");
 
         response.setContentType("text/html");
-        
+
         try {
             if (!CSRFTokenHandler.isValid(request)) {
                 LOGGER.warn("CSRF token is invalid");
@@ -108,7 +104,7 @@ public class ProtectedServlet extends HttpServlet {
                 } catch (IOException ex) {
                     LOGGER.error(ex.getMessage(), ex);
                 }
-                
+
                 return;
             }
         } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {

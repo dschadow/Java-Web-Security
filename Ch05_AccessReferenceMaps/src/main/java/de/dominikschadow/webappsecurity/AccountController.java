@@ -25,16 +25,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Managed bean to access an account by account id. Does not verify the given account id and therefore does not provide any protection.
+ * Managed bean to access an account by account id. Does not verify the given account id and therefore does not
+ * provide any protection.
  *
  * @author Dominik Schadow
  */
 @ManagedBean(name = "account")
 @SessionScoped
 public class AccountController implements Serializable {
-	private static final long serialVersionUID = -9118791523118467771L;
+    private static final long serialVersionUID = -9118791523118467771L;
 
-	private Account account;
+    private Account account;
     private int userId = 42;
     private int accountId = 1;
     private transient AccountsDAO dao;

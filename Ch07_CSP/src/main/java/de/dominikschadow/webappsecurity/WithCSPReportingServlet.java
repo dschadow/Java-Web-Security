@@ -39,9 +39,7 @@ public class WithCSPReportingServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = LoggerFactory.getLogger(WithCSPReportingServlet.class);
 
-    /**
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
-     */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         LOGGER.info("Processing POST request with Content Security Policy Reporting");
 

@@ -39,9 +39,7 @@ public class LoginServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginServlet.class);
     private static final long serialVersionUID = 1L;
 
-    /**
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
-     */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         LOGGER.info("Received " + name + " as POST parameter");
@@ -59,7 +57,8 @@ public class LoginServlet extends HttpServlet {
             out.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head>");
             out.println("<body>");
             out.println("<h1>Ch05_SessionFixation</h1>");
-            out.println("<script type=\"text/javascript\">document.write(\"<p><strong>Session ID</strong> [\" + document.cookie + \"]</p>\")</script>");
+            out.println("<script type=\"text/javascript\">document.write(\"<p><strong>Session ID</strong> [\" + " +
+                    "document.cookie + \"]</p>\")</script>");
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {

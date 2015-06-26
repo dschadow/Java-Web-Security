@@ -29,7 +29,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Servlet which sets the <code>Content-Security-Policy</code> response header and stops any JavaScript code entered in the textfield.
+ * Servlet which sets the <code>Content-Security-Policy</code> response header and stops any JavaScript code entered
+ * in the textfield.
  * Any entered script-tag will not be rendered any more in the result page.
  *
  * @author Dominik Schadow
@@ -39,9 +40,7 @@ public class WithCSPServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = LoggerFactory.getLogger(WithCSPServlet.class);
 
-    /**
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
-     */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         LOGGER.info("Processing POST request with Content Security Policy");
 

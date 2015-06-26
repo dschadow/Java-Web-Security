@@ -44,7 +44,7 @@ import org.xml.sax.SAXException;
 /**
  * Servlet using an XPath expression to query the customer XML document.
  * User input is not modified and used directly in the XPath expression.
- * <p/>
+ * <p>
  * Use <code>' or '1' = '1</code> or <code>'] | /* | /foo[bar='</code> as password.
  *
  * @author Dominik Schadow
@@ -57,29 +57,27 @@ public class XPathServlet extends HttpServlet {
 
     @PostConstruct
     public void init() {
-    	InputStream inputStream = null;
-    	
+        InputStream inputStream = null;
+
         try {
-        	inputStream = getClass().getClassLoader().getResourceAsStream("/customer.xml"); 
+            inputStream = getClass().getClassLoader().getResourceAsStream("/customer.xml");
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             doc = dBuilder.parse(inputStream);
         } catch (SAXException | IOException | ParserConfigurationException ex) {
             LOGGER.error(ex.getMessage(), ex);
         } finally {
-        	if (inputStream != null) {
-        		try {
-					inputStream.close();
-				} catch (IOException ex) {
-		            LOGGER.error(ex.getMessage(), ex);
-				}
-        	}
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException ex) {
+                    LOGGER.error(ex.getMessage(), ex);
+                }
+            }
         }
     }
 
-    /**
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
-     */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         String password = request.getParameter("password");

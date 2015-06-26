@@ -56,7 +56,8 @@ public class HQLServlet extends HttpServlet {
     public void init() {
         Configuration configuration = new Configuration();
         configuration.configure();
-        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties()).buildServiceRegistry();
+        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties())
+                .buildServiceRegistry();
         sessionFactory = configuration.buildSessionFactory(serviceRegistry);
     }
 
@@ -67,9 +68,7 @@ public class HQLServlet extends HttpServlet {
         }
     }
 
-    /**
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
-     */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         LOGGER.info("Received " + name + " as POST parameter");
@@ -78,7 +77,7 @@ public class HQLServlet extends HttpServlet {
         Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY CUST_ID");
         query.setParameter("name", name);
         @SuppressWarnings("unchecked")
-		List<Customer> customers = query.list();
+        List<Customer> customers = query.list();
 
         response.setContentType("text/html");
 

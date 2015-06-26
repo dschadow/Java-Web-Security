@@ -51,7 +51,7 @@ public class StatementServlet extends HttpServlet {
     @PostConstruct
     public void init() {
         try {
-        	Class.forName("org.hsqldb.jdbcDriver");
+            Class.forName("org.hsqldb.jdbcDriver");
             con = DriverManager.getConnection("jdbc:hsqldb:res:/customerDB; shutdown=true", "sa", "");
         } catch (ClassNotFoundException | SQLException ex) {
             LOGGER.error(ex.getMessage(), ex);
@@ -69,9 +69,7 @@ public class StatementServlet extends HttpServlet {
         }
     }
 
-    /**
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response)
-     */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         LOGGER.info("Received " + name + " as POST parameter");

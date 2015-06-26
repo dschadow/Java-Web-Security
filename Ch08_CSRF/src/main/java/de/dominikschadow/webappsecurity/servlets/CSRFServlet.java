@@ -39,9 +39,7 @@ public class CSRFServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = LoggerFactory.getLogger(CSRFServlet.class);
 
-    /**
-     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-     */
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         LOGGER.info("Processing unprotected GET request: Received " + name + " as parameter");
@@ -65,9 +63,7 @@ public class CSRFServlet extends HttpServlet {
         }
     }
 
-    /**
-     * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-     */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         LOGGER.info("Processing unprotected POST request: Received " + name + " as parameter");
