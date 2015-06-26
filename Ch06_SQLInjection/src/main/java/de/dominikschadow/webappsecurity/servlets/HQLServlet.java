@@ -53,6 +53,7 @@ public class HQLServlet extends HttpServlet {
     private SessionFactory sessionFactory;
 
     @PostConstruct
+    @Override
     public void init() {
         Configuration configuration = new Configuration();
         configuration.configure();
@@ -62,6 +63,7 @@ public class HQLServlet extends HttpServlet {
     }
 
     @PreDestroy
+    @Override
     public void destroy() {
         if (sessionFactory != null) {
             sessionFactory.close();
