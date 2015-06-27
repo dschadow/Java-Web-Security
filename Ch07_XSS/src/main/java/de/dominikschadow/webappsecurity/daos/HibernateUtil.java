@@ -33,7 +33,7 @@ public class HibernateUtil {
     private HibernateUtil() {
     }
 
-    public static SessionFactory getSessionFactory() throws HibernateException {
+    public static SessionFactory getSessionFactory() {
         Configuration configuration = new Configuration();
         configuration.configure();
         ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties())
