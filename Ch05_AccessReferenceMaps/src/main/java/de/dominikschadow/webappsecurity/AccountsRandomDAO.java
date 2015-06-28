@@ -62,12 +62,10 @@ public class AccountsRandomDAO {
         String query = "SELECT * FROM accounts WHERE owner_id = ?";
         List<String> accountReferences = new ArrayList<>();
 
-        Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
-        try {
-            con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", "");
+        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", "")) {
             pstmt = con.prepareStatement(query);
             pstmt.setInt(1, user.getUserId());
 
@@ -99,13 +97,6 @@ public class AccountsRandomDAO {
                 }
             } catch (SQLException ex) {
                 LOGGER.error("Failed to close pstmt", ex);
-            }
-            try {
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException ex) {
-                LOGGER.error("Failed to close con", ex);
             }
         }
 

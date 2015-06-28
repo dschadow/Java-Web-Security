@@ -33,14 +33,6 @@ import java.util.List;
 public class AccountsDAO {
     private static final Logger LOGGER = LoggerFactory.getLogger(AccountsDAO.class);
 
-    public AccountsDAO() {
-        try {
-            Class.forName("org.hsqldb.jdbcDriver");
-        } catch (ClassNotFoundException ex) {
-            LOGGER.error("Failed to load db driver", ex);
-        }
-    }
-
     public List<String> getAccountsForUser(int userId) {
         return queryAccounts(userId);
     }
@@ -52,12 +44,10 @@ public class AccountsDAO {
     private Account queryAccount(int id) {
         String query = "SELECT * FROM accounts WHERE account_id = ?";
 
-        Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
-        try {
-            con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", "");
+        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", "")) {
             pstmt = con.prepareStatement(query);
             pstmt.setInt(1, id);
 
@@ -89,13 +79,6 @@ public class AccountsDAO {
             } catch (SQLException ex) {
                 LOGGER.error("Failed to close pstmt", ex);
             }
-            try {
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException ex) {
-                LOGGER.error("Failed to close con", ex);
-            }
         }
 
         return null;
@@ -105,12 +88,10 @@ public class AccountsDAO {
         String query = "SELECT account_id FROM accounts WHERE owner_id = ?";
         List<String> accountReferences = new ArrayList<>();
 
-        Connection con = null;
         PreparedStatement pstmt = null;
         ResultSet rs = null;
 
-        try {
-            con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", "");
+        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", "")) {
             pstmt = con.prepareStatement(query);
             pstmt.setInt(1, userId);
 
@@ -135,13 +116,6 @@ public class AccountsDAO {
                 }
             } catch (SQLException ex) {
                 LOGGER.error("Failed to close pstmt", ex);
-            }
-            try {
-                if (con != null) {
-                    con.close();
-                }
-            } catch (SQLException ex) {
-                LOGGER.error("Failed to close con", ex);
             }
         }
 
