@@ -10,6 +10,11 @@
     <url>https://github.com/dschadow/Java-Web-Security</url>
     <description>This repository contains the complete code samples from my book 'Java-Web-Security - Sichere Webanwendungen mit Java entwickeln' (dpunkt.verlag, ISBN 978-3-86490-146-1).</description>
 
+    <organization>
+        <name>Dominik Schadow</name>
+        <url>http://www.dominikschadow.de</url>
+    </organization>
+
     <issueManagement>
         <system>GitHub</system>
         <url>https://github.com/dschadow/Java-Web-Security/issues</url>
