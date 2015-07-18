@@ -56,6 +56,10 @@
                         <groupId>javax.servlet</groupId>
                         <artifactId>servlet-api</artifactId>
                     </exclusion>
+                    <exclusion>
+                        <artifactId>antisamy</artifactId>
+                        <groupId>org.owasp.antisamy</groupId>
+                    </exclusion>
                 </exclusions>
             </dependency>
             <dependency>
