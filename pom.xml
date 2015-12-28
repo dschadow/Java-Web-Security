@@ -20,6 +20,12 @@
         <url>https://github.com/dschadow/Java-Web-Security/issues</url>
     </issueManagement>
 
+    <scm>
+        <connection>scm:git:git@github.com:dschadow/Java-Web-Security.git</connection>
+        <developerConnection>scm:git:git@github.com:dschadow/Java-Web-Security.git</developerConnection>
+        <url>https://github.com/dschadow/Java-Web-Security</url>
+    </scm>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spring.version>4.2.4.RELEASE</spring.version>
