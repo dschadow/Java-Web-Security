@@ -89,7 +89,7 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>4.2.20.Final</version>
+                <version>4.2.21.Final</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.faces</groupId>
