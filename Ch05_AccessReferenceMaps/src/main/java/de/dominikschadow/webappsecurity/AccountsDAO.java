@@ -44,11 +44,9 @@ public class AccountsDAO {
     private Account queryAccount(int id) {
         String query = "SELECT * FROM accounts WHERE account_id = ?";
 
-        PreparedStatement pstmt = null;
         ResultSet rs = null;
 
-        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", "")) {
-            pstmt = con.prepareStatement(query);
+        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", ""); PreparedStatement pstmt = con.prepareStatement(query)) {
             pstmt.setInt(1, id);
 
             rs = pstmt.executeQuery();
@@ -72,13 +70,6 @@ public class AccountsDAO {
             } catch (SQLException ex) {
                 LOGGER.error("Failed to close rs", ex);
             }
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-            } catch (SQLException ex) {
-                LOGGER.error("Failed to close pstmt", ex);
-            }
         }
 
         return null;
@@ -88,11 +79,9 @@ public class AccountsDAO {
         String query = "SELECT account_id FROM accounts WHERE owner_id = ?";
         List<String> accountReferences = new ArrayList<>();
 
-        PreparedStatement pstmt = null;
         ResultSet rs = null;
 
-        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", "")) {
-            pstmt = con.prepareStatement(query);
+        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", ""); PreparedStatement pstmt = con.prepareStatement(query)) {
             pstmt.setInt(1, userId);
 
             rs = pstmt.executeQuery();
@@ -109,13 +98,6 @@ public class AccountsDAO {
                 }
             } catch (SQLException ex) {
                 LOGGER.error("Failed to close rs", ex);
-            }
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-            } catch (SQLException ex) {
-                LOGGER.error("Failed to close pstmt", ex);
             }
         }
 

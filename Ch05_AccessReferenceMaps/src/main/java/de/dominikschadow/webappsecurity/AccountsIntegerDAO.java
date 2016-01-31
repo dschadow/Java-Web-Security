@@ -64,11 +64,9 @@ public class AccountsIntegerDAO {
         String query = "SELECT * FROM accounts WHERE owner_id = ?";
         List<String> accountReferences = new ArrayList<>();
 
-        PreparedStatement pstmt = null;
         ResultSet rs = null;
 
-        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", "")) {
-            pstmt = con.prepareStatement(query);
+        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", ""); PreparedStatement pstmt = con.prepareStatement(query)) {
             pstmt.setInt(1, user.getUserId());
 
             rs = pstmt.executeQuery();
@@ -92,13 +90,6 @@ public class AccountsIntegerDAO {
                 }
             } catch (SQLException ex) {
                 LOGGER.error("Failed to close rs", ex);
-            }
-            try {
-                if (pstmt != null) {
-                    pstmt.close();
-                }
-            } catch (SQLException ex) {
-                LOGGER.error("Failed to close pstmt", ex);
             }
         }
 
