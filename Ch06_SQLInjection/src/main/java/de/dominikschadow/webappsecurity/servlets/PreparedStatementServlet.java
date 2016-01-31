@@ -50,11 +50,9 @@ public class PreparedStatementServlet extends HttpServlet {
 
         String query = "SELECT * FROM customer WHERE name = ? ORDER BY CUST_ID";
         List<Customer> customers = new ArrayList<>();
-        PreparedStatement stmt = null;
         ResultSet rs = null;
 
-        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/customerDB; shutdown=true", "sa", "")) {
-            stmt = con.prepareStatement(query);
+        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/customerDB; shutdown=true", "sa", ""); PreparedStatement stmt = con.prepareStatement(query)) {
             stmt.setString(1, name);
             rs = stmt.executeQuery();
 
@@ -73,13 +71,6 @@ public class PreparedStatementServlet extends HttpServlet {
             try {
                 if (rs != null) {
                     rs.close();
-                }
-            } catch (SQLException ex) {
-                LOGGER.error(ex.getMessage(), ex);
-            }
-            try {
-                if (stmt != null) {
-                    stmt.close();
                 }
             } catch (SQLException ex) {
                 LOGGER.error(ex.getMessage(), ex);

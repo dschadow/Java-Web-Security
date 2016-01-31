@@ -58,11 +58,9 @@ public class StatementEscapingServlet extends HttpServlet {
 
         LOGGER.info("Final SQL query " + query);
 
-        Statement stmt = null;
         ResultSet rs = null;
 
-        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/customerDB; shutdown=true", "sa", "")) {
-            stmt = con.createStatement();
+        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/customerDB; shutdown=true", "sa", ""); Statement stmt = con.createStatement()) {
             rs = stmt.executeQuery(query);
 
             while (rs.next()) {
@@ -80,13 +78,6 @@ public class StatementEscapingServlet extends HttpServlet {
             try {
                 if (rs != null) {
                     rs.close();
-                }
-            } catch (SQLException ex) {
-                LOGGER.error(ex.getMessage(), ex);
-            }
-            try {
-                if (stmt != null) {
-                    stmt.close();
                 }
             } catch (SQLException ex) {
                 LOGGER.error(ex.getMessage(), ex);
