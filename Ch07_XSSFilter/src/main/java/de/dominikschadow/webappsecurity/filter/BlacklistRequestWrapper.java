@@ -26,8 +26,7 @@ import java.util.regex.Pattern;
 /**
  * Filter HTML tags which can be used for a XSS attack with a blacklist.<br/>
  * <p>
- * Originally based on Ricardo Zuasti {@link http://www.javacodegeeks
- * .com/2012/07/anti-cross-site-scripting-xss-filter.html}
+ * Originally based on Ricardo Zuasti {@link http://www.javacodegeeks.com/2012/07/anti-cross-site-scripting-xss-filter.html}
  *
  * @author Dominik Schadow
  */
@@ -67,7 +66,7 @@ public class BlacklistRequestWrapper extends HttpServletRequestWrapper {
         return stripXSS(value);
     }
 
-    private String stripXSS(String value) {
+    private static String stripXSS(String value) {
         if (value != null) {
             value = ESAPI.encoder().canonicalize(value);
 
