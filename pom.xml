@@ -28,9 +28,9 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.2.4.RELEASE</spring.version>
-        <slf4j.version>1.7.14</slf4j.version>
-        <jsf.version>2.2.12</jsf.version>
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <slf4j.version>1.7.18</slf4j.version>
+        <jsf.version>2.2.13</jsf.version>
         <sonar.language>java</sonar.language>
     </properties>
 
@@ -121,7 +121,7 @@
             <dependency>
                 <groupId>com.cedarsoftware</groupId>
                 <artifactId>json-io</artifactId>
-                <version>4.3.0</version>
+                <version>4.4.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
