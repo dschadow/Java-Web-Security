@@ -43,7 +43,7 @@ public class WithoutCSPServlet extends HttpServlet {
         LOGGER.info("Processing POST request without Content Security Policy");
 
         String name = request.getParameter("unprotected");
-        LOGGER.info("Received " + name + " as POST parameter");
+        LOGGER.info("Received {} as POST parameter", name);
 
         response.setContentType("text/html");
 

@@ -73,7 +73,7 @@ public class HQLServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        LOGGER.info("Received " + name + " as POST parameter");
+        LOGGER.info("Received {} as POST parameter", name);
 
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY CUST_ID");

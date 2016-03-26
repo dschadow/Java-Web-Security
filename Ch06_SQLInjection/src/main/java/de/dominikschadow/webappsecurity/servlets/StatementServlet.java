@@ -46,12 +46,12 @@ public class StatementServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
-        LOGGER.info("Received " + name + " as POST parameter");
+        LOGGER.info("Received {} as POST parameter", name);
 
         String query = "SELECT * FROM customer WHERE name = '" + name + "' ORDER BY CUST_ID";
         List<Customer> customers = new ArrayList<>();
 
-        LOGGER.info("Final SQL query " + query);
+        LOGGER.info("Final SQL query {}", query);
 
         ResultSet rs = null;
 

@@ -45,7 +45,7 @@ public class WithCSPServlet extends HttpServlet {
         LOGGER.info("Processing POST request with Content Security Policy");
 
         String name = request.getParameter("protected");
-        LOGGER.info("Received " + name + " as POST parameter");
+        LOGGER.info("Received {} as POST parameter", name);
 
         response.setContentType("text/html");
         response.setHeader("Content-Security-Policy", "default-src 'self'");

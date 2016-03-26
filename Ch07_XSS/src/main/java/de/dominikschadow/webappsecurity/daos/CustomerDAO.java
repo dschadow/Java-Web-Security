@@ -44,7 +44,7 @@ public class CustomerDAO {
         @SuppressWarnings("unchecked")
         List<Customer> customers = query.list();
 
-        LOGGER.info("Found " + customers.size() + " customers");
+        LOGGER.info("Found {} customers", customers.size());
 
         session.close();
 
@@ -67,7 +67,7 @@ public class CustomerDAO {
         @SuppressWarnings("unchecked")
         List<Customer> customers = criteria.list();
 
-        LOGGER.info("Found " + customers.size() + " customers");
+        LOGGER.info("Found {} customers", customers.size());
 
         session.close();
 

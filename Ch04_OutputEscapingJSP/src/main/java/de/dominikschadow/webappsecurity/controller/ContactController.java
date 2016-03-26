@@ -39,7 +39,7 @@ public class ContactController {
 
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)
     public String addContact(@ModelAttribute Contact contact, Model model) {
-        LOGGER.info("Firstname: " + contact.getFirstname() + ", Lastname: " + contact.getLastname());
+        LOGGER.info("Contact firstname: {}, lastname: {}", contact.getFirstname(), contact.getLastname());
 
         model.addAttribute("contact", contact);
 

@@ -82,7 +82,7 @@ public class XPathServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
-        LOGGER.info("Received " + name + " and " + password + " as parameter");
+        LOGGER.info("Received {} and {} as parameter", name, password);
 
         StringBuilder xpathExpression = new StringBuilder();
         xpathExpression.append("/customers/customer[name='");
@@ -95,7 +95,7 @@ public class XPathServlet extends HttpServlet {
     }
 
     private void printOrderLimit(String xpath, String name, HttpServletResponse response) {
-        LOGGER.info("XPath expression is " + xpath);
+        LOGGER.info("XPath expression is {}", xpath);
 
         try (PrintWriter out = response.getWriter()) {
             XPathExpression expression = XPathFactory.newInstance().newXPath().compile(xpath);

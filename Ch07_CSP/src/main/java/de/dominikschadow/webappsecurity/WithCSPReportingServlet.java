@@ -44,7 +44,7 @@ public class WithCSPReportingServlet extends HttpServlet {
         LOGGER.info("Processing POST request with Content Security Policy Reporting");
 
         String name = request.getParameter("reporting");
-        LOGGER.info("Received " + name + " as POST parameter");
+        LOGGER.info("Received {} as POST parameter", name);
 
         response.setContentType("text/html");
         // the following line only reports violations and does not block anything
