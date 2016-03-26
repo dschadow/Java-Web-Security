@@ -10,10 +10,9 @@
     </parent>
     <artifactId>Ch07_CSP</artifactId>
     <packaging>war</packaging>
-    <name>Ch07_CSP</name>
+    <name>Chapter 07 - CSP</name>
     <url>https://github.com/dschadow/Java-Web-Security</url>
-    <description>Chapter 7 Content Security Policy (CSP) sample project. Requires a server like Apache Tomcat or the Maven Tomcat7 plugin.
-        After starting, open the web application in your browser at http://localhost:8080/Ch07_CSP</description>
+    <description>Chapter 7 Content Security Policy (CSP) sample project. Requires a server like Apache Tomcat or the Maven Tomcat7 plugin. After starting, open the web application in your browser at http://localhost:8080/Ch07_CSP</description>
 
     <dependencies>
         <dependency>

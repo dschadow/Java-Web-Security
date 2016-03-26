@@ -10,8 +10,9 @@
     </parent>
     <artifactId>Ch05_HSTS</artifactId>
     <packaging>war</packaging>
-    <name>Ch05_HSTS</name>
+    <name>Chapter 05 - HSTS</name>
     <url>https://github.com/dschadow/Java-Web-Security</url>
+    <description>Chapter 5 HTTP Strict Transport Security (HSTS sample project. Requires a server like Apache Tomcat or the Maven Tomcat plugin. After starting, open the web application in your browser at http://localhost:8080/Ch05_HSTS</description>
 
     <dependencies>
         <dependency>

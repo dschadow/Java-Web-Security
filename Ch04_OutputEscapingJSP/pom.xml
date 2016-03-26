@@ -8,12 +8,9 @@
     </parent>
     <artifactId>Ch04_OutputEscapingJSP</artifactId>
     <packaging>war</packaging>
-    <name>Ch04_OutputEscapingJSP</name>
+    <name>Chapter 04 - JSP Output Escaping</name>
     <url>https://github.com/dschadow/Java-Web-Security</url>
-    <description>Chapter 4 JSP Output Escaping sample project. Requires a server like Apache Tomcat or the Maven Tomcat7
-        plugin.
-        After starting, open the web application in your browser at http://localhost:8080/Ch04_OutputEscapingJSP
-    </description>
+    <description>Chapter 4 JSP Output Escaping sample project. Requires a server like Apache Tomcat or the Maven Tomcat plugin. After starting, open the web application in your browser at http://localhost:8080/Ch04_OutputEscapingJSP</description>
 
     <dependencies>
         <dependency>

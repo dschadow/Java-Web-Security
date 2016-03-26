@@ -8,12 +8,9 @@
     </parent>
     <artifactId>Ch06_XPathInjection</artifactId>
     <packaging>war</packaging>
-    <name>Ch06_XPathInjection</name>
+    <name>Chapter 06 - XPath Injection</name>
     <url>https://github.com/dschadow/Java-Web-Security</url>
-    <description>Chapter 6 XPath Injection sample project. Requires a server like Apache Tomcat or the Maven Tomcat7
-        plugin.
-        After starting, open the web application in your browser at http://localhost:8080/Ch06_XPathInjection
-    </description>
+    <description>Chapter 6 XPath Injection sample project. Requires a server like Apache Tomcat or the Maven Tomcat plugin. After starting, open the web application in your browser at http://localhost:8080/Ch06_XPathInjection</description>
 
     <dependencies>
         <dependency>

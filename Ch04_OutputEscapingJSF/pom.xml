@@ -7,10 +7,9 @@
 	</parent>
 	<artifactId>Ch04_OutputEscapingJSF</artifactId>
 	<packaging>war</packaging>
-	<name>Ch04_OutputEscapingJSF</name>
+	<name>Chapter 04 - JSF Output Escaping</name>
 	<url>https://github.com/dschadow/Java-Web-Security</url>
-    <description>Chapter 4 JSF Output Escaping sample project. Requires a server like Apache Tomcat or the Maven Tomcat7 plugin.
-        After starting, open the web application in your browser at http://localhost:8080/Ch04_OutputEscapingJSF</description>
+    <description>Chapter 4 JSF Output Escaping sample project. Requires a server like Apache Tomcat or the Maven Tomcat plugin. After starting, open the web application in your browser at http://localhost:8080/Ch04_OutputEscapingJSF</description>
 
 	<dependencies>
 		<dependency>

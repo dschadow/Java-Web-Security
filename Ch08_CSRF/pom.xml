@@ -7,11 +7,9 @@
 	</parent>
 	<artifactId>Ch08_CSRF</artifactId>
 	<packaging>war</packaging>
-	<name>Ch08_CSRF</name>
+	<name>Chapter 08 - CSRF</name>
 	<url>https://github.com/dschadow/Java-Web-Security</url>
-	<description>Chapter 8 CSRF sample project. Requires a server like Apache Tomcat.
-
-Open the web application in your browser at http://localhost:8080/Ch08_CSRF</description>
+	<description>Chapter 8 CSRF sample project. Requires a server like Apache Tomcat. Open the web application in your browser at http://localhost:8080/Ch08_CSRF</description>
 
 	<dependencies>
 		<dependency>

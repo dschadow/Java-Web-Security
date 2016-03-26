@@ -7,11 +7,9 @@
 	</parent>
 	<artifactId>Ch07_XSSFilter</artifactId>
 	<packaging>war</packaging>
-	<name>Ch07_XSSFilter</name>
+	<name>Chapter 07 - XSS Filter</name>
 	<url>https://github.com/dschadow/Java-Web-Security</url>
-	<description>Chapter 7 XSS Filter sample project. Requires a server like Apache Tomcat.
-
-Open the web application in your browser at http://localhost:8080/Ch07_XSSFilter</description>
+	<description>Chapter 7 XSS Filter sample project. Requires a server like Apache Tomcat. Open the web application in your browser at http://localhost:8080/Ch07_XSSFilter</description>
 
 	<dependencies>
 		<dependency>

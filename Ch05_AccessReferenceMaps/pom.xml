@@ -7,10 +7,9 @@
 	</parent>
 	<artifactId>Ch05_AccessReferenceMaps</artifactId>
 	<packaging>war</packaging>
-	<name>Ch05_AccessReferenceMaps</name>
+	<name>Chapter 05 - Access Reference Maps</name>
 	<url>https://github.com/dschadow/Java-Web-Security</url>
-    <description>Chapter 5 Access Reference sample project. Requires a server like Apache Tomcat or the Maven Tomcat7 plugin.
-        After starting, open the web application in your browser at http://localhost:8080/Ch05_AccessReferenceMaps</description>
+    <description>Chapter 5 Access Reference sample project. Requires a server like Apache Tomcat or the Maven Tomcat plugin. After starting, open the web application in your browser at http://localhost:8080/Ch05_AccessReferenceMaps</description>
 
     <dependencies>
         <dependency>

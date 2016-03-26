@@ -7,10 +7,9 @@
 	</parent>
 	<artifactId>Ch05_SessionFixation</artifactId>
 	<packaging>war</packaging>
-	<name>Ch05_SessionFixation</name>
+	<name>Chapter 05 - Session Fixation</name>
 	<url>https://github.com/dschadow/Java-Web-Security</url>
-    <description>Chapter 5 Session Fixation sample project. Requires a server like Apache Tomcat or the Maven Tomcat7 plugin.
-        After starting, open the web application in your browser at http://localhost:8080/Ch05_SessionFixation</description>
+    <description>Chapter 5 Session Fixation sample project. Requires a server like Apache Tomcat or the Maven Tomcat plugin. After starting, open the web application in your browser at http://localhost:8080/Ch05_SessionFixation</description>
 
     <dependencies>
         <dependency>

@@ -7,11 +7,9 @@
 	</parent>
 	<artifactId>Ch07_XSSJSF</artifactId>
 	<packaging>war</packaging>
-	<name>Ch07_XSSJSF</name>
+	<name>Chapter 07 - XSS with JSF</name>
 	<url>https://github.com/dschadow/Java-Web-Security</url>
-	<description>Chapter 7 XSS with JSF sample project. Requires a server like Apache Tomcat.
-
-Open the web application in your browser at http://localhost:8080/Ch07_XSSJSF</description>
+	<description>Chapter 7 XSS with JSF sample project. Requires a server like Apache Tomcat. Open the web application in your browser at http://localhost:8080/Ch07_XSSJSF</description>
 
 	<dependencies>
 		<dependency>

@@ -8,10 +8,9 @@
     </parent>
     <artifactId>Ch06_SQLInjection</artifactId>
     <packaging>war</packaging>
-    <name>Ch06_SQLInjection</name>
+    <name>Chapter 06 - SQL Injection</name>
     <url>https://github.com/dschadow/Java-Web-Security</url>
-    <description>Chapter 6 SQL Injection sample project. Requires a server like Apache Tomcat or the Maven Tomcat7 plugin.
-After starting, open the web application in your browser at http://localhost:8080/Ch06_SQLInjection</description>
+    <description>Chapter 6 SQL Injection sample project. Requires a server like Apache Tomcat or the Maven Tomcat plugin. After starting, open the web application in your browser at http://localhost:8080/Ch06_SQLInjection</description>
 
     <dependencies>
         <dependency>
