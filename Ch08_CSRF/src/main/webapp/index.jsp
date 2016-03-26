@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="styles.css" />
-	<title>Ch08_CSRF</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
+	<title>Chapter 08 - CSRF</title>
 </head>
 <body>
-	<h1>Ch08_CSRF</h1>
+	<h1>Chapter 08 - CSRF</h1>
 
     <ul>
 	    <li><a href="requests-unprotected.jsp">Unprotected Requests</a></li>
