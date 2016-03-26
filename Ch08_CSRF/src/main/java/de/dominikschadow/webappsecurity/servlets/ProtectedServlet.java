@@ -112,7 +112,7 @@ public class ProtectedServlet extends HttpServlet {
         String newPassword = request.getParameter("newPassword");
         String confirmPassword = request.getParameter("confirmPassword");
 
-        LOGGER.info("Received {} and {} as GET parameter.", newPassword, confirmPassword);
+        LOGGER.info("Received {} and {} as POST parameter.", newPassword, confirmPassword);
 
         try (PrintWriter out = response.getWriter()) {
             out.println("<html>");
