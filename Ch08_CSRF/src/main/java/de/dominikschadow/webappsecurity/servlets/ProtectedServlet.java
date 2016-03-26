@@ -68,19 +68,21 @@ public class ProtectedServlet extends HttpServlet {
 
         LOGGER.info("CSRF token is valid");
 
-        String name = request.getParameter("name");
-        LOGGER.info("Received " + name + " as GET parameter");
+        String newPassword = request.getParameter("newPassword");
+        String confirmPassword = request.getParameter("confirmPassword");
+
+        LOGGER.info("Received {} and {} as GET parameter.", newPassword, confirmPassword);
 
         try (PrintWriter out = response.getWriter()) {
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Ch08_CSRF</title>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" />");
+            out.println("<title>Chapter 08 - CSRF</title>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"resources/css/styles.css\" />");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Ch08_CSRF</h1>");
-            out.println("<p>Received <b>" + name + "</b> as GET parameter.</p>");
-            out.println("<p><a href=\"requests-protected.jsp\">Back</a></p>");
+            out.println("<h1>Chapter 08 - CSRF</h1>");
+            out.println("<p>Received <b>" + newPassword + "</b> and <b>" + confirmPassword + "</b> as GET parameter.</p>");
+            out.println("<p><a href=\"requests-protected.html\">Back</a></p>");
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {
@@ -99,12 +101,6 @@ public class ProtectedServlet extends HttpServlet {
                 LOGGER.warn("CSRF token is invalid");
                 response.setStatus(401);
 
-                try (PrintWriter out = response.getWriter()) {
-                    out.println("CSRF token is invalid");
-                } catch (IOException ex) {
-                    LOGGER.error(ex.getMessage(), ex);
-                }
-
                 return;
             }
         } catch (NoSuchAlgorithmException | NoSuchProviderException ex) {
@@ -113,19 +109,21 @@ public class ProtectedServlet extends HttpServlet {
 
         LOGGER.info("CSRF token is valid");
 
-        String name = request.getParameter("name");
-        LOGGER.info("Received " + name + " as POST parameter");
+        String newPassword = request.getParameter("newPassword");
+        String confirmPassword = request.getParameter("confirmPassword");
+
+        LOGGER.info("Received {} and {} as GET parameter.", newPassword, confirmPassword);
 
         try (PrintWriter out = response.getWriter()) {
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Ch08_CSRF</title>");
-            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" />");
+            out.println("<title>Chapter 08 - CSRF</title>");
+            out.println("<link rel=\"stylesheet\" type=\"text/css\" href=\"resources/css/styles.css\" />");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Ch08_CSRF</h1>");
-            out.println("<p>Received <b>" + name + "</b> as POST parameter.</p>");
-            out.println("<p><a href=\"requests-protected.jsp\">Back</a></p>");
+            out.println("<h1>Chapter 08 - CSRF</h1>");
+            out.println("<p>Received <b>" + newPassword + "</b> and <b>" + confirmPassword + "</b> as POST parameter.</p>");
+            out.println("<p><a href=\"requests-protected.html\">Back</a></p>");
             out.println("</body>");
             out.println("</html>");
         } catch (IOException ex) {

