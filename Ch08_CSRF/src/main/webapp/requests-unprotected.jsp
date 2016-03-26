@@ -4,10 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
-	<title>Ch08_CSRF</title>
+	<title>Chapter 08 - CSRF</title>
 </head>
 <body>
-	<h1>Ch08_CSRF - Unprotected Requests</h1>
+	<h1>Chapter 08 - CSRF: Unprotected Requests</h1>
 
 	<h2>GET Requests</h2>
 
