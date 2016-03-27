@@ -33,13 +33,12 @@ import org.springframework.web.bind.annotation.SessionAttributes;
  */
 @Controller
 @SessionAttributes
-@RequestMapping(value = "/contacts")
 public class ContactController {
     private static final Logger LOGGER = LoggerFactory.getLogger(ContactController.class);
 
     @RequestMapping(value = "/addContact", method = RequestMethod.POST)
     public String addContact(@ModelAttribute Contact contact, Model model) {
-        LOGGER.info("Contact firstname: {}, lastname: {}", contact.getFirstname(), contact.getLastname());
+        LOGGER.info("Contact first name: {}, last name: {}", contact.getFirstname(), contact.getLastname());
 
         model.addAttribute("contact", contact);
 

@@ -34,6 +34,6 @@ public class ContactControllerTest {
         ContactController controller = new ContactController();
         MockMvc mockMvc = standaloneSetup(controller).build();
 
-        mockMvc.perform(post("/contacts/addContact")).andExpect(view().name("contact"));
+        mockMvc.perform(post("/addContact")).andExpect(view().name("contact"));
     }
 }

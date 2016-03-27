@@ -5,17 +5,20 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="<c:url value="/resources/styles.css" />" >
-    <title>Ch04_OutputEscapingJSP</title>
+    <title>Chapter 04 - JSP Output Escaping</title>
 </head>
 <body>
-	<h1>Ch04_OutputEscapingJSP</h1>
+	<h1>Chapter 04 - JSP Output Escaping</h1>
 
-	<form method="post" action="contacts/addContact">
+	<p>This demo application shows how JavaServer Pages (JSP) handle output escaping with direct value expressions and
+        normal elements/ attributes. Feel free to enter any attack data like <strong>&lt;script&gt;alert(&apos;XSS&apos;)&lt;/script&gt;</strong>.</p>
+
+	<form method="post" action="addContact">
 		<fieldset>
 			<legend>Add new contact</legend>
-			<label for="firstname" title="Firstname">Firstname</label>
+			<label for="firstname" title="First name">First name</label>
 			<input type="text" id="firstname" name="firstname" class="text-input" />
-			<label for="lastname" title="Lastname">Lastname</label>
+			<label for="lastname" title="Last name">Last name</label>
 			<input type="text" id="lastname" name="lastname" class="text-input" />
 			<input type="submit" value="Submit" />
 		</fieldset>
