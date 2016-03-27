@@ -4,12 +4,15 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
-	<title>Ch04_OutputEscaping: Without Output-Escaping</title>
+	<title>Chapter 04 - Output Escaping</title>
 </head>
 <body>
-    <h1>Ch04_OutputEscaping: Without Output-Escaping</h1>
-	<p><strong>Hello</strong> [<%= request.getParameter("unprotected") %>]</p>
+    <h1>Chapter 04 - Output Escaping</h1>
 
-	<p><a href="index.jsp">Home</a></p>
+	<p>This is your input without any output escaping at all. The input is printed into [] to show its position.</p>
+
+	<p>[<%= request.getParameter("unprotected") %>]</p>
+
+	<p><a href="index.jsp">Back</a></p>
 </body>
 </html>

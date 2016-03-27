@@ -4,14 +4,18 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
-	<title>Ch04_OutputEscaping</title>
+	<title>Chapter 04 - Output Escaping</title>
 </head>
 <body>
-	<h1>Ch04_OutputEscaping</h1>
+	<h1>Chapter 04 - Output Escaping</h1>
+
+	<p>This demo application shows how JavaServer Pages (JSP) can be extended with safe output escaping provided by the
+        OWASP Enterprise Security API (ESAPI). Feel free to enter any attack data like
+        <strong>&lt;script&gt;alert(&apos;XSS&apos;)&lt;/script&gt;</strong>.</p>
 
 	<form name="withoutOutputEscaping" method="post" action="withoutOutputEscaping.jsp">
 		<fieldset>
-			<legend>Without Output-Escaping</legend>
+			<legend>Without Output Escaping</legend>
 			<label for="unprotected" title="Name">Name</label>
 			<input type="text" id="unprotected" name="unprotected" class="text-input" />
 			<input type="submit" value="Submit" />
@@ -20,7 +24,7 @@
 
 	<form name="withOutputEscaping" method="post" action="withOutputEscaping.jsp">
 		<fieldset>
-			<legend>With Output-Escaping (ESAPI)</legend>
+			<legend>With Output Escaping</legend>
 			<label for="protected" title="Name">Name</label>
 			<input type="text" id="protected" name="protected" class="text-input" />
 			<input type="submit" value="Submit" />

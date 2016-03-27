@@ -5,20 +5,39 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
-	<title>Ch04_OutputEscaping: With Output-Escaping (ESAPI)</title>
+	<title>Chapter 04 - Output Escaping</title>
 </head>
 <body>
-	<h1>Ch04_OutputEscaping: With Output-Escaping (ESAPI)</h1>
+    <h1>Chapter 04 - Output Escaping</h1>
 
-    <h2>HTML</h2>
-	<p><strong>Hello</strong> [<%= ESAPI.encoder().encodeForHTML(request.getParameter("protected")) %>]</p>
+    <p>The provided input is printed output escaped. Output escaping is done by the Enterprise Security API (ESAPI) for
+        different contexts. Only HTML is the correct context here, the others are provided for reference only. The input
+        is printed into [] to show its position.</p>
 
     <h2>CSS</h2>
-    <p><strong>Hello</strong> [<%= ESAPI.encoder().encodeForCSS(request.getParameter("protected")) %>]</p>
+    <p>[<%= ESAPI.encoder().encodeForCSS(request.getParameter("protected")) %>]</p>
+
+    <h2>HTML</h2>
+	<p>[<%= ESAPI.encoder().encodeForHTML(request.getParameter("protected")) %>]</p>
+
+    <h2>HTML Attribute</h2>
+    <p>[<%= ESAPI.encoder().encodeForHTMLAttribute(request.getParameter("protected")) %>]</p>
+
+    <h2>JavaScript</h2>
+    <p>[<%= ESAPI.encoder().encodeForJavaScript(request.getParameter("protected")) %>]</p>
+
+    <h2>URL</h2>
+    <p>[<%= ESAPI.encoder().encodeForURL(request.getParameter("protected")) %>]</p>
 
     <h2>XML</h2>
-    <p><strong>Hello</strong> [<%= ESAPI.encoder().encodeForXML(request.getParameter("protected")) %>]</p>
+    <p>[<%= ESAPI.encoder().encodeForXML(request.getParameter("protected")) %>]</p>
 
-    <p><a href="index.jsp">Home</a></p>
+    <h2>XML Attribute</h2>
+    <p>[<%= ESAPI.encoder().encodeForXMLAttribute(request.getParameter("protected")) %>]</p>
+
+    <h2>XPath</h2>
+    <p>[<%= ESAPI.encoder().encodeForXPath(request.getParameter("protected")) %>]</p>
+
+    <p><a href="index.jsp">Back</a></p>
 </body>
 </html>
