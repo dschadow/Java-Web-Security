@@ -5,10 +5,12 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <h:outputStylesheet library="css" value="styles.css" name="styles.css" />
-    <title>Ch07_XSSJSF</title>
+    <title>Chapter 07 - XSS with JSF</title>
 </h:head>
 <h:body>
-	<h1>Default attributes for all elements</h1>
+	<h1>Chapter 07 - XSS with JSF</h1>
+	<p>Only the default attributes are active for all elements on this page.</p>
+
 	<h:form>
 	    <h2>selectOneMenu with Map</h2> 
 	  	<h:selectOneMenu>
@@ -32,5 +34,7 @@
 		<h2>outputText direct value expression</h2>
 		#{standard.input}
 	</h:form>
+
+    <p><a href="index.xhtml">Back</a></p>
 </h:body>
 </html>
