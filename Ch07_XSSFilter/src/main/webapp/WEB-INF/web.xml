@@ -15,10 +15,10 @@
     </filter>
     <filter-mapping>
         <filter-name>ESAPIFilter</filter-name>
-        <url-pattern>/output_esapi.jsp</url-pattern>
+        <url-pattern>/outputEsapi.jsp</url-pattern>
     </filter-mapping>
 	<filter-mapping>
 		<filter-name>BlacklistFilter</filter-name>
-		<url-pattern>/output_blacklist.jsp</url-pattern>
+		<url-pattern>/outputBlacklist.jsp</url-pattern>
 	</filter-mapping>
 </web-app>
