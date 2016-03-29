@@ -12,15 +12,15 @@
 
     <h:form>
         <h:link outcome="index" value="Home"/> | <h:link outcome="createCustomer" value="Create Customer"/> | <h:link
-            outcome="showCustomers" value="Show Customers"><f:param name="currency" value="Euro"/></h:link>
+            outcome="showCustomers" value="Show Customers"><f:param name="currency" value="EUR"/></h:link>
     </h:form>
 
     <h:form id="searchCustomers">
-        <h:panelGrid columns="2">
-            <h:outputLabel value="Name" for="cName"/>
-            <h:inputText value="#{search.customerName}" label="Name" id="cName"/>
+        <h:panelGrid columns="3">
+            <h:outputLabel value="Name" for="name"/>
+            <h:inputText value="#{search.customerName}" label="Name" id="name"/>
+            <h:commandButton value="Search" action="#{search.search}"/>
         </h:panelGrid>
-        <h:commandButton value="Search" action="#{search.search}" styleClass="send-button"/>
     </h:form>
 </h:body>
 </html>

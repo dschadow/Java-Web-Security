@@ -12,12 +12,12 @@
 
     <h:form>
         <h:link outcome="index" value="Home"/> | <h:link outcome="createCustomer" value="Create Customer"/> | <h:link
-            outcome="showCustomers" value="Show Customers"><f:param name="currency" value="Euro"/></h:link> | <h:link
+            outcome="showCustomers" value="Show Customers"><f:param name="currency" value="EUR"/></h:link> | <h:link
             outcome="search" value="Search Customer"/>
     </h:form>
 
-    <p>Your search for <strong><h:outputText value="#{search.customerName}"
-                                             escape="false"/></strong> returned the following results:</p>
+    <p>Your search for <strong>[<h:outputText value="#{search.customerName}"
+                                             escape="false"/>]</strong> returned the following results:</p>
 
     <h:form>
         <h:dataTable var="c" value="#{search.customers}">
@@ -38,8 +38,8 @@
                 <h:outputText value="#{c.orderLimit}"/>
             </h:column>
             <h:column>
-                <f:facet name="header">Comment</f:facet>
-                <h:outputText escape="false" value="#{c.comment}"/>
+                <f:facet name="header">Hint</f:facet>
+                <h:outputText escape="false" value="#{c.hint}"/>
             </h:column>
         </h:dataTable>
     </h:form>

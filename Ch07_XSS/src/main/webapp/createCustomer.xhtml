@@ -12,24 +12,26 @@
 
     <h:form>
         <h:link outcome="index" value="Home"/> | <h:link outcome="showCustomers" value="Show Customers"><f:param
-            name="currency" value="Euro"/></h:link> | <h:link outcome="search" value="Search Customer"/>
+            name="currency" value="EUR"/></h:link> | <h:link outcome="search" value="Search Customer"/>
     </h:form>
+
+    <p>Enter all information to create a new customer:</p>
 
     <h:form id="createCustomer">
         <h:panelGrid columns="2">
-            <h:outputLabel value="Name" for="cName"/>
-            <h:inputText value="#{customer.customer.name}" label="Name" id="cName"/>
+            <h:outputLabel value="Name" for="name"/>
+            <h:inputText value="#{customer.customer.name}" label="Name" id="name"/>
 
-            <h:outputLabel value="Status" for="cStatus"/>
-            <h:inputText value="#{customer.customer.status}" label="Status" id="cStatus"/>
+            <h:outputLabel value="Status" for="status"/>
+            <h:inputText value="#{customer.customer.status}" label="Status" id="status"/>
 
-            <h:outputLabel value="Order Limit" for="cOrderLimit"/>
-            <h:inputText value="#{customer.customer.orderLimit}" label="Order Limit" id="cOrderLimit"/>
+            <h:outputLabel value="Order Limit" for="orderLimit"/>
+            <h:inputText value="#{customer.customer.orderLimit}" label="Order Limit" id="orderLimit"/>
 
-            <h:outputLabel value="Comment" for="cComment" title="Customer comment with HTML enabled"/>
-            <h:inputTextarea value="#{customer.customer.comment}" label="Comment" id="cComment"/>
+            <h:outputLabel value="Hint" for="hint" title="Customer hint with HTML enabled"/>
+            <h:inputTextarea value="#{customer.customer.hint}" label="Hint" id="hint"/>
         </h:panelGrid>
-        <h:commandButton value="Save" action="#{customer.save}" styleClass="send-button"/>
+        <h:commandButton value="Save" action="#{customer.save}"/>
     </h:form>
 </h:body>
 </html>

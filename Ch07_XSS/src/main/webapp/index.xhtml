@@ -10,13 +10,17 @@
 <h:body>
     <h1>Chapter 07 - XSS</h1>
 
+    <p>This demo application shows Cross-Site Scripting (XSS) with JavaServer Faces (JSF). The first block of links
+    enables normal usage of the demo application (like a normal user). The second block contains attack possibilities
+    with XSS.</p>
+
     <h2>Normal Usage</h2>
 
     <ul>
         <li><h:link outcome="createCustomer" value="Create Customer"/></li>
         <li>
             <h:link outcome="showCustomers" value="Show Customers">
-                <f:param name="currency" value="Euro"/>
+                <f:param name="currency" value="EUR"/>
             </h:link>
         </li>
         <li><h:link outcome="search" value="Search Customer"/></li>

@@ -1,33 +1,17 @@
-.text-input {
-    width: 250px;
-}
-
-li {
-    font-size: 18px;
-}
-
 th {
-    font-size: 20px;
+    font-size: 1.1em;
     font-weight: bold;
-}
-
-td {
-    font-size: 18px;
     padding: 5px;
 }
 
-p {
-    font-size: 20px;
-}
-
-.send-button {
-	margin-left: 25px;
+td {
+    padding: 5px;
 }
 
 h1 {
-	font-size: 125%;
+	font-size: 1.5em;
 }
 
 h2 {
-	font-size: 110%;
+    font-size: 1.2em;
 }
