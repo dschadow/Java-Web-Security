@@ -21,22 +21,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
  * @author Dominik Schadow
  */
 @Entity
-public class Customer implements Serializable {
-    private static final long serialVersionUID = -7895805439708336685L;
-
+public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int custId;
     private String name;
     private String status;
     private int orderLimit;
-    private String comment;
+    private String hint;
 
     public int getCustId() {
         return custId;
@@ -70,12 +67,12 @@ public class Customer implements Serializable {
         this.orderLimit = orderLimit;
     }
 
-    public String getComment() {
-        return comment;
+    public String getHint() {
+        return hint;
     }
 
-    public void setComment(String comment) {
-        this.comment = comment;
+    public void setHint(String hint) {
+        this.hint = hint;
     }
 
     @Override
@@ -85,7 +82,7 @@ public class Customer implements Serializable {
         customer.append(", Name ").append(name);
         customer.append(", Status ").append(status);
         customer.append(", Order Limit ").append(orderLimit);
-        customer.append(", Comment ").append(comment);
+        customer.append(", Hint ").append(hint);
 
         return customer.toString();
     }

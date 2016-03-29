@@ -4,13 +4,11 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
-        <property name="connection.url">jdbc:hsqldb:res:/customerDB</property>
-        <property name="connection.username">sa</property>
-        <property name="connection.password"></property>
-        <property name="dialect">org.hibernate.dialect.HSQLDialect</property>
-        <property name="hbm2ddl.auto">update</property>
-        <property name="show_sql">true</property>
-        <mapping resource="Customer.hbm.xml"/>
+        <property name="hibernate.dialect">org.hibernate.dialect.H2Dialect</property>
+        <property name="hibernate.connection.datasource">java:comp/env/xssDS</property>
+        <property name="hibernate.hbm2ddl.auto">create-drop</property>
+        <property name="show_sql">false</property>
+        <mapping package="de.dominikschadow.webappsecurity.domain"/>
+        <mapping class="de.dominikschadow.webappsecurity.domain.Customer"/>
     </session-factory>
 </hibernate-configuration>

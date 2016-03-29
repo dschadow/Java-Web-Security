@@ -19,13 +19,13 @@ package de.dominikschadow.webappsecurity.daos;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
 
 /**
  * @author Dominik Schadow
  */
 public class HibernateUtil {
+    private static SessionFactory sessionFactory;
+
     /**
      * Util class, no constructor required.
      */
@@ -33,10 +33,10 @@ public class HibernateUtil {
     }
 
     public static SessionFactory getSessionFactory() {
-        Configuration configuration = new Configuration();
-        configuration.configure();
-        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties())
-                .buildServiceRegistry();
-        return configuration.buildSessionFactory(serviceRegistry);
+        if (sessionFactory == null) {
+            sessionFactory = new Configuration().configure().buildSessionFactory();
+        }
+
+        return sessionFactory;
     }
 }
