@@ -85,15 +85,15 @@
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.hsqldb</groupId>
-                <artifactId>hsqldb</artifactId>
-                <version>2.3.3</version>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>1.4.191</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>4.2.21.Final</version>
+                <version>5.1.0.Final</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.faces</groupId>
