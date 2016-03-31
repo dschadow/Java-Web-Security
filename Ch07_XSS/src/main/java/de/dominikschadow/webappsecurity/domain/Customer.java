@@ -17,10 +17,7 @@
  */
 package de.dominikschadow.webappsecurity.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author Dominik Schadow
@@ -29,9 +26,11 @@ import javax.persistence.Id;
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "cust_id")
     private int custId;
     private String name;
     private String status;
+    @Column(name = "order_limit")
     private int orderLimit;
     private String hint;
 
