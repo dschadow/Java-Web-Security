@@ -17,6 +17,7 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.slf4j.Logger;
@@ -46,12 +47,13 @@ public class HQLServlet extends HttpServlet {
         String name = request.getParameter("name");
         LOGGER.info("Received {} as POST parameter", name);
 
-        Session session = getSessionFactory().openSession();
-        Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY custId");
-        query.setParameter("name", name);
+        try (Session session = getSessionFactory().openSession()) {
+            Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY custId");
+            query.setParameter("name", name);
 
-        writeCustomers(response, name, query.list());
-
-        session.close();
+            writeCustomers(response, name, query.list());
+        } catch (HibernateException ex) {
+            LOGGER.error(ex.getMessage(), ex);
+        }
     }
 }
