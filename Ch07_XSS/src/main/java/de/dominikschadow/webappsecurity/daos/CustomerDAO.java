@@ -29,6 +29,8 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
+import static de.dominikschadow.webappsecurity.daos.HibernateUtil.getSessionFactory;
+
 /**
  * Loads customers from the in-memory-database for the managed beans.
  *
@@ -39,7 +41,7 @@ public class CustomerDAO {
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomerDAO.class);
 
     public List<Customer> getAllCustomers() {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = getSessionFactory().openSession();
         Query query = session.createQuery("FROM Customer");
         @SuppressWarnings("unchecked")
         List<Customer> customers = query.list();
@@ -52,7 +54,7 @@ public class CustomerDAO {
     }
 
     public void createCustomer(Customer customer) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = getSessionFactory().openSession();
         Transaction tx = session.beginTransaction();
         session.persist(customer);
         tx.commit();
@@ -60,7 +62,7 @@ public class CustomerDAO {
     }
 
     public List<Customer> findCustomers(Customer customer) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        Session session = getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(Customer.class);
         criteria.add(Restrictions.like("name", "%" + customer.getName()+ "%"));
 
