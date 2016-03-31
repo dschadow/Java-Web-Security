@@ -4,10 +4,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html">
 <h:head>
     <h:outputStylesheet library="css" value="styles.css" name="styles.css" />
-    <title>Ch05_AccessReferenceMaps</title>
+    <title>Chapter 05 - Access Reference Maps</title>
 </h:head>
 <h:body>
-	<h1>Ch05_AccessReferenceMaps: Account details (user id #{account.userId})</h1>
+	<h1>Chapter 05 - Access Reference Maps</h1>
+
+    <p>Account details (user id #{account.userId}).</p>
 
     <h:panelGrid columns="2" rendered="#{account.account != null}">
         <strong>Account name</strong> <h:outputText value="#{account.account.name}" />
@@ -19,5 +21,7 @@
     <h:panelGrid columns="1" rendered="#{account.account == null}">
         <p>No account found</p>
     </h:panelGrid>
+
+    <p><a href="index.xhtml">Back</a></p>
 </h:body>
 </html>
