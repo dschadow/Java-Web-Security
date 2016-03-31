@@ -4,10 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="styles.css" />
-	<title>Ch06_SQLInjection</title>
+	<title>Chapter 06 - SQL Injection</title>
 </head>
 <body>
-	<h1>Ch06_SQLInjection</h1>
+	<h1>Chapter 06 - SQL Injection</h1>
 
     <p><strong>Valid customers are:</strong> Arthur Dent, Ford Prefect, Tricia Trillian McMillan, Zaphod Beeblebrox, Marvin, Slartibartfast</p>
 
