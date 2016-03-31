@@ -17,7 +17,6 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
-import de.dominikschadow.webappsecurity.domain.Customer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,11 +25,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+
+import static de.dominikschadow.webappsecurity.servlets.CustomerTable.extractCustomers;
+import static de.dominikschadow.webappsecurity.servlets.CustomerTable.writeCustomers;
 
 /**
  * Servlet using a Prepared Statement to query the in-memory-database.
@@ -41,7 +39,6 @@ import java.util.List;
 @WebServlet(name = "PreparedStatementServlet", urlPatterns = {"/PreparedStatementServlet"})
 public class PreparedStatementServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(PreparedStatementServlet.class);
-    private static final long serialVersionUID = 1L;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
@@ -49,22 +46,13 @@ public class PreparedStatementServlet extends HttpServlet {
         LOGGER.info("Received {} as POST parameter", name);
 
         String query = "SELECT * FROM customer WHERE name = ? ORDER BY CUST_ID";
-        List<Customer> customers = new ArrayList<>();
         ResultSet rs = null;
 
-        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/customerDB; shutdown=true", "sa", ""); PreparedStatement stmt = con.prepareStatement(query)) {
+        try (Connection con = DriverManager.getConnection("jdbc:h2:mem:sqli", "sa", "sa"); PreparedStatement stmt = con.prepareStatement(query)) {
             stmt.setString(1, name);
             rs = stmt.executeQuery();
 
-            while (rs.next()) {
-                Customer customer = new Customer();
-                customer.setCustId(rs.getInt(1));
-                customer.setName(rs.getString(2));
-                customer.setStatus(rs.getString(3));
-                customer.setOrderLimit(rs.getInt(4));
-
-                customers.add(customer);
-            }
+            writeCustomers(response, name, extractCustomers(rs));
         } catch (SQLException ex) {
             LOGGER.error(ex.getMessage(), ex);
         } finally {
@@ -75,39 +63,6 @@ public class PreparedStatementServlet extends HttpServlet {
             } catch (SQLException ex) {
                 LOGGER.error(ex.getMessage(), ex);
             }
-        }
-
-        response.setContentType("text/html");
-
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html>");
-            out.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head>");
-            out.println("<body>");
-            out.println("<h1>Ch06_SQLInjection - Prepared Statement</h1>");
-            out.println("<p><strong>Input</strong> " + name + "</p>");
-            out.println("<h2>Customer Data</h2>");
-            out.println("<table>");
-            out.println("<tr>");
-            out.println("<th>ID</th>");
-            out.println("<th>Name</th>");
-            out.println("<th>Status</th>");
-            out.println("<th>Order Limit</th>");
-            out.println("</tr>");
-
-            for (Customer customer : customers) {
-                out.println("<tr>");
-                out.println("<td>" + customer.getCustId() + "</td>");
-                out.println("<td>" + customer.getName() + "</td>");
-                out.println("<td>" + customer.getStatus() + "</td>");
-                out.println("<td>" + customer.getOrderLimit() + "</td>");
-                out.println("</tr>");
-            }
-
-            out.println("<table>");
-            out.println("</body>");
-            out.println("</html>");
-        } catch (IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
         }
     }
 }

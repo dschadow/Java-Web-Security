@@ -17,28 +17,19 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.service.ServiceRegistry;
-import org.hibernate.service.ServiceRegistryBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import de.dominikschadow.webappsecurity.domain.Customer;
+import static de.dominikschadow.webappsecurity.servlets.CustomerTable.writeCustomers;
+import static de.dominikschadow.webappsecurity.servlets.HibernateUtil.getSessionFactory;
 
 /**
  * Servlet using Hibernate Query Language (HQL) to query the in-memory-database.
@@ -49,69 +40,18 @@ import de.dominikschadow.webappsecurity.domain.Customer;
 @WebServlet(name = "HQLServlet", urlPatterns = {"/HQLServlet"})
 public class HQLServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(HQLServlet.class);
-    private static final long serialVersionUID = 1L;
-    private SessionFactory sessionFactory;
-
-    @PostConstruct
-    @Override
-    public void init() {
-        Configuration configuration = new Configuration();
-        configuration.configure();
-        ServiceRegistry serviceRegistry = new ServiceRegistryBuilder().applySettings(configuration.getProperties())
-                .buildServiceRegistry();
-        sessionFactory = configuration.buildSessionFactory(serviceRegistry);
-    }
-
-    @PreDestroy
-    @Override
-    public void destroy() {
-        if (sessionFactory != null) {
-            sessionFactory.close();
-        }
-    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
         String name = request.getParameter("name");
         LOGGER.info("Received {} as POST parameter", name);
 
-        Session session = sessionFactory.openSession();
+        Session session = getSessionFactory().openSession();
         Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY CUST_ID");
         query.setParameter("name", name);
-        @SuppressWarnings("unchecked")
-        List<Customer> customers = query.list();
 
-        response.setContentType("text/html");
+        writeCustomers(response, name, query.list());
 
-        try (PrintWriter out = response.getWriter()) {
-            out.println("<html>");
-            out.println("<head><link rel=\"stylesheet\" type=\"text/css\" href=\"styles.css\" /></head>");
-            out.println("<body>");
-            out.println("<h1>Ch06_SQLInjection - Hibernate Query Language</h1>");
-            out.println("<p><strong>Input</strong> " + name + "</p>");
-            out.println("<h2>Customer Data</h2>");
-            out.println("<table>");
-            out.println("<tr>");
-            out.println("<th>ID</th>");
-            out.println("<th>Name</th>");
-            out.println("<th>Status</th>");
-            out.println("<th>Order Limit</th>");
-            out.println("</tr>");
-
-            for (Customer customer : customers) {
-                out.println("<tr>");
-                out.println("<td>" + customer.getCustId() + "</td>");
-                out.println("<td>" + customer.getName() + "</td>");
-                out.println("<td>" + customer.getStatus() + "</td>");
-                out.println("<td>" + customer.getOrderLimit() + "</td>");
-                out.println("</tr>");
-            }
-
-            out.println("<table>");
-            out.println("</body>");
-            out.println("</html>");
-        } catch (IOException ex) {
-            LOGGER.error(ex.getMessage(), ex);
-        }
+        session.close();
     }
 }

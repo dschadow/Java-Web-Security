@@ -17,11 +17,22 @@
  */
 package de.dominikschadow.webappsecurity.domain;
 
+import javax.persistence.*;
+
+/**
+ * @author Dominik Schadow
+ */
+@Entity
 public class Customer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "cust_id")
     private int custId;
     private String name;
     private String status;
+    @Column(name = "order_limit")
     private int orderLimit;
+    private String hint;
 
     public int getCustId() {
         return custId;
@@ -55,6 +66,14 @@ public class Customer {
         this.orderLimit = orderLimit;
     }
 
+    public String getHint() {
+        return hint;
+    }
+
+    public void setHint(String hint) {
+        this.hint = hint;
+    }
+
     @Override
     public String toString() {
         StringBuilder customer = new StringBuilder();
@@ -62,6 +81,7 @@ public class Customer {
         customer.append(", Name ").append(name);
         customer.append(", Status ").append(status);
         customer.append(", Order Limit ").append(orderLimit);
+        customer.append(", Hint ").append(hint);
 
         return customer.toString();
     }
