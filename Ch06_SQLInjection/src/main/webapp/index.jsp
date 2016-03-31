@@ -9,7 +9,8 @@
 <body>
 	<h1>Chapter 06 - SQL Injection</h1>
 
-    <p><strong>Valid customers are:</strong> Arthur Dent, Ford Prefect, Tricia Trillian McMillan, Zaphod Beeblebrox, Marvin, Slartibartfast</p>
+    <p>You can use different options to access the database. Not every field is attackable by SQL Injection.
+		<strong>Valid customers are:</strong> Arthur Dent, Ford Prefect, Tricia Trillian McMillan, Zaphod Beeblebrox, Marvin, Slartibartfast</p>
 
 	<h2>Using Statement</h2>
 	
