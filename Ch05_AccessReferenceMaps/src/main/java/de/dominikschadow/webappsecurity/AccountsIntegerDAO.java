@@ -17,14 +17,17 @@
  */
 package de.dominikschadow.webappsecurity;
 
+import de.dominikschadow.webappsecurity.domain.Account;
+import de.dominikschadow.webappsecurity.domain.User;
 import org.owasp.esapi.errors.AccessControlException;
 import org.owasp.esapi.reference.IntegerAccessReferenceMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static de.dominikschadow.webappsecurity.HibernateUtil.queryUserAccounts;
 
 /**
  * Loads accounts from the in-memory-database for the protected managed bean.
@@ -35,14 +38,6 @@ import java.util.List;
 public class AccountsIntegerDAO {
     private IntegerAccessReferenceMap accounts = new IntegerAccessReferenceMap();
     private static final Logger LOGGER = LoggerFactory.getLogger(AccountsIntegerDAO.class);
-
-    public AccountsIntegerDAO() {
-        try {
-            Class.forName("org.hsqldb.jdbcDriver");
-        } catch (ClassNotFoundException ex) {
-            LOGGER.error("Failed to load db driver", ex);
-        }
-    }
 
     public Account retrieveAccount(int accountId) {
         String accountReference = String.valueOf(accountId);
@@ -61,36 +56,13 @@ public class AccountsIntegerDAO {
     }
 
     private List<String> queryAccounts(User user) {
-        String query = "SELECT * FROM accounts WHERE owner_id = ?";
+        List<Account> ownAccounts = queryUserAccounts(user);
+        LOGGER.info("Found {} account references", ownAccounts.size());
+
         List<String> accountReferences = new ArrayList<>();
-
-        ResultSet rs = null;
-
-        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", ""); PreparedStatement pstmt = con.prepareStatement(query)) {
-            pstmt.setInt(1, user.getUserId());
-
-            rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                Account account = new Account();
-                account.setAccountId(rs.getInt(1));
-                account.setName(rs.getString(2));
-                account.setType(rs.getString(3));
-                account.setOwnerId(rs.getInt(4));
-
-                accounts.addDirectReference(account);
-                accountReferences.add(accounts.getIndirectReference(account));
-            }
-        } catch (SQLException ex) {
-            LOGGER.error("SQL exception", ex);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-            } catch (SQLException ex) {
-                LOGGER.error("Failed to close rs", ex);
-            }
+        for (Account account : ownAccounts) {
+            accounts.addDirectReference(account);
+            accountReferences.add(accounts.getIndirectReference(account));
         }
 
         return accountReferences;

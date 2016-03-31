@@ -15,8 +15,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package de.dominikschadow.webappsecurity;
+package de.dominikschadow.webappsecurity.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
@@ -24,9 +26,9 @@ import java.io.Serializable;
  *
  * @author Dominik Schadow
  */
+@Entity
 public class User implements Serializable {
-    private static final long serialVersionUID = 2867611705549340780L;
-
+    @Id
     private int userId;
     private String name;
 

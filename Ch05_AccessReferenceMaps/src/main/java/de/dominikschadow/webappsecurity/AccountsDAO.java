@@ -17,12 +17,15 @@
  */
 package de.dominikschadow.webappsecurity;
 
+import de.dominikschadow.webappsecurity.domain.Account;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.sql.*;
-import java.util.ArrayList;
 import java.util.List;
+
+import static de.dominikschadow.webappsecurity.HibernateUtil.getSessionFactory;
 
 /**
  * Loads accounts from the in-memory-database for the unprotected managed bean.
@@ -42,64 +45,27 @@ public class AccountsDAO {
     }
 
     private Account queryAccount(int id) {
-        String query = "SELECT * FROM accounts WHERE account_id = ?";
+        Session session = getSessionFactory().openSession();
+        Query query = session.createQuery("FROM Account WHERE accountId = :id");
+        query.setParameter("id", id);
 
-        ResultSet rs = null;
+        Account account = (Account) query.uniqueResult();
 
-        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", ""); PreparedStatement pstmt = con.prepareStatement(query)) {
-            pstmt.setInt(1, id);
+        session.close();
 
-            rs = pstmt.executeQuery();
-
-            if (rs.next()) {
-                Account account = new Account();
-                account.setAccountId(rs.getInt(1));
-                account.setName(rs.getString(2));
-                account.setType(rs.getString(3));
-                account.setOwnerId(rs.getInt(4));
-
-                return account;
-            }
-        } catch (SQLException ex) {
-            LOGGER.error("SQL exception", ex);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-            } catch (SQLException ex) {
-                LOGGER.error("Failed to close rs", ex);
-            }
-        }
-
-        return null;
+        return account;
     }
 
     private List<String> queryAccounts(int userId) {
-        String query = "SELECT account_id FROM accounts WHERE owner_id = ?";
-        List<String> accountReferences = new ArrayList<>();
+        Session session = getSessionFactory().openSession();
+        Query query = session.createSQLQuery("SELECT accountId FROM account WHERE ownerId = :id");
+        query.setParameter("id", userId);
 
-        ResultSet rs = null;
+        List<String> accountReferences = query.list();
 
-        try (Connection con = DriverManager.getConnection("jdbc:hsqldb:res:/accountsDB; shutdown=true", "sa", ""); PreparedStatement pstmt = con.prepareStatement(query)) {
-            pstmt.setInt(1, userId);
+        LOGGER.info("Found {} account references", accountReferences.size());
 
-            rs = pstmt.executeQuery();
-
-            while (rs.next()) {
-                accountReferences.add(rs.getString(1));
-            }
-        } catch (SQLException ex) {
-            LOGGER.error("SQL exception", ex);
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-            } catch (SQLException ex) {
-                LOGGER.error("Failed to close rs", ex);
-            }
-        }
+        session.close();
 
         return accountReferences;
     }

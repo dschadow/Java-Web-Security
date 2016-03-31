@@ -17,6 +17,8 @@
  */
 package de.dominikschadow.webappsecurity;
 
+import de.dominikschadow.webappsecurity.domain.Account;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -33,8 +35,6 @@ import java.util.List;
 @ManagedBean(name = "account")
 @SessionScoped
 public class AccountController implements Serializable {
-    private static final long serialVersionUID = -9118791523118467771L;
-
     private Account account;
     private int userId = 42;
     private int accountId = 1;

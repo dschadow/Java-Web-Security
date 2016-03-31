@@ -17,6 +17,9 @@
  */
 package de.dominikschadow.webappsecurity;
 
+import de.dominikschadow.webappsecurity.domain.Account;
+import de.dominikschadow.webappsecurity.domain.User;
+
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -33,8 +36,6 @@ import java.util.List;
 @ManagedBean(name = "accountRandom")
 @SessionScoped
 public class AccountRandomController implements Serializable {
-    private static final long serialVersionUID = -1993232852833249965L;
-
     private List<String> accountReferences = new ArrayList<>();
     private String raAccountId = "";
     private int userId = 42;
