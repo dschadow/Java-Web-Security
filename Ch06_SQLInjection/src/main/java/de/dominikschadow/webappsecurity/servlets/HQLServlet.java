@@ -47,7 +47,7 @@ public class HQLServlet extends HttpServlet {
         LOGGER.info("Received {} as POST parameter", name);
 
         Session session = getSessionFactory().openSession();
-        Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY CUST_ID");
+        Query query = session.createQuery("FROM Customer WHERE name = :name ORDER BY custId");
         query.setParameter("name", name);
 
         writeCustomers(response, name, query.list());
