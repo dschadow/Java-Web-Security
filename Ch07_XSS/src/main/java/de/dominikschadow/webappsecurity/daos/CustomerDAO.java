@@ -18,15 +18,12 @@
 package de.dominikschadow.webappsecurity.daos;
 
 import de.dominikschadow.webappsecurity.domain.Customer;
-
-import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.Session;
-import org.hibernate.Transaction;
+import org.hibernate.*;
 import org.hibernate.criterion.Restrictions;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static de.dominikschadow.webappsecurity.daos.HibernateUtil.getSessionFactory;
@@ -41,37 +38,43 @@ public class CustomerDAO {
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomerDAO.class);
 
     public List<Customer> getAllCustomers() {
-        Session session = getSessionFactory().openSession();
-        Query query = session.createQuery("FROM Customer");
-        @SuppressWarnings("unchecked")
-        List<Customer> customers = query.list();
+        List<Customer> customers = new ArrayList<>();
 
-        LOGGER.info("Found {} customers", customers.size());
+        try (Session session = getSessionFactory().openSession()) {
+            Query query = session.createQuery("FROM Customer");
+            customers = query.list();
 
-        session.close();
+            LOGGER.info("Found {} customers", customers.size());
+        } catch (HibernateException ex) {
+            LOGGER.error(ex.getMessage(), ex);
+        }
 
         return customers;
     }
 
     public void createCustomer(Customer customer) {
-        Session session = getSessionFactory().openSession();
-        Transaction tx = session.beginTransaction();
-        session.persist(customer);
-        tx.commit();
-        session.close();
+        try (Session session = getSessionFactory().openSession()) {
+            Transaction tx = session.beginTransaction();
+            session.persist(customer);
+            tx.commit();
+        } catch (HibernateException ex) {
+            LOGGER.error(ex.getMessage(), ex);
+        }
     }
 
     public List<Customer> findCustomers(Customer customer) {
-        Session session = getSessionFactory().openSession();
-        Criteria criteria = session.createCriteria(Customer.class);
-        criteria.add(Restrictions.like("name", "%" + customer.getName()+ "%"));
+        List<Customer> customers = new ArrayList<>();
 
-        @SuppressWarnings("unchecked")
-        List<Customer> customers = criteria.list();
+        try (Session session = getSessionFactory().openSession()) {
+            Criteria criteria = session.createCriteria(Customer.class);
+            criteria.add(Restrictions.like("name", "%" + customer.getName() + "%"));
 
-        LOGGER.info("Found {} customers", customers.size());
+            customers = criteria.list();
 
-        session.close();
+            LOGGER.info("Found {} customers", customers.size());
+        } catch (HibernateException ex) {
+            LOGGER.error(ex.getMessage(), ex);
+        }
 
         return customers;
     }

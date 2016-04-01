@@ -18,11 +18,13 @@
 package de.dominikschadow.webappsecurity;
 
 import de.dominikschadow.webappsecurity.domain.Account;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static de.dominikschadow.webappsecurity.HibernateUtil.getSessionFactory;
@@ -45,27 +47,31 @@ public class AccountsDAO {
     }
 
     private Account queryAccount(int id) {
-        Session session = getSessionFactory().openSession();
-        Query query = session.createQuery("FROM Account WHERE accountId = :id");
-        query.setParameter("id", id);
+        try (Session session = getSessionFactory().openSession()) {
+            Query query = session.createQuery("FROM Account WHERE accountId = :id");
+            query.setParameter("id", id);
 
-        Account account = (Account) query.uniqueResult();
+            return (Account) query.uniqueResult();
+        } catch (HibernateException ex) {
+            LOGGER.error(ex.getMessage(), ex);
+        }
 
-        session.close();
-
-        return account;
+        return null;
     }
 
     private List<String> queryAccounts(int userId) {
-        Session session = getSessionFactory().openSession();
-        Query query = session.createSQLQuery("SELECT accountId FROM account WHERE ownerId = :id");
-        query.setParameter("id", userId);
+        List<String> accountReferences = new ArrayList<>();
 
-        List<String> accountReferences = query.list();
+        try (Session session = getSessionFactory().openSession()) {
+            Query query = session.createSQLQuery("SELECT accountId FROM account WHERE ownerId = :id");
+            query.setParameter("id", userId);
 
-        LOGGER.info("Found {} account references", accountReferences.size());
+            accountReferences = query.list();
 
-        session.close();
+            LOGGER.info("Found {} account references", accountReferences.size());
+        } catch (HibernateException ex) {
+            LOGGER.error(ex.getMessage(), ex);
+        }
 
         return accountReferences;
     }
