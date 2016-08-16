@@ -31,7 +31,7 @@
         <spring.version>4.3.2.RELEASE</spring.version>
         <slf4j.version>1.7.21</slf4j.version>
         <jsf.version>2.2.13</jsf.version>
-        <hibernate.version>5.2.1.Final</hibernate.version>
+        <hibernate.version>5.2.2.Final</hibernate.version>
         <sonar.language>java</sonar.language>
     </properties>
 
