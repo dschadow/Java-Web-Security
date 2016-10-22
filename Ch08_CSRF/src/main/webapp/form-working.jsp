@@ -3,7 +3,7 @@
 <%@ page import="de.dominikschadow.webappsecurity.token.CSRFTokenHandler" %>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Chapter 08 - CSRF</title>
     <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
 </head>
