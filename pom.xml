@@ -31,7 +31,7 @@
         <spring.version>4.3.3.RELEASE</spring.version>
         <slf4j.version>1.7.21</slf4j.version>
         <jsf.version>2.2.13</jsf.version>
-        <hibernate.version>5.2.2.Final</hibernate.version>
+        <hibernate.version>5.2.3.Final</hibernate.version>
         <sonar.language>java</sonar.language>
     </properties>
 
@@ -131,7 +131,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.4</version>
+                <version>3.5</version>
             </dependency>
             <dependency>
                 <groupId>junit</groupId>
