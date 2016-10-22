@@ -19,10 +19,10 @@ package de.dominikschadow.webappsecurity;
 
 import de.dominikschadow.webappsecurity.domain.Account;
 import de.dominikschadow.webappsecurity.domain.User;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import java.util.List;
 

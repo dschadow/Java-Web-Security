@@ -19,8 +19,8 @@ package de.dominikschadow.webappsecurity;
 
 import de.dominikschadow.webappsecurity.domain.Account;
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -63,7 +63,7 @@ public class AccountsDAO {
         List<String> accountReferences = new ArrayList<>();
 
         try (Session session = getSessionFactory().openSession()) {
-            Query query = session.createSQLQuery("SELECT accountId FROM account WHERE ownerId = :id");
+            Query query = session.createNativeQuery("SELECT accountId FROM account WHERE ownerId = :id");
             query.setParameter("id", userId);
 
             accountReferences = query.list();
