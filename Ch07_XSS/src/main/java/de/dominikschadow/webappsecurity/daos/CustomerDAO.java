@@ -18,8 +18,12 @@
 package de.dominikschadow.webappsecurity.daos;
 
 import de.dominikschadow.webappsecurity.domain.Customer;
-import org.hibernate.*;
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
