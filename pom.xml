@@ -163,6 +163,11 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <version>3.0.0</version>
                 </plugin>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>3.2</version>
+                </plugin>
             </plugins>
         </pluginManagement>
     </build>
