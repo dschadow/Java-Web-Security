@@ -28,10 +28,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.3.10.RELEASE</spring.version>
+        <spring.version>4.3.12.RELEASE</spring.version>
         <slf4j.version>1.7.25</slf4j.version>
         <jsf.version>2.2.14</jsf.version>
-        <hibernate.version>5.2.10.Final</hibernate.version>
+        <hibernate.version>5.2.12.Final</hibernate.version>
         <jacoco.version>0.7.9</jacoco.version>
     </properties>
 
@@ -194,7 +194,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.2</version>
+                    <version>3.7.0</version>
                     <configuration>
                         <source>1.8</source>
                         <target>1.8</target>
@@ -229,7 +229,7 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>2.1.1</version>
+                <version>3.0.1</version>
                 <configuration>
                     <skipProvidedScope>true</skipProvidedScope>
                     <skipRuntimeScope>true</skipRuntimeScope>
