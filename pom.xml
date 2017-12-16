@@ -33,6 +33,7 @@
         <jsf.version>2.2.15</jsf.version>
         <hibernate.version>5.2.12.Final</hibernate.version>
         <jacoco.version>0.7.9</jacoco.version>
+        <sonar.language>java</sonar.language>
     </properties>
 
     <dependencyManagement>
