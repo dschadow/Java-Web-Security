@@ -12,6 +12,10 @@
     <url>https://github.com/dschadow/Java-Web-Security</url>
     <description>Chapter 4 JSP Output Escaping sample project. Requires a server like Apache Tomcat or the Maven Tomcat plugin. After starting, open the web application in your browser at http://localhost:8080/Ch04_OutputEscapingJSP</description>
 
+    <properties>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>
