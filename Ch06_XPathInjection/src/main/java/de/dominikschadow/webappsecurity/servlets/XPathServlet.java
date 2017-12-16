@@ -17,12 +17,13 @@
  */
 package de.dominikschadow.webappsecurity.servlets;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.PrintWriter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.w3c.dom.Document;
+import org.w3c.dom.NodeList;
+import org.xml.sax.SAXException;
 
 import javax.annotation.PostConstruct;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,12 +35,9 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 
 /**
  * Servlet using an XPath expression to query the customer XML document.
@@ -52,34 +50,22 @@ import org.xml.sax.SAXException;
 @WebServlet(name = "XPathServlet", urlPatterns = {"/XPathServlet"})
 public class XPathServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(XPathServlet.class);
-    private static final long serialVersionUID = 1L;
-    private Document doc;
+    private static Document doc;
 
     @PostConstruct
     @Override
     public void init() {
-        InputStream inputStream = null;
-
-        try {
-            inputStream = getClass().getClassLoader().getResourceAsStream("/customer.xml");
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("/customer.xml");) {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             doc = dBuilder.parse(inputStream);
         } catch (SAXException | IOException | ParserConfigurationException ex) {
             LOGGER.error(ex.getMessage(), ex);
-        } finally {
-            if (inputStream != null) {
-                try {
-                    inputStream.close();
-                } catch (IOException ex) {
-                    LOGGER.error(ex.getMessage(), ex);
-                }
-            }
         }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         LOGGER.info("Received {} and {} as parameter", name, password);

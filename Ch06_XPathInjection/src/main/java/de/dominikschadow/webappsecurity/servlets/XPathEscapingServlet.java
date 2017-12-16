@@ -25,7 +25,6 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
 import javax.annotation.PostConstruct;
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -37,8 +36,8 @@ import javax.xml.xpath.XPathConstants;
 import javax.xml.xpath.XPathExpression;
 import javax.xml.xpath.XPathExpressionException;
 import javax.xml.xpath.XPathFactory;
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 
 /**
@@ -52,24 +51,22 @@ import java.io.PrintWriter;
 @WebServlet(name = "XPathEscapingServlet", urlPatterns = {"/XPathEscapingServlet"})
 public class XPathEscapingServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(XPathEscapingServlet.class);
-    private static final long serialVersionUID = 1L;
-    private Document doc;
+    private static Document doc;
 
     @PostConstruct
     @Override
     public void init() {
-        try {
-            File xmlFile = new File("src/main/resources/customer.xml");
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("/customer.xml");) {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            doc = dBuilder.parse(xmlFile);
+            doc = dBuilder.parse(inputStream);
         } catch (SAXException | IOException | ParserConfigurationException ex) {
             LOGGER.error(ex.getMessage(), ex);
         }
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         LOGGER.info("Received {} and {} as parameter", name, password);
