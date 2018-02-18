@@ -26,13 +26,20 @@
         <url>https://github.com/dschadow/Java-Web-Security</url>
     </scm>
 
+    <licenses>
+        <license>
+            <name>Apache License 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+        </license>
+    </licenses>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.3.13.RELEASE</spring.version>
+        <spring.version>4.3.14.RELEASE</spring.version>
         <slf4j.version>1.7.25</slf4j.version>
         <jsf.version>2.2.15</jsf.version>
-        <hibernate.version>5.2.12.Final</hibernate.version>
-        <jacoco.version>0.7.9</jacoco.version>
+        <hibernate.version>5.2.13.Final</hibernate.version>
+        <jacoco.version>0.8.0</jacoco.version>
         <sonar.language>java</sonar.language>
     </properties>
 
@@ -144,26 +151,6 @@
 
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-                <version>1.4.1</version>
-                <executions>
-                    <execution>
-                        <id>enforce-maven</id>
-                        <goals>
-                            <goal>enforce</goal>
-                        </goals>
-                        <configuration>
-                            <rules>
-                                <requireMavenVersion>
-                                    <version>3.0</version>
-                                </requireMavenVersion>
-                            </rules>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${jacoco.version}</version>
@@ -222,11 +209,6 @@
                     <artifactId>maven-war-plugin</artifactId>
                     <version>3.2.0</version>
                 </plugin>
-                <plugin>
-                    <groupId>org.codehaus.mojo</groupId>
-                    <artifactId>sonar-maven-plugin</artifactId>
-                    <version>3.3.0.603</version>
-                </plugin>
             </plugins>
         </pluginManagement>
     </build>
@@ -241,7 +223,7 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>3.1.0</version>
+                <version>3.1.1</version>
                 <configuration>
                     <skipProvidedScope>true</skipProvidedScope>
                     <skipRuntimeScope>true</skipRuntimeScope>
