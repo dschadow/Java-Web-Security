@@ -8,7 +8,9 @@
     <packaging>pom</packaging>
     <name>Java-Web-Security</name>
     <url>https://github.com/dschadow/Java-Web-Security</url>
-    <description>This repository contains the complete code samples from my book 'Java-Web-Security - Sichere Webanwendungen mit Java entwickeln' (dpunkt.verlag, ISBN 978-3-86490-146-1).</description>
+    <description>This repository contains the complete code samples from my book 'Java-Web-Security - Sichere
+        Webanwendungen mit Java entwickeln' (dpunkt.verlag, ISBN 978-3-86490-146-1).
+    </description>
 
     <organization>
         <name>Dominik Schadow</name>
@@ -39,6 +41,8 @@
         <slf4j.version>1.7.25</slf4j.version>
         <jsf.version>2.2.17</jsf.version>
         <hibernate.version>5.3.1.Final</hibernate.version>
+        <junit.jupiter.version>5.2.0</junit.jupiter.version>
+        <hamcrest.version>1.3</hamcrest.version>
         <sonar.language>java</sonar.language>
     </properties>
 
@@ -137,9 +141,15 @@
                 <version>3.7</version>
             </dependency>
             <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit.jupiter.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.hamcrest</groupId>
+                <artifactId>hamcrest-library</artifactId>
+                <version>${hamcrest.version}</version>
                 <scope>test</scope>
             </dependency>
         </dependencies>
