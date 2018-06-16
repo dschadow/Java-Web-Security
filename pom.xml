@@ -35,10 +35,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.3.17.RELEASE</spring.version>
+        <spring.version>5.0.7.RELEASE</spring.version>
         <slf4j.version>1.7.25</slf4j.version>
-        <jsf.version>2.2.16</jsf.version>
-        <hibernate.version>5.2.17.Final</hibernate.version>
+        <jsf.version>2.2.17</jsf.version>
+        <hibernate.version>5.3.1.Final</hibernate.version>
         <sonar.language>java</sonar.language>
     </properties>
 
@@ -47,7 +47,7 @@
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>3.1.0</version>
+                <version>4.0.1</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
