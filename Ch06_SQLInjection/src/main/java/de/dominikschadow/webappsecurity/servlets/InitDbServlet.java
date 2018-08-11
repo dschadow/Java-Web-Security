@@ -14,6 +14,7 @@ import static de.dominikschadow.webappsecurity.servlets.HibernateUtil.getSession
  */
 @WebServlet(name = "InitDbServlet", urlPatterns = {"/"})
 public class InitDbServlet extends HttpServlet {
+    @Override
     public void init() {
         Session session = getSessionFactory().openSession();
         session.close();

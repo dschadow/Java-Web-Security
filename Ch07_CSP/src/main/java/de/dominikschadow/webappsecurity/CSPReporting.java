@@ -21,7 +21,6 @@ import com.cedarsoftware.util.io.JsonWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 
 /**
  * Simple CSP-Reporting servlet to receive and print out any JSON style CSP report with violations.
@@ -41,8 +41,8 @@ public class CSPReporting extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(CSPReporting.class);
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream()))) {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(request.getInputStream(), Charset.defaultCharset()))) {
             StringBuilder responseBuilder = new StringBuilder();
 
             String inputStr;
