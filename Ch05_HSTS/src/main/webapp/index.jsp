@@ -4,10 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="styles.css" />
-	<title>Ch05_HSTS</title>
+	<title>Chapter 05 - HTTP Strict Transport Security (HSTS)</title>
 </head>
 <body>
-	<h1>Ch05_HSTS</h1>
+	<h1>Chapter 05 - HTTP Strict Transport Security (HSTS)</h1>
 
     <form name="login" method="post" action="LoginServlet">
         <table>
