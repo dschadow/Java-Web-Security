@@ -3,10 +3,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="styles.css" />
-	<title>Ch06_XPathInjection</title>
+	<title>Chapter 06 - XPath Injection</title>
 </head>
 <body>
-	<h1>Ch06_XPathInjection</h1>
+	<h1>Chapter 06 - XPath Injection</h1>
 
     <p><strong>Valid customers are:</strong> Arthur Dent, Ford Prefect, Tricia Trillian McMillan, Zaphod Beeblebrox, Marvin, Slartibartfast<br/>
     Password is always their first name.</p>
