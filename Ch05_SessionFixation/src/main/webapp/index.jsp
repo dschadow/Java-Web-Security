@@ -4,10 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="styles.css" />
-	<title>Ch05_SessionFixation</title>
+	<title>Chapter 05 - Session Fixation</title>
 </head>
 <body>
-	<h1>Ch05_SessionFixation</h1>
+	<h1>Chapter 05 - Session Fixation</h1>
 
     <script type="text/javascript">document.write("<p><strong>Session ID</strong> [" + document.cookie + "]</p>")</script>
 
