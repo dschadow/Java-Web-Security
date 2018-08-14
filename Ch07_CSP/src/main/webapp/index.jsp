@@ -4,10 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" type="text/css" href="styles.css" />
-	<title>Ch07_CSP</title>
+	<title>Chapter 07 - Content Security Policy (CSP)</title>
 </head>
 <body>
-	<h1>Ch07_CSP</h1>
+	<h1>Chapter 07 - Content Security Policy (CSP)</h1>
 
 	<h2>Without Content Security Policy</h2>
 	
