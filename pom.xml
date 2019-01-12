@@ -37,7 +37,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>5.1.3.RELEASE</spring.version>
+        <spring.version>5.1.4.RELEASE</spring.version>
         <slf4j.version>1.7.25</slf4j.version>
         <jsf.version>2.2.18</jsf.version>
         <hibernate.version>5.3.7.Final</hibernate.version>
