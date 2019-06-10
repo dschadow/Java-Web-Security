@@ -37,10 +37,10 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>5.1.6.RELEASE</spring.version>
+        <spring.version>5.1.7.RELEASE</spring.version>
         <slf4j.version>1.7.25</slf4j.version>
-        <jsf.version>2.2.18</jsf.version>
-        <hibernate.version>5.4.2.Final</hibernate.version>
+        <jsf.version>2.2.19</jsf.version>
+        <hibernate.version>5.4.3.Final</hibernate.version>
         <junit.jupiter.version>5.4.1</junit.jupiter.version>
         <hamcrest.version>2.1</hamcrest.version>
         <sonar.language>java</sonar.language>
@@ -138,7 +138,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.8.1</version>
+                <version>3.9</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -160,7 +160,7 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>3.1.11</version>
+                <version>3.1.12</version>
                 <configuration>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
@@ -215,7 +215,7 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>4.0.2</version>
+                <version>5.0.0</version>
                 <configuration>
                     <skipProvidedScope>true</skipProvidedScope>
                     <skipRuntimeScope>true</skipRuntimeScope>
