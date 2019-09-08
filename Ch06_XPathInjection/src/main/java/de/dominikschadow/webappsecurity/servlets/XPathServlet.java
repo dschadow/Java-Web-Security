@@ -23,7 +23,6 @@ import org.w3c.dom.Document;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -52,7 +51,6 @@ public class XPathServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(XPathServlet.class);
     private static Document doc;
 
-    @PostConstruct
     @Override
     public void init() {
         try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("/customer.xml");) {

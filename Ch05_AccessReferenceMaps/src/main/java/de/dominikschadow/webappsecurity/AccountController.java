@@ -19,7 +19,6 @@ package de.dominikschadow.webappsecurity;
 
 import de.dominikschadow.webappsecurity.domain.Account;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
@@ -61,8 +60,7 @@ public class AccountController implements Serializable {
         return accountReferences;
     }
 
-    @PostConstruct
-    public void loadData() {
+    public AccountController() {
         dao = new AccountsDAO();
 
         accountReferences = dao.getAccountsForUser(userId);

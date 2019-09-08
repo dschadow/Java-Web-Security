@@ -20,7 +20,6 @@ package de.dominikschadow.webappsecurity;
 import de.dominikschadow.webappsecurity.domain.Account;
 import de.dominikschadow.webappsecurity.domain.User;
 
-import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
@@ -61,8 +60,7 @@ public class AccountIntegerController implements Serializable {
         return accountReferences;
     }
 
-    @PostConstruct
-    public void loadData() {
+    public AccountIntegerController() {
         User currentUser = new User();
         currentUser.setUserId(userId);
 
