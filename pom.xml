@@ -37,13 +37,13 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>5.1.9.RELEASE</spring.version>
+        <spring.version>5.2.0.RELEASE</spring.version>
         <slf4j.version>1.7.25</slf4j.version>
-        <jsf.version>2.2.19</jsf.version>
-        <hibernate.version>5.4.4.Final</hibernate.version>
-        <junit.jupiter.version>5.5.1</junit.jupiter.version>
+        <jsf.version>2.2.20</jsf.version>
+        <hibernate.version>5.4.6.Final</hibernate.version>
+        <junit.jupiter.version>5.5.2</junit.jupiter.version>
         <hamcrest.version>2.1</hamcrest.version>
-        <sonar.language>java</sonar.language>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencyManagement>
@@ -182,8 +182,8 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.0</version>
                     <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
+                        <source>${java.version}</source>
+                        <target>${java.version}</target>
                     </configuration>
                 </plugin>
                 <plugin>
@@ -215,7 +215,7 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>5.2.1</version>
+                <version>5.2.2</version>
                 <configuration>
                     <skipProvidedScope>true</skipProvidedScope>
                     <skipRuntimeScope>true</skipRuntimeScope>
