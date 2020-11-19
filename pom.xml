@@ -40,7 +40,7 @@
         <spring.version>5.2.9.RELEASE</spring.version>
         <slf4j.version>1.7.25</slf4j.version>
         <jsf.version>2.2.20</jsf.version>
-        <hibernate.version>5.4.21.Final</hibernate.version>
+        <hibernate.version>5.4.24.Final</hibernate.version>
         <junit.jupiter.version>5.7.0</junit.jupiter.version>
         <hamcrest.version>2.2</hamcrest.version>
         <java.version>1.8</java.version>
