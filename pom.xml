@@ -14,7 +14,7 @@
 
     <organization>
         <name>Dominik Schadow</name>
-        <url>http://www.dominikschadow.de</url>
+        <url>https://blog.dominikschadow.de</url>
     </organization>
 
     <issueManagement>
@@ -31,17 +31,17 @@
     <licenses>
         <license>
             <name>Apache License 2.0</name>
-            <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+            <url>https://www.apache.org/licenses/LICENSE-2.0</url>
         </license>
     </licenses>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>5.2.12.RELEASE</spring.version>
-        <slf4j.version>1.7.25</slf4j.version>
+        <spring.version>5.2.18.RELEASE</spring.version>
+        <slf4j.version>1.7.32</slf4j.version>
         <jsf.version>2.2.20</jsf.version>
-        <hibernate.version>5.4.27.Final</hibernate.version>
-        <junit.jupiter.version>5.7.1</junit.jupiter.version>
+        <hibernate.version>5.6.2.Final</hibernate.version>
+        <junit.jupiter.version>5.8.2</junit.jupiter.version>
         <hamcrest.version>2.2</hamcrest.version>
         <java.version>1.8</java.version>
     </properties>
@@ -69,7 +69,7 @@
             <dependency>
                 <groupId>org.owasp.esapi</groupId>
                 <artifactId>esapi</artifactId>
-                <version>2.2.2.0</version>
+                <version>2.2.3.1</version>
                 <exclusions>
                     <exclusion>
                         <groupId>javax.servlet</groupId>
@@ -95,7 +95,7 @@
             <dependency>
                 <groupId>com.h2database</groupId>
                 <artifactId>h2</artifactId>
-                <version>1.4.200</version>
+                <version>2.0.202</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
@@ -133,12 +133,12 @@
             <dependency>
                 <groupId>com.cedarsoftware</groupId>
                 <artifactId>json-io</artifactId>
-                <version>4.12.0</version>
+                <version>4.13.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.11</version>
+                <version>3.12.0</version>
             </dependency>
             <dependency>
                 <groupId>org.junit.jupiter</groupId>
@@ -160,7 +160,7 @@
             <plugin>
                 <groupId>com.github.spotbugs</groupId>
                 <artifactId>spotbugs-maven-plugin</artifactId>
-                <version>4.2.0</version>
+                <version>4.5.0.0</version>
                 <configuration>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
@@ -194,7 +194,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
-                    <version>3.3.1</version>
+                    <version>3.3.2</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -204,7 +204,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
-                    <version>3.1.1</version>
+                    <version>3.1.2</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -215,7 +215,7 @@
             <plugin>
                 <groupId>org.owasp</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>6.1.0</version>
+                <version>6.5.0</version>
                 <configuration>
                     <skipProvidedScope>true</skipProvidedScope>
                     <skipRuntimeScope>true</skipRuntimeScope>
