@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serial;
 
 /**
  * Servlet which sets the <code>Content-Security-Policy</code> response header and stops any JavaScript code entered
@@ -37,6 +38,7 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "WithCSPServlet", urlPatterns = {"/WithCSPServlet"})
 public class WithCSPServlet extends HttpServlet {
+    @Serial
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = LoggerFactory.getLogger(WithCSPServlet.class);
 

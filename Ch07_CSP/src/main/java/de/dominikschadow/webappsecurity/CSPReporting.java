@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Serial;
 import java.nio.charset.Charset;
 
 /**
@@ -37,6 +38,7 @@ import java.nio.charset.Charset;
  */
 @WebServlet(name = "CSPReporting", urlPatterns = {"/CSPReporting"})
 public class CSPReporting extends HttpServlet {
+    @Serial
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = LoggerFactory.getLogger(CSPReporting.class);
 

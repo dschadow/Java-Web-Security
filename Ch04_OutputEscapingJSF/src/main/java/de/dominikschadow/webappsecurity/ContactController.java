@@ -19,6 +19,7 @@ package de.dominikschadow.webappsecurity;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -29,6 +30,7 @@ import java.io.Serializable;
 @ManagedBean(name = "contact")
 @SessionScoped
 public class ContactController implements Serializable {
+    @Serial
     private static final long serialVersionUID = 4083596061570021965L;
 
     private String firstname;

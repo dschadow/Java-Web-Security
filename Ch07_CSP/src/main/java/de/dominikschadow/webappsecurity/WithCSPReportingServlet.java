@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serial;
 
 /**
  * Servlet which sets the <code>Content-Security-Policy-Report-Only</code> response header and reports
@@ -36,6 +37,7 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "WithCSPReportingServlet", urlPatterns = {"/WithCSPReportingServlet"})
 public class WithCSPReportingServlet extends HttpServlet {
+    @Serial
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = LoggerFactory.getLogger(WithCSPReportingServlet.class);
 

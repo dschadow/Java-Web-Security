@@ -28,6 +28,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serial;
 import java.security.NoSuchAlgorithmException;
 import java.security.NoSuchProviderException;
 
@@ -40,6 +41,8 @@ import java.security.NoSuchProviderException;
  */
 @WebServlet(name = "ProtectedServlet", urlPatterns = {"/ProtectedServlet"})
 public class ProtectedServlet extends HttpServlet {
+    @Serial
+    @Serial
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = LoggerFactory.getLogger(ProtectedServlet.class);
 

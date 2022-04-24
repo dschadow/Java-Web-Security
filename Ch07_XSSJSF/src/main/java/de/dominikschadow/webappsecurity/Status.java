@@ -17,6 +17,7 @@
  */
 package de.dominikschadow.webappsecurity;
 
+import java.io.Serial;
 import java.io.Serializable;
 
 /**
@@ -25,6 +26,7 @@ import java.io.Serializable;
  * @author Dominik Schadow
  */
 public class Status implements Serializable {
+    @Serial
     private static final long serialVersionUID = -5176873476153674154L;
     private String label;
     private String value;

@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serial;
 
 /**
  * Default servlet without any additional protection. Any entered script-tag will be executed on the result page.
@@ -35,6 +36,7 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "WithoutCSPServlet", urlPatterns = {"/WithoutCSPServlet"})
 public class WithoutCSPServlet extends HttpServlet {
+    @Serial
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = LoggerFactory.getLogger(WithoutCSPServlet.class);
 

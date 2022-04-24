@@ -19,6 +19,7 @@ package de.dominikschadow.webappsecurity.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serial;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -37,6 +38,7 @@ import org.slf4j.LoggerFactory;
 @WebServlet(name = "LoginServlet", urlPatterns = {"/LoginServlet"})
 public class LoginServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(LoginServlet.class);
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Override

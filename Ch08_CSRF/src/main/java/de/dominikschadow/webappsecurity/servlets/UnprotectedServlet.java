@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serial;
 
 /**
  * Basic unprotected servlet for GET and POST requests. Prints out all information to standard out
@@ -36,6 +37,7 @@ import java.io.PrintWriter;
  */
 @WebServlet(name = "UnprotectedServlet", urlPatterns = {"/UnprotectedServlet"})
 public class UnprotectedServlet extends HttpServlet {
+    @Serial
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = LoggerFactory.getLogger(UnprotectedServlet.class);
 

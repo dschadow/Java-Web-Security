@@ -19,6 +19,7 @@ package de.dominikschadow.webappsecurity;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -32,6 +33,7 @@ import java.util.Map;
 @ManagedBean(name = "standard")
 @SessionScoped
 public class StandardController implements Serializable {
+    @Serial
     private static final long serialVersionUID = 4083596061570021965L;
 
     private String input = "<script>alert('XSS with JSF')</script>";
