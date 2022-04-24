@@ -40,7 +40,7 @@ public class WithCSPReportingServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(WithCSPReportingServlet.class);
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         LOGGER.info("Processing POST request with Content Security Policy Reporting");
 
         String name = request.getParameter("reporting");

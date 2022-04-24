@@ -33,7 +33,7 @@ public class HSTSFilter implements Filter {
     private static final Logger LOGGER = LoggerFactory.getLogger(HSTSFilter.class);
 
     @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
+    public void init(FilterConfig filterConfig) {
         LOGGER.info("HSTSFilter init");
     }
 

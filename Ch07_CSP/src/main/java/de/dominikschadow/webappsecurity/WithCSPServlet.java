@@ -41,7 +41,7 @@ public class WithCSPServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(WithCSPServlet.class);
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         LOGGER.info("Processing POST request with Content Security Policy");
 
         String name = request.getParameter("protected");

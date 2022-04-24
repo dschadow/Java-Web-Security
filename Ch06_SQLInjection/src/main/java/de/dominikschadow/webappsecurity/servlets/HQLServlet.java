@@ -43,7 +43,7 @@ public class HQLServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(HQLServlet.class);
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         LOGGER.info("Received {} as POST parameter", name);
 

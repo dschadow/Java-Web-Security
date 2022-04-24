@@ -39,7 +39,7 @@ public class WithoutCSPServlet extends HttpServlet {
     private static final Logger LOGGER = LoggerFactory.getLogger(WithoutCSPServlet.class);
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         LOGGER.info("Processing POST request without Content Security Policy");
 
         String name = request.getParameter("unprotected");
