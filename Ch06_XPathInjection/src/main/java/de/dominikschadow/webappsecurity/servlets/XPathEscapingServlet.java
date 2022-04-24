@@ -54,7 +54,7 @@ public class XPathEscapingServlet extends HttpServlet {
 
     @Override
     public void init() {
-        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("/customer.xml");) {
+        try (InputStream inputStream = getClass().getClassLoader().getResourceAsStream("/customer.xml")) {
             DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
             doc = dBuilder.parse(inputStream);
