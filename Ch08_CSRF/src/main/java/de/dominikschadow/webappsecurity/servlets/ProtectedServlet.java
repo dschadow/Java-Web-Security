@@ -42,7 +42,6 @@ import java.security.NoSuchProviderException;
 @WebServlet(name = "ProtectedServlet", urlPatterns = {"/ProtectedServlet"})
 public class ProtectedServlet extends HttpServlet {
     @Serial
-    @Serial
     private static final long serialVersionUID = 1L;
     private static final Logger LOGGER = LoggerFactory.getLogger(ProtectedServlet.class);
 
