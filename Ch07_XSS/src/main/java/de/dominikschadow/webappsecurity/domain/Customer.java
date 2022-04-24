@@ -76,13 +76,12 @@ public class Customer {
 
     @Override
     public String toString() {
-        StringBuilder customer = new StringBuilder();
-        customer.append("ID ").append(custId);
-        customer.append(", Name ").append(name);
-        customer.append(", Status ").append(status);
-        customer.append(", Order Limit ").append(orderLimit);
-        customer.append(", Hint ").append(hint);
+        String customer = "ID " + custId +
+                ", Name " + name +
+                ", Status " + status +
+                ", Order Limit " + orderLimit +
+                ", Hint " + hint;
 
-        return customer.toString();
+        return customer;
     }
 }

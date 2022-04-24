@@ -73,14 +73,13 @@ public class XPathEscapingServlet extends HttpServlet {
         String safePassword = ESAPI.encoder().encodeForXPath(password);
         LOGGER.info("Using safe name {} and {}", safeName, safePassword);
 
-        StringBuilder xpathExpression = new StringBuilder();
-        xpathExpression.append("/customers/customer[name='");
-        xpathExpression.append(safeName);
-        xpathExpression.append("' and @password='");
-        xpathExpression.append(safePassword);
-        xpathExpression.append("']/orderLimit");
+        String xpathExpression = "/customers/customer[name='" +
+                safeName +
+                "' and @password='" +
+                safePassword +
+                "']/orderLimit";
 
-        printOrderLimit(xpathExpression.toString(), name, response);
+        printOrderLimit(xpathExpression, name, response);
     }
 
     private void printOrderLimit(String xpath, String name, HttpServletResponse response) {

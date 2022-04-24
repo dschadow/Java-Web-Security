@@ -68,14 +68,13 @@ public class XPathServlet extends HttpServlet {
         String password = request.getParameter("password");
         LOGGER.info("Received {} and {} as parameter", name, password);
 
-        StringBuilder xpathExpression = new StringBuilder();
-        xpathExpression.append("/customers/customer[name='");
-        xpathExpression.append(name);
-        xpathExpression.append("' and @password='");
-        xpathExpression.append(password);
-        xpathExpression.append("']/orderLimit");
+        String xpathExpression = "/customers/customer[name='" +
+                name +
+                "' and @password='" +
+                password +
+                "']/orderLimit";
 
-        printOrderLimit(xpathExpression.toString(), name, response);
+        printOrderLimit(xpathExpression, name, response);
     }
 
     private void printOrderLimit(String xpath, String name, HttpServletResponse response) {
