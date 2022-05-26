@@ -15,12 +15,12 @@
                value="<%=CSRFTokenHandler.getToken(request.getSession(false))%>">
         <table>
             <tr>
-                <td>New Password</td>
-                <td><input type="password" name="newPassword" class="text-input"></td>
+                <td><label for="newPassword">New Password</label></td>
+                <td><input type="password" id="newPassword" name="newPassword" class="text-input"></td>
             </tr>
             <tr>
-                <td>Confirm Password</td>
-                <td><input type="password" name="confirmPassword" class="text-input"></td>
+                <td><label for="confirmPassword">Confirm Password</label></td>
+                <td><input type="password" id="confirmPassword" name="confirmPassword" class="text-input"></td>
             </tr>
             <tr>
                 <td>&nbsp;</td>
