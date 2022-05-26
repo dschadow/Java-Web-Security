@@ -7,8 +7,8 @@
 
     <script type="text/javascript">
         function sendForm() {
-            var params = "newPassword=XMLHttpRequest&confirmPassword=XMLHttpRequest";
-            var request = new XMLHttpRequest();
+            const params = "newPassword=XMLHttpRequest&confirmPassword=XMLHttpRequest";
+            const request = new XMLHttpRequest();
 
             request.open("POST", "http://localhost:8080/Ch08_CSRF/UnprotectedServlet", true);
             request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
