@@ -76,12 +76,10 @@ public class Customer {
 
     @Override
     public String toString() {
-        String customer = "ID " + custId +
+        return "ID " + custId +
                 ", Name " + name +
                 ", Status " + status +
                 ", Order Limit " + orderLimit +
                 ", Hint " + hint;
-
-        return customer;
     }
 }
