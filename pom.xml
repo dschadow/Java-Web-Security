@@ -121,7 +121,7 @@
             <dependency>
                 <groupId>com.cedarsoftware</groupId>
                 <artifactId>json-io</artifactId>
-                <version>4.19.4</version>
+                <version>4.19.5</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
