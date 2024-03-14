@@ -119,11 +119,6 @@
                 <version>1.5.3</version>
             </dependency>
             <dependency>
-                <groupId>com.cedarsoftware</groupId>
-                <artifactId>json-io</artifactId>
-                <version>4.19.9</version>
-            </dependency>
-            <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>3.14.0</version>

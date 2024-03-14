@@ -17,7 +17,6 @@
  */
 package de.dominikschadow.webappsecurity;
 
-import com.cedarsoftware.util.io.JsonWriter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -52,7 +51,7 @@ public class CSPReporting extends HttpServlet {
                 responseBuilder.append(inputStr);
             }
 
-            LOGGER.info("\n{}", JsonWriter.formatJson(responseBuilder.toString()));
+            LOGGER.info("\n{}", responseBuilder.toString());
         } catch (IOException ex) {
             LOGGER.error(ex.getMessage(), ex);
         }
