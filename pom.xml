@@ -42,7 +42,7 @@
         <jsf.version>2.2.20</jsf.version>
         <hibernate.version>5.6.15.Final</hibernate.version>
         <junit.jupiter.version>5.10.3</junit.jupiter.version>
-        <hamcrest.version>2.2</hamcrest.version>
+        <hamcrest.version>3.0</hamcrest.version>
         <java.version>17</java.version>
     </properties>
 
