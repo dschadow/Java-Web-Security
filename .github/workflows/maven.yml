@@ -11,7 +11,7 @@ jobs:
     name: JavaWebSecurity Build
     steps:
     - name: Checkout
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
     - name: Configure Java for Build
       uses: actions/setup-java@v2
       with:
